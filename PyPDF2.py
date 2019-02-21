@@ -40,9 +40,16 @@ if(len(sys.argv) > 1):
             if p==asignatura:
                 repetidas = repetidas+1
                 print(palabras)
+               
+                if palabras[len(palabras)-1] == 'M':
+                    print ("Exámen a las 9:00")
+                elif palabras[len(palabras)-1] == 'T':
+                    print ("Exámen a las 16:00") 
 
     print ("La palabra \"{0}\" se repite {1} veces en el archivo {2}".format(asignatura, repetidas, pdf_file))
 
 else:
     print ("Debes indicar el nombre del archivo")
+
+
 
