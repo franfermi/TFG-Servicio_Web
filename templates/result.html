@@ -1,0 +1,37 @@
+{% extends "index.html" %}
+{% block content %}
+
+		<div class="container" id="about" name="about">
+			<div class="row white">
+			<br>
+				<h1 class="centered">Proyecto IV</h1>
+        		<hr>
+				<div class="col-sm-12">
+					<table class="table">
+			        <thead>
+			          <tr>
+			            <th>Resultados de la búsqueda:</th>
+			          </tr>
+			        </thead>
+			        <tbody class="resultados">
+						{% if resultado %}
+							{% for rest in resultado %}
+				            <tr onMouseOver=this.style.backgroundColor='grey'; onMouseOut=this.style.backgroundColor=''>
+				              <td> {{ rest }} </td>
+				            </tr>
+				            {% endfor %}
+						{% endif %}
+						{% if not resultado %}
+			            <tr>
+			              <td>No se ha obtenido ningún resultado, revisa que las siglas sean correctas.</td>
+			            </tr>
+						{% endif %}
+			        </tbody>
+			      </table>
+					
+				</div><!-- col-sm-6 -->
+			</div><!-- row -->
+		</div><!-- container -->
+
+{% endblock content %}
+
