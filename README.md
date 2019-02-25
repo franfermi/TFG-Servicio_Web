@@ -44,3 +44,21 @@ En la opción de despliegue de Heroku, en métodos de despliegue seleccionamos l
 Por último, activamos el despliegue automático para cada vez que realicemos un push de nuestro proyecto se actualice también en Heroku.
 
 ![curl](https://github.com/franfermi/TFG-Servicio_Web/blob/master/img/despliegueAutHeroku.png)
+
+-Para configurar el token de Telegram para su uso desde Heroku:
+
+<code>heroku config:set TOKEN=$$$$ --app informaticaugrbot</code>
+
+-Por último, lanzamos tanto el bot como el servicio web.
+
+<code>heroku ps:scale worker=1 --app informaticaugrbot</code>
+
+![curl](https://github.com/franfermi/TFG-Servicio_Web/blob/master/img/botConfigurado.png)
+
+<code>heroku ps:scale web=1 --app informaticaugrbot</code>
+
+![curl](https://github.com/franfermi/TFG-Servicio_Web/blob/master/img/despliegueWebCorrecto.png)
+
+-Comprobamos que están activos y funcionando en heroku.
+
+![curl](https://github.com/franfermi/TFG-Servicio_Web/blob/master/img/dynosHeroku.png)
