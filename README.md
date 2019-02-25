@@ -30,3 +30,17 @@ Los pasos a seguir para su despliegue son los siguientes:
 <code>heroku apps:create --region eu subjectsgii</code>
 
 ![curl](https://github.com/franfermi/TFG-Servicio_Web/blob/master/img/config_app.png)
+
+-Añadimos los siguientes ficheros:
+
+* [Procfile](https://github.com/franfermi/TFG-Servicio_Web/blob/master/Procfile), fichero de ejecución de Heroku. Worker para el servicio bot de Telegram y Web para el servicio web desplegado.
+* [runtime.txt](https://github.com/franfermi/TFG-Servicio_Web/blob/master/runtime.txt), especificamos la versión de python utilizada.
+* [requirements.txt](https://github.com/franfermi/TFG-Servicio_Web/blob/master/requirements.txt), añadimos las dependencias de nuestro proyecto.
+
+-Desplegamos Github desde Heroku para un despliegue automático:
+
+En la opción de despliegue de Heroku, en métodos de despliegue seleccionamos la opción Github y conectamos el repositorio de nuestro proyecto.
+
+Por último, activamos el despliegue automático para cada vez que realicemos un push de nuestro proyecto se actualice también en Heroku.
+
+![curl](https://github.com/franfermi/TFG-Servicio_Web/blob/master/img/despliegueAutHeroku.png)
