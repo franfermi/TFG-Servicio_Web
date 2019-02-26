@@ -1,0 +1,252 @@
+                                                    CALENDARIO EXÁMENES 2018/2019
+                                                   GRADO EN INGENIERÍA INFORMÁTICA
+                                                                                          Día  Día   Día  Día   Día  Día   Día  Día   Día   Día  Día   Día
+                             1er Semestre – Ordinaria                                     10    11   12    14   15    16   17    18   19    21   22    23
+                                                                                         Ene. Ene.        Ene. Ene. Ene. Ene. Ene.         Ene. Ene. Ene.
+               Tit Cur Int  Cuat Acr    Nombre
+               GI     1       1  ALEM Álgebra Lineal y Estructuras Matemáticas                                                                    M           CA
+               GI     1       1  CA     Cálculo                                                 T                                                             FFT
+               GI     1       1  FP     Fundamentos de Programación                                                              M                            FS
+               GI     1       1  FS     Fundamentos del Software                                                      M                                       FP
+               GI     1       1  FFT    Fundamentos Físicos y Tecnológicos                                 M                                                  ALEM
+               GI     2       1  EC     Estructura de computadores.                                        T
+               GI     2       1  ED     Estructura de Datos.                                                                                           M
+               GI     2       1  PDOO Programación y Diseño Orientado a Objetos.                                            M
+               GI     2       1  SCD    Sistemas Concurrentes y Distribuidos.                   M
+               GI     2       1  SO     Sistemas Operativos.                                                                                M
+               GI     3       1  DDSI   Diseño y Desarrollo de Sistemas de Información                                            T
+               GI     3       1  FR     Fundamentos de Redes                                                                                            T
+               GI     3       1  IG     Informática Gráifca                                                                                  T
+               GI     3       1  ISE    Ingeniería de Servidores                           M
+               GI     3       1  MC     Modelos de Computación                                             T
+               GI     4CSI    1  NPI    Nuevos Paradigmas de Interacción                   T
+               GI     4CSI    1  PL     Procesadores de Lenguajes                                          T
+               GI     4CSI    1  PTC    Programación Técnica y Cientíifca                                                                              M
+               GI     4CSI    1  TIC    Teoría de la Información y la Codiifcación                                    T
+               GI     4CSI    1  SS     Simulación de Sistemas                                                                              M
+               GI     4CSI    1  VC     Visión por Computador                                                                     T
+               GI     4IC     1  CPD    Centros de Procesamiento de Datos                                  T
+               GI     4IC     1  IAH    Implementación de Algoritmos en Hardware                                                                       M
+               GI     4IC     1  II     Informática Industrial                                                        T
+               GI     4IC     1  SE     Sistemas Empotrados                                T
+                                                    CALENDARIO EXÁMENES 2018/2019
+                                                   GRADO EN INGENIERÍA INFORMÁTICA
+                                                                                          Día  Día   Día  Día   Día  Día   Día  Día   Día   Día  Día   Día
+                             1er Semestre – Ordinaria                                     10    11   12    14   15    16   17    18   19    21   22    23
+                                                                                         Ene. Ene.        Ene. Ene. Ene. Ene. Ene.         Ene. Ene. Ene.
+               Tit Cur Int  Cuat Acr    Nombre
+               GI     4IC     1  TR     Tecnologías de Red                                                                        T
+               GI     4IC     1  TE     Tecnologías Emergentes                                                                              M
+               GI     4IS     1  DBA    Desarrollo Basado en Agentes                       T
+               GI     4IS     1  DGP    Dirección y Gestión de Proyectos                                                          T
+               GI     4IS     1  LP     Lógica y Programación                                                         T
+               GI     4IS     1  MDA    Metodologías de Desarrollo Ágil                                    T
+               GI     4IS     1  PGB    Programación Gráifca de Videojuegos                                                                 M
+               GI     4IS     1  SSO    Seguridad en Sistemas Operativos                                                                                T
+               GI     4SI     1  BDD    Bases de Datos Distribuidas                        T
+               GI     4SI     1  GRD    Gestión de Recursos Digitales                                                                       M
+               GI     4SI     1  IN     Inteligencia del Negocio                                           T
+               GI     4SI     1  RI     Recuperación de  Información                                                              T
+               GI     4SI     1  RSC    Redes y Sistemas Complejos                                                                                     M
+               GI     4SI     1  SIG    Sistemas de Información Geográifcos                                           T
+               GI     4TI     1  CRIM   Compresión y Recuperación de Información Multimedia                           T
+               GI     4TI     1  DAI    Desarrollo de Aplicaciones para Internet           T
+               GI     4TI     1  IV     Infraestructura Virtual                                            T
+               GI     4TI     1  SPSI   Seguridad y Protección de Sistemas Informáticos                                           T
+               GI     4TI     1  TID    Tratamiento de Imágenes Digitales                                                                              M
+                                                    CALENDARIO EXÁMENES 2018/2019
+                                                   GRADO EN INGENIERÍA INFORMÁTICA
+                                                                                           Día   Día   Día  Día   Día   Día  Día   Día   Día  Día   Día   Día
+                        1er Semestre – Extraordinaria                                       31    1     2    4     5     6    7     8     9    11   12    13
+                                                                                           Ene. Feb.        Feb. Feb. Feb. Feb. Feb.          Feb. Feb. Feb.
+            Tit    Cur Int Cuat Acr       Nombre
+            GI         1         1ALEM Álgebra Lineal y Estructuras Matemáticas                                                                      M
+            GI         1         1CA      Cálculo                                           T
+            GI         1         1FFT     Fundamentos Físicos y Tecnológicos                      T
+            GI         1         1FP      Fundamentos de Programación                                                               M
+            GI         1         1FS      Fundamentos del Software                                           T
+            GI         2         1EC      Estructura de computadores.                       M
+            GI         2         1ED      Estructura de Datos.                                                                      T
+            GI         2         1PDOO Programación y Diseño Orientado a Objetos.                                                              T
+            GI         2         1SCD     Sistemas Concurrentes y Distribuidos.                              M
+            GI         2         1SO      Sistemas Operativos.                                                                T
+            GI         3         1DDSI    Diseño y Desarrollo de Sistemas de Información                                 T
+            GI         3         1FR      Fundamentos de Redes                                                                                             T
+            GI         3         1IG      Informática Gráifca                                                                                  M
+            GI         3         1ISE     Ingeniería de Servidores                                           T
+            GI         3         1MC      Modelos de Computación                                  M
+            GI         4IC       1CPD     Centros de Procesamiento de Datos                 M
+            GI         4IC       1SE      Sistemas Empotrados                                                M
+            GI         4IC       1TR      Tecnologías de Red                                                                                               T
+            GI         4IC       1IAH     Implementación de Algoritmos en Hardware                                       M
+            GI         4IC       1TE      Tecnologías Emergentes                                                                               T
+            GI         4IC       1II      Informática Industrial                                                                    T
+            GI         4IS       1DBA     Desarrollo Basado en Agentes                                       M
+            GI         4IS       1DGP     Dirección y Gestión de Proyectos                                                                                 T
+            GI         4IS       1MDA     Metodologías de Desarrollo Ágil                   M
+            GI         4IS       1PGB     Programación Gráifca de Videojuegos                                            M
+            GI         4IS       1SSO     Seguridad en Sistemas Operativos                                                          T
+                                                    CALENDARIO EXÁMENES 2018/2019
+                                                   GRADO EN INGENIERÍA INFORMÁTICA
+                                                                                           Día   Día   Día  Día   Día   Día  Día   Día   Día  Día   Día   Día
+                        1er Semestre – Extraordinaria                                       31    1     2    4     5     6    7     8     9    11   12    13
+                                                                                           Ene. Feb.        Feb. Feb. Feb. Feb. Feb.          Feb. Feb. Feb.
+            Tit    Cur Int Cuat Acr       Nombre
+            GI         4IS       1LP      Lógica y Programación                                                                                T
+            GI         4CSI      1NPI     Nuevos Paradigmas de Interacción                  M
+            GI         4CSI      1PL      Procesadores de Lenguajes                                                                                        T
+            GI         4CSI      1VC      Visión por Computador                                              M
+            GI         4CSI      1SS      Simulación de Sistemas                                                         M
+            GI         4CSI      1TIC     Teoría de la Información y la codiifcación                                                           T
+            GI         4CSI      1PTC     Programación Técnica y Cientíifca                                                         T
+            GI         4SI       1BDD     Bases de Datos Distribuidas                                                                                      T
+            GI         4SI       1IN      Inteligencia del Negocio                          M
+            GI         4SI       1RI      Recuperación de  Información                                       M
+            GI         4SI       1SIG     Sistemas de Información Geográifcos                                                       T
+            GI         4SI       1GRD     Gestión de Recursos Digitales                                                                        T
+            GI         4SI       1RSC     Redes y Sistemas Complejos                                                     T
+            GI         4TI       1DAI     Desarrollo de Aplicaciones para Internet                                                                         T
+            GI         4TI       1IV      Infraestructura Virtual                           M
+            GI         4TI       1SPSI    Seguridad y Protección de Sistemas Informáticos                    M
+            GI         4TI       1TID     Tratamiento de Imágenes Digitales                                                         T
+            GI         4TI       1CRIM    Compresión y Recuperación de Información Multimedia                            T
+                                                     CALENDARIO EXÁMENES 2018/2019
+                                                    GRADO EN INGENIERÍA INFORMÁTICA
+                                                                                          Día   Día  Día  Día   Día  Día  Día   Día  Día  Día  Día  Día   Día
+                             2º Semestre – Ordinaria                                       5     6    7    8    10   11    12   13   14   15   17    18   19
+                                                                                          Jun. Jun.  Jun.      Jun.  Jun. Jun. Jun.  Jun.      Jun. Jun.  Jun.
+              Tit    Cur Int    Cuat Acr     Nombre
+              GI        1            2ES     Estadística                                                                                        T
+              GI        1            2IES    Ingeniería, Empresa y Sociedad                M
+              GI        1            2LMD    Lógica y Métodos Discretos                                                    M
+              GI        1            2MP     Metodología de la Programación                           M
+              GI        1            2TOC    Tecnología y Organización de los Computadores                                                                 M
+              GI        2            2ALG    Algorítmica                                        M
+              GI        2            2AC     Arquitectura de Computadores                                                                       M
+              GI        2            2FBD    Fundamentos de Bases de Datos                                      M
+              GI        2            2FIS    Fundamentos de Ingeniería del Software                                                                        T
+              GI        2            2IA     Inteligencia Artiifcial                                                            M
+              GI        3CSI         2AA     Aprendizaje Automático                                   T
+              GI        3CSI         2IC     Ingeniería del Conocimiento                                                                        T
+              GI        3CSI         2MH     Metaheurísticas                                                     T
+              GI        3CSI         2MCA    Modelos de Computación Avanzada                                                          T
+              GI        3CSI         2TSI    Técnicas de los Sistemas Inteligentes                                                                         T
+              GI        3IC          2AS     Arquitectura de Sistemas                                                                 T
+              GI        3IC          2ACAP   Arquitectura y Computación de Altas Prestaciones                    T
+              GI        3IC          2DHD    Desarrollo de Hardware Digital                                                                     T
+              GI        3IC          2DSE    Diseño de Sistemas Electrónicos                          T
+              GI        3IC          2SMP    Sistemas con Microprocesadores                                                                                T
+              GI        3IS          2DSD    Desarrollo de Sistemas Distribuidos                                                      T
+              GI        3IS          2DS     Desarrollo de Software                                              T
+              GI        3IS          2DIU    Diseño de Interfaces de Usuario                                                                    T
+              GI        3IS          2SIBW   Sistemas de Información Basados en Web                   T
+              GI        3IS          2SG     Sistemas Gráifcos                                                                                             T
+              GI        3SI          2ABD    Administración de Bases de Datos                                                                              T
+              GI        3SI          2ISI    Ingeniería de Sistemas de Información                    T
+                                                     CALENDARIO EXÁMENES 2018/2019
+                                                    GRADO EN INGENIERÍA INFORMÁTICA
+                                                                                          Día   Día  Día  Día   Día  Día  Día   Día  Día  Día  Día  Día   Día
+                             2º Semestre – Ordinaria                                       5     6    7    8    10   11    12   13   14   15   17    18   19
+                                                                                          Jun. Jun.  Jun.      Jun.  Jun. Jun. Jun.  Jun.      Jun. Jun.  Jun.
+              Tit    Cur Int    Cuat Acr     Nombre
+              GI        3SI          2PW     Programación Web                                                                                   T
+              GI        3SI          2SIE    Sistemas de Información para Empresas                                                    T
+              GI        3SI          2SMD    Sistemas Multidimensionales                                         T
+              GI        3TI          2CUIA   Computación Ubícua e Inteligencia Ambiental                         T
+              GI        3TI          2SWAP Servidores Web de Altas Prestaciones                                                                            T
+              GI        3TI          2SMM    Sistemas Multimedia                                                                      T
+              GI        3TI          2TW     Tecnologías Web                                                                                    T
+              GI        3TI          2TDRC Transmisión de Datos y Redes de Computadores               T
+              GI        4COMP        2CEGE Creación de Empresas y Gestión Emprendedora                T
+              GI        4COMP        2DI     Derecho Informático                                                                 T
+              GI        4COMP        2EISI   Ética, Informática y Sociedad de la Información                                                         M
+              GI        4CSI         2CRIP   Criptografía y Computación                                                                              T
+              GI        4CSI         2PLD    Programación Lúdica                                      T
+              GI        4CSI         2RI     Robótica Industrial                                                                 T
+              GI        4IC          2CII    Circuitos Integrados e Impresos                                                                         T
+              GI        4IC          2CLP    Controladores Lógicos Programables                                                  T
+              GI        4IC          2MEI    Mantenimiento de Equipos Informáticos                    T
+              GI        4IS          2AO     Animación por Ordenador                                                                                 T
+              GI        4IS          2NTP    Nuevas Tecnologías de la Programación                                               T
+              GI        4IS          2PPR    Programación Paralela                                    T
+              GI        4SI          2PDIH   Periféricos y Dispositivos de Interfaz Humana                                                           T
+              GI        4SI          2SCGC Sistemas Cooperativos y Gestión de Contenidos                                         T
+              GI        4TI          2PDS    Procesamiento Digital de Señales                                                    T
+              GI        4TI          2PDM    Programación de Dispositivos Móviles                     T
+                                                     CALENDARIO EXÁMENES 2018/2019
+                                                    GRADO EN INGENIERÍA INFORMÁTICA
+                                                                                          Día   Día  Día  Día   Día  Día  Día   Día  Día  Día  Día  Día   Día
+                             2º Semestre – Ordinaria                                       5     6    7    8    10   11    12   13   14   15   17    18   19
+                                                                                          Jun. Jun.  Jun.      Jun.  Jun. Jun. Jun.  Jun.      Jun. Jun.  Jun.
+              Tit    Cur Int    Cuat Acr     Nombre
+              GI        4TI          2RMS    Redes Multiservicio                                                                                     T
+                                                                      CALENDARIO EXÁMENES 2018/2019
+                                                                    GRADO EN INGENIERÍA INFORMÁTICA
+                                                                                                                           Día     Día    Día    Día Día Día Día Día Día Día Día Día Día
+                                  2º Semestre – Extraordinaria                                                              27     28     29      1      2     3      4     5      6      8      9    10     11
+                                                                                                                           Jun.   Jun.           Jul.  Jul.   Jul.   Jul.  Jul.          Jul.  Jul.   Jul.  Jul.
+                   Tit       Cur Int         Cuat Acr         Nombre
+                   GI             1                2ES        Estadística                                                                                                   T
+                   GI             1                2IES       Ingeniería, Empresa y Sociedad                                 M
+                   GI             1                2LMD       Lógica y Métodos Discretos.                                                                                                 M
+                   GI             1                2MP        Metodología de la Programación.                                                                                                                 M
+                   GI             1                2TOC       Tecnología y Organización de los Computadores.                                      M
+                   GI             2                2AC        Arquitectura de Computadores.                                                                                                            M
+                   GI             2                2ALG       Algorítmica.                                                          T
+                   GI             2                2FBD       Fundamentos de Bases de Datos.                                                      T
+                   GI             2                2FIS       Fundamentos de Ingeniería del Software.                                                                       M
+                   GI             2                2IA        Inteligencia Artiifcial                                                                                                     T
+                   GI             3CSI             2AA        Aprendizaje Automático                                                T
+                   GI             3CSI             2IC        Ingeniería del Conocimiento                                                                                                 T
+                   GI             3CSI             2MCA       Modelos Avanzados de Computación                                                                              T
+                   GI             3CSI             2MH        Metaheurísticas                                                                     T
+                   GI             3CSI             2TSI       Técnicas de los Sistemas Inteligentes                                                                                                           T
+                   GI             3IC              2ACAP      Arquitectura y Computación de Altas Prestaciones                                    T
+                   GI             3IC              2AS        Arquitectura de Sistemas                                                                                      T
+                   GI             3IC              2DHD       Desarrollo de Hardware Digital                                                                                              T
+                   GI             3IC              2DSE       Diseño de Sistemas Electrónicos                                       T
+                   GI             3IC              2SMP       Sistemas con Microprocesadores                                                                                                                  T
+                   GI             3IS              2DIU       Diseño de Interfaces de Usuario                                                                                             T
+                   GI             3IS              2DS        Desarrollo de Software                                                              T
+                   GI             3IS              2DSD       Desarrollo de Sistemas Distribuidos                                                                           T
+                   GI             3IS              2SG        Sistemas Gráifcos                                                                                                                               T
+                   GI             3IS              2SIBW      Sistemas de Información Basados en Web                                T
+                                                                      CALENDARIO EXÁMENES 2018/2019
+                                                                    GRADO EN INGENIERÍA INFORMÁTICA
+                                                                                                                           Día     Día    Día    Día Día Día Día Día Día Día Día Día Día
+                                  2º Semestre – Extraordinaria                                                              27     28     29      1      2     3      4     5      6      8      9    10     11
+                                                                                                                           Jun.   Jun.           Jul.  Jul.   Jul.   Jul.  Jul.          Jul.  Jul.   Jul.  Jul.
+                   Tit       Cur Int         Cuat Acr         Nombre
+                   GI             3SI              2ABD       Administración de Bases de Datos                                                                                                                T
+                   GI             3SI              2ISI       Ingeniería de Sistemas de Información                                 T
+                   GI             3SI              2PW        Programación Web                                                                                                            T
+                   GI             3SI              2SIE       Sistemas de Información para Empresas                                                                         T
+                   GI             3SI              2SMD       Sistemas Multidimensionales                                                         T
+                   GI             3TI              2CUIA      Computación Ubícua e Inteligencia Ambiental                                         T
+                   GI             3TI              2SMM       Sistemas Multimedia                                                                                           T
+                   GI             3TI              2SWAP Servidores Web de Altas Prestaciones                                                                                                                 T
+                   GI             3TI              2TDRC Transmisión de Datos y Redes de Computadores                               T
+                   GI             3TI              2TW        Tecnologías Web                                                                                                             T
+                   GI             4IC              2CLP       Controladores Lógicos Programables                                    T
+                   GI             4IC              2CII       Circuitos Integrados e Impresos                                                                               T
+                   GI             4IC              2MEI       Mantenimiento de Equipos Informáticos                                                                                                    M
+                   GI             4IS              2AO        Animación por Ordenador                                                                                                                  T
+                   GI             4IS              2PPR       Programación Paralela                                                 T
+                   GI             4IS              2NTP       Nuevas Tecnologías de la Programación                                                                         T
+                   GI             4CSI             2PLD       Programación Lúdica                                                                                                                      T
+                   GI             4CSI             2CRIP      Criptografía y Computación                                                                                    T
+                   GI             4CSI             2RI        Robótica Industrial                                                   T
+                   GI             4SI              2SCGC Sistemas Cooperativos y Gestión de Contenidos                                                                                                 T
+                   GI             4SI              2PDIH      Periféricos y Dispositivos de Interfaz Humana                                                                 T
+                   GI             4TI              2PDM       Programación de Dispositivos Móviles                                  T
+                   GI             4TI              2PDS       Procesamiento Digital de Señales                                                                                                         T
+                   GI             4TI              2RMS       Redes Multiservicio                                                                                           T
+                                                                      CALENDARIO EXÁMENES 2018/2019
+                                                                    GRADO EN INGENIERÍA INFORMÁTICA
+                                                                                                                           Día     Día    Día    Día Día Día Día Día Día Día Día Día Día
+                                  2º Semestre – Extraordinaria                                                              27     28     29      1      2     3      4     5      6      8      9    10     11
+                                                                                                                           Jun.   Jun.           Jul.  Jul.   Jul.   Jul.  Jul.          Jul.  Jul.   Jul.  Jul.
+                   Tit       Cur Int         Cuat Acr         Nombre
+                   GI             4COMP            2EISI      Ética, Informática y Sociedad de la Información                                                               T
+                   GI             4COMP            2CEGE Creación de Empresas y Gestión Emprendedora                                T
+                   GI             4COMP            2DI        Derecho Informático                                                                                                                      T
