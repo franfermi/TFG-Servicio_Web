@@ -32,126 +32,215 @@ with open(os.path.join(OUTPUT, 'CalendarioExamenes18-19-GII-page-1-table-1.csv')
     # print(examenes10Ene)
     
     contTope = examenes10Ene.count()
-    cont10E = 0;
+    contAsig = datosNoNaN.iloc[3,:].count()
+    cont10E = 0
+    cont10Easig = 0
     exAsig10E = []
+    asignatura = []
 
     while cont10E < contTope:
         if(examenes10Ene[cont10E]=='M'):
-            # print('El 10 de enero hay un examen por la maniana en la posicion ' + str(cont10E-2))
-            exAsig10E.append('M')
-            exAsig10E.append(str(cont10E-2))
+            asignatura = datosNoNaN.iloc[cont10E,:]
+            while cont10Easig < contAsig:
+                if(asignatura[cont10Easig] >= 'A' and asignatura[cont10Easig] <= 'z'):
+                    exAsig10E.append(str(asignatura[cont10Easig]))
+                cont10Easig+=1
         elif(examenes10Ene[cont10E]=='T'):
-            # print('El 10 de enero hay un examen por la tarde en la posicion ' + str(cont10E-2))
-            exAsig10E.append('T')
-            exAsig10E.append(str(cont10E-2))
+            asignatura = datosNoNaN.iloc[cont10E,:]
+            cont10Easig = 0;
+            while cont10Easig < contAsig:
+                if(asignatura[cont10Easig] >= 'A' and asignatura[cont10Easig] <= 'z'):
+                    exAsig10E.append(str(asignatura[cont10Easig]))
+                cont10Easig+=1
         cont10E+=1
     ################################
-    cont11E = 0;
+    cont11E = 0
+    cont11Easig = 0
     exAsig11E = []
 
     while cont11E < contTope:
         if(examenes11Ene[cont11E]=='M'):
-            exAsig11E.append('M')
-            exAsig11E.append(str(cont11E-2))
+            asignatura = datosNoNaN.iloc[cont11E,:]
+            cont11Easig = 0
+            while cont11Easig < contAsig:
+                if(asignatura[cont11Easig] >= 'A' and asignatura[cont11Easig] <= 'z'):
+                    exAsig11E.append(str(asignatura[cont11Easig]))
+                cont11Easig+=1
         elif(examenes11Ene[cont11E]=='T'):
-            exAsig11E.append('T')
-            exAsig11E.append(str(cont11E-2))            
+            asignatura = datosNoNaN.iloc[cont11E,:]
+            cont11Easig = 0
+            while cont11Easig < contAsig:
+                if(asignatura[cont11Easig] >= 'A' and asignatura[cont11Easig] <= 'z'):
+                    exAsig11E.append(str(asignatura[cont11Easig]))
+                cont11Easig+=1
         cont11E+=1
     ################################
-    cont14E = 0;
+    cont14E = 0
+    cont14Easig = 0
     exAsig14E = []
 
     while cont14E < contTope:
         if(examenes14Ene[cont14E]=='M'):
-            exAsig14E.append('M')
-            exAsig14E.append(str(cont14E-2))
+            asignatura = datosNoNaN.iloc[cont14E,:]
+            cont14Easig = 0
+            while cont14Easig < contAsig:
+                if(asignatura[cont14Easig] >= 'A' and asignatura[cont14Easig] <= 'z'):
+                    exAsig14E.append(str(asignatura[cont14Easig]))
+                cont14Easig+=1
         elif(examenes14Ene[cont14E]=='T'):
-            exAsig14E.append('T')
-            exAsig14E.append(str(cont14E-2))            
+            asignatura = datosNoNaN.iloc[cont14E,:]
+            cont14Easig = 0
+            while cont14Easig < contAsig:
+                if(asignatura[cont14Easig] >= 'A' and asignatura[cont14Easig] <= 'z'):
+                    exAsig14E.append(str(asignatura[cont14Easig]))
+                cont14Easig+=1
         cont14E+=1
     ################################
-    cont15E = 0;
+    cont15E = 0
+    cont15Easig = 0
     exAsig15E = []
 
     while cont15E < contTope:
         if(examenes15Ene[cont15E]=='M'):
-            exAsig15E.append('M')
-            exAsig15E.append(str(cont15E-2))
+            asignatura = datosNoNaN.iloc[cont15E,:]
+            cont15Easig = 0
+            while cont15Easig < contAsig:
+                if(asignatura[cont15Easig] >= 'A' and asignatura[cont15Easig] <= 'z'):
+                    exAsig15E.append(str(asignatura[cont15Easig]))
+                cont15Easig+=1
         elif(examenes15Ene[cont15E]=='T'):
-            exAsig15E.append('T')
-            exAsig15E.append(str(cont15E-2))            
+            asignatura = datosNoNaN.iloc[cont15E,:]
+            cont15Easig = 0
+            while cont15Easig < contAsig:
+                if(asignatura[cont15Easig] >= 'A' and asignatura[cont15Easig] <= 'z'):
+                    exAsig15E.append(str(asignatura[cont15Easig]))
+                cont15Easig+=1
         cont15E+=1
     ################################
-    cont16E = 0;
+    cont16E = 0
+    cont16Easig = 0
     exAsig16E = []
 
     while cont16E < contTope:
         if(examenes16Ene[cont16E]=='M'):
-            exAsig16E.append('M')
-            exAsig16E.append(str(cont16E-2))
+            asignatura = datosNoNaN.iloc[cont16E,:]
+            cont16Easig = 0
+            while cont16Easig < contAsig:
+                if(asignatura[cont16Easig] >= 'A' and asignatura[cont16Easig] <= 'z'):
+                    exAsig16E.append(str(asignatura[cont16Easig]))
+                cont16Easig+=1
         elif(examenes16Ene[cont16E]=='T'):
-            exAsig16E.append('T')
-            exAsig16E.append(str(cont16E-2))            
+            asignatura = datosNoNaN.iloc[cont16E,:]
+            cont16Easig = 0
+            while cont16Easig < contAsig:
+                if(asignatura[cont16Easig] >= 'A' and asignatura[cont16Easig] <= 'z'):
+                    exAsig16E.append(str(asignatura[cont16Easig]))
+                cont16Easig+=1
         cont16E+=1
     ################################
-    cont17E = 0;
+    cont17E = 0
+    cont17Easig = 0
     exAsig17E = []
 
     while cont17E < contTope:
         if(examenes17Ene[cont17E]=='M'):
-            exAsig17E.append('M')
-            exAsig17E.append(str(cont17E-2))
+            asignatura = datosNoNaN.iloc[cont17E,:]
+            cont17Easig = 0
+            while cont17Easig < contAsig:
+                if(asignatura[cont17Easig] >= 'A' and asignatura[cont17Easig] <= 'z'):
+                    exAsig17E.append(str(asignatura[cont17Easig]))
+                cont17Easig+=1
         elif(examenes17Ene[cont17E]=='T'):
-            exAsig17E.append('T')
-            exAsig17E.append(str(cont17E-2))            
+            asignatura = datosNoNaN.iloc[cont17E,:]
+            cont17Easig = 0
+            while cont17Easig < contAsig:
+                if(asignatura[cont17Easig] >= 'A' and asignatura[cont17Easig] <= 'z'):
+                    exAsig17E.append(str(asignatura[cont17Easig]))
+                cont17Easig+=1
         cont17E+=1
     ################################
-    cont18E = 0;
+    cont18E = 0
+    cont18Easig = 0
     exAsig18E = []
 
     while cont18E < contTope:
         if(examenes18Ene[cont18E]=='M'):
-            exAsig18E.append('M')
-            exAsig18E.append(str(cont18E-2))
+            asignatura = datosNoNaN.iloc[cont18E,:]
+            cont18Easig = 0
+            while cont18Easig < contAsig:
+                if(asignatura[cont18Easig] >= 'A' and asignatura[cont18Easig] <= 'z'):
+                    exAsig18E.append(str(asignatura[cont18Easig]))
+                cont18Easig+=1
         elif(examenes18Ene[cont18E]=='T'):
-            exAsig18E.append('T')
-            exAsig18E.append(str(cont18E-2))            
+            asignatura = datosNoNaN.iloc[cont18E,:]
+            cont18Easig = 0
+            while cont18Easig < contAsig:
+                if(asignatura[cont18Easig] >= 'A' and asignatura[cont18Easig] <= 'z'):
+                    exAsig18E.append(str(asignatura[cont18Easig]))
+                cont18Easig+=1
         cont18E+=1
     ################################
-    cont21E = 0;
+    cont21E = 0
+    cont21Easig = 0
     exAsig21E = []
 
     while cont21E < contTope:
         if(examenes21Ene[cont21E]=='M'):
-            exAsig21E.append('M')
-            exAsig21E.append(str(cont21E-2))
+            asignatura = datosNoNaN.iloc[cont21E,:]
+            cont21Easig = 0
+            while cont21Easig < contAsig:
+                if(asignatura[cont21Easig] >= 'A' and asignatura[cont21Easig] <= 'z'):
+                    exAsig21E.append(str(asignatura[cont21Easig]))
+                cont21Easig+=1
         elif(examenes21Ene[cont21E]=='T'):
-            exAsig21E.append('T')
-            exAsig21E.append(str(cont21E-2))            
+            asignatura = datosNoNaN.iloc[cont21E,:]
+            cont21Easig = 0
+            while cont21Easig < contAsig:
+                if(asignatura[cont21Easig] >= 'A' and asignatura[cont21Easig] <= 'z'):
+                    exAsig21E.append(str(asignatura[cont21Easig]))
+                cont21Easig+=1
         cont21E+=1
     ################################
-    cont22E = 0;
+    cont22E = 0
+    cont22Easig = 0
     exAsig22E = []
 
     while cont22E < contTope:
         if(examenes22Ene[cont22E]=='M'):
-            exAsig22E.append('M')
-            exAsig22E.append(str(cont22E-2))
+            asignatura = datosNoNaN.iloc[cont22E,:]
+            cont22Easig = 0
+            while cont22Easig < contAsig:
+                if(asignatura[cont22Easig] >= 'A' and asignatura[cont22Easig] <= 'z'):
+                    exAsig22E.append(str(asignatura[cont22Easig]))
+                cont22Easig+=1
         elif(examenes22Ene[cont22E]=='T'):
-            exAsig22E.append('T')
-            exAsig22E.append(str(cont22E-2))            
+            asignatura = datosNoNaN.iloc[cont22E,:]
+            cont22Easig = 0
+            while cont22Easig < contAsig:
+                if(asignatura[cont22Easig] >= 'A' and asignatura[cont22Easig] <= 'z'):
+                    exAsig22E.append(str(asignatura[cont22Easig]))
+                cont22Easig+=1
         cont22E+=1
     ################################
-    cont23E = 0;
+    cont23E = 0
+    cont23Easig = 0
     exAsig23E = []
 
     while cont23E < contTope:
         if(examenes23Ene[cont23E]=='M'):
-            exAsig23E.append('M')
-            exAsig23E.append(str(cont23E-2))
+            asignatura = datosNoNaN.iloc[cont23E,:]
+            cont23Easig = 0
+            while cont23Easig < contAsig:
+                if(asignatura[cont23Easig] >= 'A' and asignatura[cont23Easig] <= 'z'):
+                    exAsig23E.append(str(asignatura[cont23Easig]))
+                cont23Easig+=1
         elif(examenes23Ene[cont23E]=='T'):
-            exAsig23E.append('T')
-            exAsig23E.append(str(cont23E-2))            
+            asignatura = datosNoNaN.iloc[cont23E,:]
+            cont23Easig = 0
+            while cont23Easig < contAsig:
+                if(asignatura[cont23Easig] >= 'A' and asignatura[cont23Easig] <= 'z'):
+                    exAsig23E.append(str(asignatura[cont23Easig]))
+                cont23Easig+=1
         cont23E+=1
     ################################
     #Comprobación del contenido
@@ -162,4 +251,3 @@ with open(os.path.join(OUTPUT, 'CalendarioExamenes18-19-GII-page-1-table-1.csv')
 
     # for num in datosNoNaN:
     #     print (datosNoNaN[num:num+1])
-        # print (datosNoNaN[4:5])
