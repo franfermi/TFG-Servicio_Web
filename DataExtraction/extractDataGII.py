@@ -10,7 +10,7 @@ RESOURCE = './resources'
 OUTPUT = './outputs'
 
 
-def extractDataTeable1_1SemOrdinaria():
+def extractDataTable1_1SemOrdinaria():
     tablas = camelot.read_pdf(os.path.join(
         RESOURCE, 'CalendarioExamenes18-19-GII.pdf'))
     tablas.export(os.path.join(
@@ -260,7 +260,7 @@ def extractDataTeable1_1SemOrdinaria():
         #     print (datosNoNaN[num:num+1])
 
 
-def extractDataTeable2_1SemOrdinaria():
+def extractDataTable2_1SemOrdinaria():
     tablas = camelot.read_pdf(os.path.join(
         RESOURCE, 'CalendarioExamenes18-19-GII.pdf'), pages='2')
     tablas.export(os.path.join(
@@ -508,7 +508,7 @@ def extractDataTeable2_1SemOrdinaria():
             cont += 1
 
 
-def extractDataTeable1_1SemExtraordinaria():
+def extractDataTable1_1SemExtraordinaria():
     tablas = camelot.read_pdf(os.path.join(RESOURCE, 'CalendarioExamenes18-19-GII.pdf'), pages='3')
     tablas.export(os.path.join(OUTPUT, 'CalendarioExamenes18-19-GII.csv'), f='csv', compress=False)
 
@@ -754,7 +754,7 @@ def extractDataTeable1_1SemExtraordinaria():
         cont+=1
 
 
-def extractDataTeable2_1SemExtraordinaria():
+def extractDataTable2_1SemExtraordinaria():
     tablas = camelot.read_pdf(os.path.join(RESOURCE, 'CalendarioExamenes18-19-GII.pdf'), pages='4')
     tablas.export(os.path.join(OUTPUT, 'CalendarioExamenes18-19-GII.csv'), f='csv', compress=False)
 
@@ -1003,7 +1003,7 @@ def extractDataTeable2_1SemExtraordinaria():
         cont+=1
 
 
-def extractDataTeable1_2SemOrdinaria():
+def extractDataTable1_2SemOrdinaria():
     tablas = camelot.read_pdf(os.path.join(
         RESOURCE, 'CalendarioExamenes18-19-GII.pdf'), pages='5')
     tablas.export(os.path.join(
@@ -1275,7 +1275,7 @@ def extractDataTeable1_2SemOrdinaria():
         #     print (datosNoNaN[num:num+1])
 
 
-def extractDataTeable2_2SemOrdinaria():
+def extractDataTable2_2SemOrdinaria():
     tablas = camelot.read_pdf(os.path.join(
         RESOURCE, 'CalendarioExamenes18-19-GII.pdf'), pages='6')
     tablas.export(os.path.join(
@@ -1544,7 +1544,7 @@ def extractDataTeable2_2SemOrdinaria():
             cont += 1
 
 
-def extractDataTeable3_2SemOrdinaria():
+def extractDataTable3_2SemOrdinaria():
     tablas = camelot.read_pdf(os.path.join(
         RESOURCE, 'CalendarioExamenes18-19-GII.pdf'), pages='7')
     tablas.export(os.path.join(
@@ -1813,7 +1813,7 @@ def extractDataTeable3_2SemOrdinaria():
             cont += 1
 
 
-def extractDataTeable1_2SemExtraordinaria():
+def extractDataTable1_2SemExtraordinaria():
     tablas = camelot.read_pdf(os.path.join(RESOURCE, 'CalendarioExamenes18-19-GII.pdf'), pages='8')
     tablas.export(os.path.join(OUTPUT, 'CalendarioExamenes18-19-GII.csv'), f='csv', compress=False)
 
@@ -2081,7 +2081,7 @@ def extractDataTeable1_2SemExtraordinaria():
         cont+=1
 
 
-def extractDataTeable2_2SemExtraordinaria():
+def extractDataTable2_2SemExtraordinaria():
     tablas = camelot.read_pdf(os.path.join(RESOURCE, 'CalendarioExamenes18-19-GII.pdf'), pages='9')
     tablas.export(os.path.join(OUTPUT, 'CalendarioExamenes18-19-GII.csv'), f='csv', compress=False)
 
@@ -2349,7 +2349,7 @@ def extractDataTeable2_2SemExtraordinaria():
             cont+=1
 
 
-def extractDataTeable3_2SemExtraordinaria():
+def extractDataTable3_2SemExtraordinaria():
     tablas = camelot.read_pdf(os.path.join(RESOURCE, 'CalendarioExamenes18-19-GII.pdf'), pages='10')
     tablas.export(os.path.join(OUTPUT, 'CalendarioExamenes18-19-GII.csv'), f='csv', compress=False)
 
@@ -2617,14 +2617,14 @@ def extractDataTeable3_2SemExtraordinaria():
             cont+=1
 
 if __name__ == '__main__':
-    # extractDataTeable1_1SemOrdinaria()
-    # extractDataTeable2_1SemOrdinaria()
-    # extractDataTeable1_1SemExtraordinaria()
-    # extractDataTeable2_1SemExtraordinaria()
+    # extractDataTable1_1SemOrdinaria()
+    # extractDataTable2_1SemOrdinaria()
+    # extractDataTable1_1SemExtraordinaria()
+    # extractDataTable2_1SemExtraordinaria()
 
-    # extractDataTeable1_2SemOrdinaria()
-    # extractDataTeable2_2SemOrdinaria()
-    # extractDataTeable3_2SemOrdinaria()
-    # extractDataTeable1_2SemExtraordinaria()
-    # extractDataTeable2_2SemExtraordinaria()
-    extractDataTeable3_2SemExtraordinaria()
+    # extractDataTable1_2SemOrdinaria()
+    # extractDataTable2_2SemOrdinaria()
+    # extractDataTable3_2SemOrdinaria()
+    # extractDataTable1_2SemExtraordinaria()
+    # extractDataTable2_2SemExtraordinaria()
+    extractDataTable3_2SemExtraordinaria()
