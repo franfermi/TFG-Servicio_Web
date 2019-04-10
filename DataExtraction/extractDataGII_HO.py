@@ -167,7 +167,7 @@ def extractDataTable1_1A1C_1A2C(cuatrimestre, dia):
         for x in viernes:
             listViernes.extend(x.strip().split('\n'))
 
-        if(cuatrimestre == '1'):
+        if(cuatrimestre == '1' or cuatrimestre == 'primero' or cuatrimestre == 'uno'):
             if(dia.lower() == 'lunes'):
                 print(listLunes)
             if(dia.lower() == 'martes'):
@@ -299,7 +299,7 @@ def extractDataTable1_1A1C_1A2C(cuatrimestre, dia):
         for x in viernes:
             listViernes.extend(x.strip().split('\n'))
 
-        if(cuatrimestre == '2'):
+        if(cuatrimestre == '2' or cuatrimestre == 'segundo' or cuatrimestre == 'dos'):
             if(dia.lower() == 'lunes'):
                 print(listLunes)
             if(dia.lower() == 'martes'):
@@ -311,7 +311,7 @@ def extractDataTable1_1A1C_1A2C(cuatrimestre, dia):
             if(dia.lower() == 'viernes'):
                 print(listViernes)
 
-def extractDataTable1_1B1C_1B2C():
+def extractDataTable1_1B1C_1B2C(cuatrimestre, dia):
     tablas = camelot.read_pdf(os.path.join(
         RESOURCE, 'HORARIOS1819.pdf'), pages='2')
     tablas.export(os.path.join(
@@ -347,6 +347,10 @@ def extractDataTable1_1B1C_1B2C():
             else:
                 contColL+=1;
 
+        listLunes = []
+        for x in lunes:
+            listLunes.extend(x.strip().split('\n'))
+
         ##################################################################
             
         contFilM = 1
@@ -365,6 +369,10 @@ def extractDataTable1_1B1C_1B2C():
                         contFilM+=1
             else:
                 contColM+=1;
+
+        listMartes = []
+        for x in martes:
+            listMartes.extend(x.strip().split('\n'))
 
         ##################################################################
 
@@ -385,6 +393,10 @@ def extractDataTable1_1B1C_1B2C():
             else:
                 contColX+=1;
 
+        listMiercoles = []
+        for x in miercoles:
+            listMiercoles.extend(x.strip().split('\n'))
+
         ##################################################################
 
         contFilJ = 1
@@ -404,6 +416,10 @@ def extractDataTable1_1B1C_1B2C():
             else:
                 contColJ+=1;
 
+        listJueves = []
+        for x in jueves:
+            listJueves.extend(x.strip().split('\n'))
+
         ##################################################################
 
         contFilV = 1
@@ -422,6 +438,22 @@ def extractDataTable1_1B1C_1B2C():
                         contFilV+=1
             else:
                 contColV+=1;
+
+        listViernes = []
+        for x in viernes:
+            listViernes.extend(x.strip().split('\n'))
+
+        if(cuatrimestre == '1' or cuatrimestre == 'primero' or cuatrimestre == 'uno'):
+            if(dia.lower() == 'lunes'):
+                print(listLunes)
+            if(dia.lower() == 'martes'):
+                print(listMartes)
+            if(dia.lower() == 'miercoles'):
+                print(listMiercoles)
+            if(dia.lower() == 'jueves'):
+                print(listJueves)
+            if(dia.lower() == 'viernes'):
+                print(listViernes)        
         
     with open(os.path.join(OUTPUT, './HORARIOS/HORARIOS1819-page-2-table-2.csv'), 'r') as archivo:
         datos = pd.read_csv(archivo, header=0)
@@ -447,6 +479,10 @@ def extractDataTable1_1B1C_1B2C():
             else:
                 contColL+=1;
 
+        listLunes = []
+        for x in lunes:
+            listLunes.extend(x.strip().split('\n'))
+
         ##################################################################
             
         contFilM = 1
@@ -465,6 +501,10 @@ def extractDataTable1_1B1C_1B2C():
                         contFilM+=1
             else:
                 contColM+=1;
+
+        listMartes = []
+        for x in martes:
+            listMartes.extend(x.strip().split('\n'))
 
         ##################################################################
 
@@ -485,6 +525,10 @@ def extractDataTable1_1B1C_1B2C():
             else:
                 contColX+=1;
 
+        listMiercoles = []
+        for x in miercoles:
+            listMiercoles.extend(x.strip().split('\n'))
+
         ##################################################################
 
         contFilJ = 1
@@ -503,6 +547,10 @@ def extractDataTable1_1B1C_1B2C():
                         contFilJ+=1
             else:
                 contColJ+=1;
+
+        listJueves = []
+        for x in jueves:
+            listJueves.extend(x.strip().split('\n'))
 
         ##################################################################
 
@@ -523,7 +571,23 @@ def extractDataTable1_1B1C_1B2C():
             else:
                 contColV+=1;
 
-def extractDataTable1_1C1C_1C2C():
+        listViernes = []
+        for x in viernes:
+            listViernes.extend(x.strip().split('\n'))
+
+        if(cuatrimestre == '2' or cuatrimestre == 'segundo' or cuatrimestre == 'dos'):
+            if(dia.lower() == 'lunes'):
+                print(listLunes)
+            if(dia.lower() == 'martes'):
+                print(listMartes)
+            if(dia.lower() == 'miercoles'):
+                print(listMiercoles)
+            if(dia.lower() == 'jueves'):
+                print(listJueves)
+            if(dia.lower() == 'viernes'):
+                print(listViernes)
+
+def extractDataTable1_1C1C_1C2C(cuatrimestre, dia):
     tablas = camelot.read_pdf(os.path.join(
         RESOURCE, 'HORARIOS1819.pdf'), pages='3')
     tablas.export(os.path.join(
@@ -559,6 +623,10 @@ def extractDataTable1_1C1C_1C2C():
             else:
                 contColL+=1;
 
+        listLunes = []
+        for x in lunes:
+            listLunes.extend(x.strip().split('\n'))
+
         ##################################################################
             
         contFilM = 1
@@ -577,6 +645,10 @@ def extractDataTable1_1C1C_1C2C():
                         contFilM+=1
             else:
                 contColM+=1;
+
+        listMartes = []
+        for x in martes:
+            listMartes.extend(x.strip().split('\n'))
 
         ##################################################################
 
@@ -597,6 +669,10 @@ def extractDataTable1_1C1C_1C2C():
             else:
                 contColX+=1;
 
+        listMiercoles = []
+        for x in miercoles:
+            listMiercoles.extend(x.strip().split('\n'))
+
         ##################################################################
 
         contFilJ = 1
@@ -616,6 +692,10 @@ def extractDataTable1_1C1C_1C2C():
             else:
                 contColJ+=1;
 
+        listJueves = []
+        for x in jueves:
+            listJueves.extend(x.strip().split('\n'))
+
         ##################################################################
 
         contFilV = 1
@@ -634,6 +714,22 @@ def extractDataTable1_1C1C_1C2C():
                         contFilV+=1
             else:
                 contColV+=1;
+
+        listViernes = []
+        for x in viernes:
+            listViernes.extend(x.strip().split('\n'))
+
+        if(cuatrimestre == '1' or cuatrimestre == 'primero' or cuatrimestre == 'uno'):
+            if(dia.lower() == 'lunes'):
+                print(listLunes)
+            if(dia.lower() == 'martes'):
+                print(listMartes)
+            if(dia.lower() == 'miercoles'):
+                print(listMiercoles)
+            if(dia.lower() == 'jueves'):
+                print(listJueves)
+            if(dia.lower() == 'viernes'):
+                print(listViernes)
         
     with open(os.path.join(OUTPUT, './HORARIOS/HORARIOS1819-page-3-table-2.csv'), 'r') as archivo:
         datos = pd.read_csv(archivo, header=0)
@@ -659,6 +755,10 @@ def extractDataTable1_1C1C_1C2C():
             else:
                 contColL+=1;
 
+        listLunes = []
+        for x in lunes:
+            listLunes.extend(x.strip().split('\n'))
+
         ##################################################################
             
         contFilM = 1
@@ -677,6 +777,10 @@ def extractDataTable1_1C1C_1C2C():
                         contFilM+=1
             else:
                 contColM+=1;
+
+        listMartes = []
+        for x in martes:
+            listMartes.extend(x.strip().split('\n'))
 
         ##################################################################
 
@@ -697,6 +801,10 @@ def extractDataTable1_1C1C_1C2C():
             else:
                 contColX+=1;
 
+        listMiercoles = []
+        for x in miercoles:
+            listMiercoles.extend(x.strip().split('\n'))
+
         ##################################################################
 
         contFilJ = 1
@@ -715,6 +823,10 @@ def extractDataTable1_1C1C_1C2C():
                         contFilJ+=1
             else:
                 contColJ+=1;
+
+        listJueves = []
+        for x in jueves:
+            listJueves.extend(x.strip().split('\n'))
 
         ##################################################################
 
@@ -735,7 +847,23 @@ def extractDataTable1_1C1C_1C2C():
             else:
                 contColV+=1;
 
-def extractDataTable1_1D1C_1D2C():
+        listViernes = []
+        for x in viernes:
+            listViernes.extend(x.strip().split('\n'))
+
+        if(cuatrimestre == '2' or cuatrimestre == 'segundo' or cuatrimestre == 'dos'):
+            if(dia.lower() == 'lunes'):
+                print(listLunes)
+            if(dia.lower() == 'martes'):
+                print(listMartes)
+            if(dia.lower() == 'miercoles'):
+                print(listMiercoles)
+            if(dia.lower() == 'jueves'):
+                print(listJueves)
+            if(dia.lower() == 'viernes'):
+                print(listViernes)
+
+def extractDataTable1_1D1C_1D2C(cuatrimestre, dia):
     tablas = camelot.read_pdf(os.path.join(
         RESOURCE, 'HORARIOS1819.pdf'), pages='4')
     tablas.export(os.path.join(
@@ -771,6 +899,10 @@ def extractDataTable1_1D1C_1D2C():
             else:
                 contColL+=1;
 
+        listLunes = []
+        for x in lunes:
+            listLunes.extend(x.strip().split('\n'))
+
         ##################################################################
             
         contFilM = 1
@@ -789,6 +921,10 @@ def extractDataTable1_1D1C_1D2C():
                         contFilM+=1
             else:
                 contColM+=1;
+
+        listMartes = []
+        for x in martes:
+            listMartes.extend(x.strip().split('\n'))
 
         ##################################################################
 
@@ -809,6 +945,10 @@ def extractDataTable1_1D1C_1D2C():
             else:
                 contColX+=1;
 
+        listMiercoles = []
+        for x in miercoles:
+            listMiercoles.extend(x.strip().split('\n'))
+
         ##################################################################
 
         contFilJ = 1
@@ -828,6 +968,10 @@ def extractDataTable1_1D1C_1D2C():
             else:
                 contColJ+=1;
 
+        listJueves = []
+        for x in jueves:
+            listJueves.extend(x.strip().split('\n'))
+
         ##################################################################
 
         contFilV = 1
@@ -846,6 +990,22 @@ def extractDataTable1_1D1C_1D2C():
                         contFilV+=1
             else:
                 contColV+=1;
+
+        listViernes = []
+        for x in viernes:
+            listViernes.extend(x.strip().split('\n'))
+
+        if(cuatrimestre == '1' or cuatrimestre == 'primero' or cuatrimestre == 'uno'):
+            if(dia.lower() == 'lunes'):
+                print(listLunes)
+            if(dia.lower() == 'martes'):
+                print(listMartes)
+            if(dia.lower() == 'miercoles'):
+                print(listMiercoles)
+            if(dia.lower() == 'jueves'):
+                print(listJueves)
+            if(dia.lower() == 'viernes'):
+                print(listViernes)
         
     with open(os.path.join(OUTPUT, './HORARIOS/HORARIOS1819-page-4-table-2.csv'), 'r') as archivo:
         datos = pd.read_csv(archivo, header=0)
@@ -871,6 +1031,10 @@ def extractDataTable1_1D1C_1D2C():
             else:
                 contColL+=1;
 
+        listLunes = []
+        for x in lunes:
+            listLunes.extend(x.strip().split('\n'))
+
         ##################################################################
             
         contFilM = 1
@@ -889,6 +1053,10 @@ def extractDataTable1_1D1C_1D2C():
                         contFilM+=1
             else:
                 contColM+=1;
+
+        listMartes = []
+        for x in martes:
+            listMartes.extend(x.strip().split('\n'))
 
         ##################################################################
 
@@ -909,6 +1077,10 @@ def extractDataTable1_1D1C_1D2C():
             else:
                 contColX+=1;
 
+        listMiercoles = []
+        for x in miercoles:
+            listMiercoles.extend(x.strip().split('\n'))
+
         ##################################################################
 
         contFilJ = 1
@@ -927,6 +1099,10 @@ def extractDataTable1_1D1C_1D2C():
                         contFilJ+=1
             else:
                 contColJ+=1;
+
+        listJueves = []
+        for x in jueves:
+            listJueves.extend(x.strip().split('\n'))
 
         ##################################################################
 
@@ -947,7 +1123,23 @@ def extractDataTable1_1D1C_1D2C():
             else:
                 contColV+=1;
 
-def extractDataTable1_1E1C_1E2C():
+        listViernes = []
+        for x in viernes:
+            listViernes.extend(x.strip().split('\n'))
+
+        if(cuatrimestre == '2' or cuatrimestre == 'segundo' or cuatrimestre == 'dos'):
+            if(dia.lower() == 'lunes'):
+                print(listLunes)
+            if(dia.lower() == 'martes'):
+                print(listMartes)
+            if(dia.lower() == 'miercoles'):
+                print(listMiercoles)
+            if(dia.lower() == 'jueves'):
+                print(listJueves)
+            if(dia.lower() == 'viernes'):
+                print(listViernes)
+
+def extractDataTable1_1E1C_1E2C(cuatrimestre, dia):
     tablas = camelot.read_pdf(os.path.join(
         RESOURCE, 'HORARIOS1819.pdf'), pages='5')
     tablas.export(os.path.join(
@@ -983,6 +1175,10 @@ def extractDataTable1_1E1C_1E2C():
             else:
                 contColL+=1;
 
+        listLunes = []
+        for x in lunes:
+            listLunes.extend(x.strip().split('\n'))
+
         ##################################################################
             
         contFilM = 1
@@ -1001,6 +1197,10 @@ def extractDataTable1_1E1C_1E2C():
                         contFilM+=1
             else:
                 contColM+=1;
+
+        listMartes = []
+        for x in martes:
+            listMartes.extend(x.strip().split('\n'))
 
         ##################################################################
 
@@ -1021,6 +1221,10 @@ def extractDataTable1_1E1C_1E2C():
             else:
                 contColX+=1;
 
+        listMiercoles = []
+        for x in miercoles:
+            listMiercoles.extend(x.strip().split('\n'))
+
         ##################################################################
 
         contFilJ = 1
@@ -1040,6 +1244,10 @@ def extractDataTable1_1E1C_1E2C():
             else:
                 contColJ+=1;
 
+        listJueves = []
+        for x in jueves:
+            listJueves.extend(x.strip().split('\n'))
+
         ##################################################################
 
         contFilV = 1
@@ -1058,6 +1266,22 @@ def extractDataTable1_1E1C_1E2C():
                         contFilV+=1
             else:
                 contColV+=1;
+
+        listViernes = []
+        for x in viernes:
+            listViernes.extend(x.strip().split('\n'))
+
+        if(cuatrimestre == '1' or cuatrimestre == 'primero' or cuatrimestre == 'uno'):
+            if(dia.lower() == 'lunes'):
+                print(listLunes)
+            if(dia.lower() == 'martes'):
+                print(listMartes)
+            if(dia.lower() == 'miercoles'):
+                print(listMiercoles)
+            if(dia.lower() == 'jueves'):
+                print(listJueves)
+            if(dia.lower() == 'viernes'):
+                print(listViernes)
         
     with open(os.path.join(OUTPUT, './HORARIOS/HORARIOS1819-page-5-table-2.csv'), 'r') as archivo:
         datos = pd.read_csv(archivo, header=0)
@@ -1083,6 +1307,10 @@ def extractDataTable1_1E1C_1E2C():
             else:
                 contColL+=1;
 
+        listLunes = []
+        for x in lunes:
+            listLunes.extend(x.strip().split('\n'))
+
         ##################################################################
             
         contFilM = 1
@@ -1101,6 +1329,10 @@ def extractDataTable1_1E1C_1E2C():
                         contFilM+=1
             else:
                 contColM+=1;
+
+        listMartes = []
+        for x in martes:
+            listMartes.extend(x.strip().split('\n'))
 
         ##################################################################
 
@@ -1121,6 +1353,10 @@ def extractDataTable1_1E1C_1E2C():
             else:
                 contColX+=1;
 
+        listMiercoles = []
+        for x in miercoles:
+            listMiercoles.extend(x.strip().split('\n'))
+
         ##################################################################
 
         contFilJ = 1
@@ -1139,6 +1375,10 @@ def extractDataTable1_1E1C_1E2C():
                         contFilJ+=1
             else:
                 contColJ+=1;
+
+        listJueves = []
+        for x in jueves:
+            listJueves.extend(x.strip().split('\n'))
 
         ##################################################################
 
@@ -1159,7 +1399,23 @@ def extractDataTable1_1E1C_1E2C():
             else:
                 contColV+=1;
 
-def extractDataTable1_1F1C_1F2C():
+        listViernes = []
+        for x in viernes:
+            listViernes.extend(x.strip().split('\n'))
+
+        if(cuatrimestre == '2' or cuatrimestre == 'segundo' or cuatrimestre == 'dos'):
+            if(dia.lower() == 'lunes'):
+                print(listLunes)
+            if(dia.lower() == 'martes'):
+                print(listMartes)
+            if(dia.lower() == 'miercoles'):
+                print(listMiercoles)
+            if(dia.lower() == 'jueves'):
+                print(listJueves)
+            if(dia.lower() == 'viernes'):
+                print(listViernes)
+
+def extractDataTable1_1F1C_1F2C(cuatrimestre, dia):
     tablas = camelot.read_pdf(os.path.join(
         RESOURCE, 'HORARIOS1819.pdf'), pages='6')
     tablas.export(os.path.join(
@@ -1195,6 +1451,10 @@ def extractDataTable1_1F1C_1F2C():
             else:
                 contColL+=1;
 
+        listLunes = []
+        for x in lunes:
+            listLunes.extend(x.strip().split('\n'))
+
         ##################################################################
             
         contFilM = 1
@@ -1214,6 +1474,10 @@ def extractDataTable1_1F1C_1F2C():
             else:
                 contColM+=1;
 
+        listLunes = []
+        for x in lunes:
+            listLunes.extend(x.strip().split('\n'))
+
         ##################################################################
 
         contFilX = 1
@@ -1232,6 +1496,10 @@ def extractDataTable1_1F1C_1F2C():
                         contFilX+=1
             else:
                 contColX+=1;
+            
+        listMiercoles = []
+        for x in miercoles:
+            listMiercoles.extend(x.strip().split('\n'))
 
         ##################################################################
 
@@ -1252,6 +1520,10 @@ def extractDataTable1_1F1C_1F2C():
             else:
                 contColJ+=1;
 
+        listJueves = []
+        for x in jueves:
+            listJueves.extend(x.strip().split('\n'))
+
         ##################################################################
 
         contFilV = 1
@@ -1271,6 +1543,22 @@ def extractDataTable1_1F1C_1F2C():
             else:
                 contColV+=1;
         
+        listViernes = []
+        for x in viernes:
+            listViernes.extend(x.strip().split('\n'))
+
+        if(cuatrimestre == '1' or cuatrimestre == 'primero' or cuatrimestre == 'uno'):
+            if(dia.lower() == 'lunes'):
+                print(listLunes)
+            if(dia.lower() == 'martes'):
+                print(listMartes)
+            if(dia.lower() == 'miercoles'):
+                print(listMiercoles)
+            if(dia.lower() == 'jueves'):
+                print(listJueves)
+            if(dia.lower() == 'viernes'):
+                print(listViernes)
+
     with open(os.path.join(OUTPUT, './HORARIOS/HORARIOS1819-page-6-table-2.csv'), 'r') as archivo:
         datos = pd.read_csv(archivo, header=0)
         datosNoNaN = datos.fillna(value='0')
@@ -1295,6 +1583,10 @@ def extractDataTable1_1F1C_1F2C():
             else:
                 contColL+=1;
 
+        listLunes = []
+        for x in lunes:
+            listLunes.extend(x.strip().split('\n'))
+
         ##################################################################
             
         contFilM = 1
@@ -1313,6 +1605,10 @@ def extractDataTable1_1F1C_1F2C():
                         contFilM+=1
             else:
                 contColM+=1;
+
+        listMartes = []
+        for x in martes:
+            listMartes.extend(x.strip().split('\n'))
 
         ##################################################################
 
@@ -1333,6 +1629,10 @@ def extractDataTable1_1F1C_1F2C():
             else:
                 contColX+=1;
 
+        listMiercoles = []
+        for x in miercoles:
+            listMiercoles.extend(x.strip().split('\n'))
+
         ##################################################################
 
         contFilJ = 1
@@ -1351,6 +1651,10 @@ def extractDataTable1_1F1C_1F2C():
                         contFilJ+=1
             else:
                 contColJ+=1;
+
+        listJueves = []
+        for x in jueves:
+            listJueves.extend(x.strip().split('\n'))
 
         ##################################################################
 
@@ -1371,7 +1675,23 @@ def extractDataTable1_1F1C_1F2C():
             else:
                 contColV+=1;
 
-def extractDataTable1_2A1C_2A2C():
+        listViernes = []
+        for x in viernes:
+            listViernes.extend(x.strip().split('\n'))
+
+        if(cuatrimestre == '2' or cuatrimestre == 'segundo' or cuatrimestre == 'dos'):
+            if(dia.lower() == 'lunes'):
+                print(listLunes)
+            if(dia.lower() == 'martes'):
+                print(listMartes)
+            if(dia.lower() == 'miercoles'):
+                print(listMiercoles)
+            if(dia.lower() == 'jueves'):
+                print(listJueves)
+            if(dia.lower() == 'viernes'):
+                print(listViernes)
+
+def extractDataTable1_2A1C_2A2C(cuatrimestre, dia):
     tablas = camelot.read_pdf(os.path.join(
         RESOURCE, 'HORARIOS1819.pdf'), pages='7')
     tablas.export(os.path.join(
@@ -1407,6 +1727,10 @@ def extractDataTable1_2A1C_2A2C():
             else:
                 contColL+=1;
 
+        listLunes = []
+        for x in lunes:
+            listLunes.extend(x.strip().split('\n'))
+
         ##################################################################
             
         contFilM = 1
@@ -1425,6 +1749,10 @@ def extractDataTable1_2A1C_2A2C():
                         contFilM+=1
             else:
                 contColM+=1;
+
+        listMartes = []
+        for x in martes:
+            listMartes.extend(x.strip().split('\n'))
 
         ##################################################################
 
@@ -1445,6 +1773,10 @@ def extractDataTable1_2A1C_2A2C():
             else:
                 contColX+=1;
 
+        listMiercoles = []
+        for x in miercoles:
+            listMiercoles.extend(x.strip().split('\n'))
+
         ##################################################################
 
         contFilJ = 1
@@ -1464,6 +1796,10 @@ def extractDataTable1_2A1C_2A2C():
             else:
                 contColJ+=1;
 
+        listJueves = []
+        for x in jueves:
+            listJueves.extend(x.strip().split('\n'))
+
         ##################################################################
 
         contFilV = 1
@@ -1482,6 +1818,22 @@ def extractDataTable1_2A1C_2A2C():
                         contFilV+=1
             else:
                 contColV+=1;
+
+        listViernes = []
+        for x in viernes:
+            listViernes.extend(x.strip().split('\n'))
+
+        if(cuatrimestre == '1' or cuatrimestre == 'primero' or cuatrimestre == 'uno'):
+            if(dia.lower() == 'lunes'):
+                print(listLunes)
+            if(dia.lower() == 'martes'):
+                print(listMartes)
+            if(dia.lower() == 'miercoles'):
+                print(listMiercoles)
+            if(dia.lower() == 'jueves'):
+                print(listJueves)
+            if(dia.lower() == 'viernes'):
+                print(listViernes)
         
     with open(os.path.join(OUTPUT, './HORARIOS/HORARIOS1819-page-7-table-2.csv'), 'r') as archivo:
         datos = pd.read_csv(archivo, header=0)
@@ -1507,6 +1859,10 @@ def extractDataTable1_2A1C_2A2C():
             else:
                 contColL+=1;
 
+        listLunes = []
+        for x in lunes:
+            listLunes.extend(x.strip().split('\n'))
+
         ##################################################################
             
         contFilM = 1
@@ -1525,6 +1881,10 @@ def extractDataTable1_2A1C_2A2C():
                         contFilM+=1
             else:
                 contColM+=1;
+
+        listMartes = []
+        for x in martes:
+            listMartes.extend(x.strip().split('\n'))
 
         ##################################################################
 
@@ -1545,6 +1905,10 @@ def extractDataTable1_2A1C_2A2C():
             else:
                 contColX+=1;
 
+        listMiercoles = []
+        for x in miercoles:
+            listMiercoles.extend(x.strip().split('\n'))
+
         ##################################################################
 
         contFilJ = 1
@@ -1563,6 +1927,10 @@ def extractDataTable1_2A1C_2A2C():
                         contFilJ+=1
             else:
                 contColJ+=1;
+            
+        listJueves = []
+        for x in jueves:
+            listJueves.extend(x.strip().split('\n'))
 
         ##################################################################
 
@@ -1583,7 +1951,23 @@ def extractDataTable1_2A1C_2A2C():
             else:
                 contColV+=1;
 
-def extractDataTable1_2B1C_2B2C():
+        listViernes = []
+        for x in viernes:
+            listViernes.extend(x.strip().split('\n'))
+
+        if(cuatrimestre == '2' or cuatrimestre == 'segundo' or cuatrimestre == 'dos'):
+            if(dia.lower() == 'lunes'):
+                print(listLunes)
+            if(dia.lower() == 'martes'):
+                print(listMartes)
+            if(dia.lower() == 'miercoles'):
+                print(listMiercoles)
+            if(dia.lower() == 'jueves'):
+                print(listJueves)
+            if(dia.lower() == 'viernes'):
+                print(listViernes)
+
+def extractDataTable1_2B1C_2B2C(cuatrimestre, dia):
     tablas = camelot.read_pdf(os.path.join(
         RESOURCE, 'HORARIOS1819.pdf'), pages='8')
     tablas.export(os.path.join(
@@ -1619,6 +2003,10 @@ def extractDataTable1_2B1C_2B2C():
             else:
                 contColL+=1;
 
+        listLunes = []
+        for x in lunes:
+            listLunes.extend(x.strip().split('\n'))
+
         ##################################################################
             
         contFilM = 1
@@ -1637,6 +2025,10 @@ def extractDataTable1_2B1C_2B2C():
                         contFilM+=1
             else:
                 contColM+=1;
+
+        listMartes = []
+        for x in martes:
+            listMartes.extend(x.strip().split('\n'))
 
         ##################################################################
 
@@ -1657,6 +2049,10 @@ def extractDataTable1_2B1C_2B2C():
             else:
                 contColX+=1;
 
+        listMiercoles = []
+        for x in miercoles:
+            listMiercoles.extend(x.strip().split('\n'))
+
         ##################################################################
 
         contFilJ = 1
@@ -1676,6 +2072,10 @@ def extractDataTable1_2B1C_2B2C():
             else:
                 contColJ+=1;
 
+        listJueves = []
+        for x in jueves:
+            listJueves.extend(x.strip().split('\n'))
+
         ##################################################################
 
         contFilV = 1
@@ -1694,6 +2094,22 @@ def extractDataTable1_2B1C_2B2C():
                         contFilV+=1
             else:
                 contColV+=1;
+
+        listViernes = []
+        for x in viernes:
+            listViernes.extend(x.strip().split('\n'))
+
+        if(cuatrimestre == '1' or cuatrimestre == 'primero' or cuatrimestre == 'uno'):
+            if(dia.lower() == 'lunes'):
+                print(listLunes)
+            if(dia.lower() == 'martes'):
+                print(listMartes)
+            if(dia.lower() == 'miercoles'):
+                print(listMiercoles)
+            if(dia.lower() == 'jueves'):
+                print(listJueves)
+            if(dia.lower() == 'viernes'):
+                print(listViernes)
         
     with open(os.path.join(OUTPUT, './HORARIOS/HORARIOS1819-page-8-table-2.csv'), 'r') as archivo:
         datos = pd.read_csv(archivo, header=0)
@@ -1719,6 +2135,10 @@ def extractDataTable1_2B1C_2B2C():
             else:
                 contColL+=1;
 
+        listLunes = []
+        for x in lunes:
+            listLunes.extend(x.strip().split('\n'))
+
         ##################################################################
             
         contFilM = 1
@@ -1737,6 +2157,10 @@ def extractDataTable1_2B1C_2B2C():
                         contFilM+=1
             else:
                 contColM+=1;
+
+        listMartes = []
+        for x in martes:
+            listMartes.extend(x.strip().split('\n'))
 
         ##################################################################
 
@@ -1757,6 +2181,10 @@ def extractDataTable1_2B1C_2B2C():
             else:
                 contColX+=1;
 
+        listMiercoles = []
+        for x in miercoles:
+            listMiercoles.extend(x.strip().split('\n'))
+
         ##################################################################
 
         contFilJ = 1
@@ -1775,6 +2203,10 @@ def extractDataTable1_2B1C_2B2C():
                         contFilJ+=1
             else:
                 contColJ+=1;
+
+        listJueves = []
+        for x in jueves:
+            listJueves.extend(x.strip().split('\n'))
 
         ##################################################################
 
@@ -1795,7 +2227,23 @@ def extractDataTable1_2B1C_2B2C():
             else:
                 contColV+=1;
 
-def extractDataTable1_2C1C_2C2C():
+        listViernes = []
+        for x in viernes:
+            listViernes.extend(x.strip().split('\n'))
+
+        if(cuatrimestre == '2' or cuatrimestre == 'segundo' or cuatrimestre == 'dos'):
+            if(dia.lower() == 'lunes'):
+                print(listLunes)
+            if(dia.lower() == 'martes'):
+                print(listMartes)
+            if(dia.lower() == 'miercoles'):
+                print(listMiercoles)
+            if(dia.lower() == 'jueves'):
+                print(listJueves)
+            if(dia.lower() == 'viernes'):
+                print(listViernes)
+
+def extractDataTable1_2C1C_2C2C(cuatrimestre, dia):
     tablas = camelot.read_pdf(os.path.join(
         RESOURCE, 'HORARIOS1819.pdf'), pages='9')
     tablas.export(os.path.join(
@@ -1831,6 +2279,10 @@ def extractDataTable1_2C1C_2C2C():
             else:
                 contColL+=1;
 
+        listLunes = []
+        for x in lunes:
+            listLunes.extend(x.strip().split('\n'))
+
         ##################################################################
             
         contFilM = 1
@@ -1849,6 +2301,10 @@ def extractDataTable1_2C1C_2C2C():
                         contFilM+=1
             else:
                 contColM+=1;
+
+        listMartes = []
+        for x in martes:
+            listMartes.extend(x.strip().split('\n'))
 
         ##################################################################
 
@@ -1869,6 +2325,10 @@ def extractDataTable1_2C1C_2C2C():
             else:
                 contColX+=1;
 
+        listMiercoles = []
+        for x in miercoles:
+            listMiercoles.extend(x.strip().split('\n'))
+
         ##################################################################
 
         contFilJ = 1
@@ -1888,6 +2348,10 @@ def extractDataTable1_2C1C_2C2C():
             else:
                 contColJ+=1;
 
+        listJueves = []
+        for x in jueves:
+            listJueves.extend(x.strip().split('\n'))
+
         ##################################################################
 
         contFilV = 1
@@ -1906,6 +2370,22 @@ def extractDataTable1_2C1C_2C2C():
                         contFilV+=1
             else:
                 contColV+=1;
+
+        listViernes = []
+        for x in viernes:
+            listViernes.extend(x.strip().split('\n'))
+
+        if(cuatrimestre == '1' or cuatrimestre == 'primero' or cuatrimestre == 'uno'):
+            if(dia.lower() == 'lunes'):
+                print(listLunes)
+            if(dia.lower() == 'martes'):
+                print(listMartes)
+            if(dia.lower() == 'miercoles'):
+                print(listMiercoles)
+            if(dia.lower() == 'jueves'):
+                print(listJueves)
+            if(dia.lower() == 'viernes'):
+                print(listViernes)
         
     with open(os.path.join(OUTPUT, './HORARIOS/HORARIOS1819-page-9-table-2.csv'), 'r') as archivo:
         datos = pd.read_csv(archivo, header=0)
@@ -1931,6 +2411,10 @@ def extractDataTable1_2C1C_2C2C():
             else:
                 contColL+=1;
 
+        listLunes = []
+        for x in lunes:
+            listLunes.extend(x.strip().split('\n'))
+
         ##################################################################
             
         contFilM = 1
@@ -1949,6 +2433,10 @@ def extractDataTable1_2C1C_2C2C():
                         contFilM+=1
             else:
                 contColM+=1;
+
+        listMartes = []
+        for x in martes:
+            listMartes.extend(x.strip().split('\n'))
 
         ##################################################################
 
@@ -1969,6 +2457,10 @@ def extractDataTable1_2C1C_2C2C():
             else:
                 contColX+=1;
 
+        listMiercoles = []
+        for x in miercoles:
+            listMiercoles.extend(x.strip().split('\n'))
+
         ##################################################################
 
         contFilJ = 1
@@ -1987,6 +2479,10 @@ def extractDataTable1_2C1C_2C2C():
                         contFilJ+=1
             else:
                 contColJ+=1;
+
+        listJueves = []
+        for x in jueves:
+            listJueves.extend(x.strip().split('\n'))
 
         ##################################################################
 
@@ -2007,7 +2503,23 @@ def extractDataTable1_2C1C_2C2C():
             else:
                 contColV+=1;
 
-def extractDataTable1_2D1C_2D2C():
+        listViernes = []
+        for x in viernes:
+            listViernes.extend(x.strip().split('\n'))
+
+        if(cuatrimestre == '2' or cuatrimestre == 'segundo' or cuatrimestre == 'dos'):
+            if(dia.lower() == 'lunes'):
+                print(listLunes)
+            if(dia.lower() == 'martes'):
+                print(listMartes)
+            if(dia.lower() == 'miercoles'):
+                print(listMiercoles)
+            if(dia.lower() == 'jueves'):
+                print(listJueves)
+            if(dia.lower() == 'viernes'):
+                print(listViernes)
+
+def extractDataTable1_2D1C_2D2C(cuatrimestre, dia):
     tablas = camelot.read_pdf(os.path.join(
         RESOURCE, 'HORARIOS1819.pdf'), pages='10')
     tablas.export(os.path.join(
@@ -2043,6 +2555,10 @@ def extractDataTable1_2D1C_2D2C():
             else:
                 contColL+=1;
 
+        listLunes = []
+        for x in lunes:
+            listLunes.extend(x.strip().split('\n'))
+
         ##################################################################
             
         contFilM = 1
@@ -2061,6 +2577,10 @@ def extractDataTable1_2D1C_2D2C():
                         contFilM+=1
             else:
                 contColM+=1;
+
+        listMartes = []
+        for x in martes:
+            listMartes.extend(x.strip().split('\n'))
 
         ##################################################################
 
@@ -2081,6 +2601,10 @@ def extractDataTable1_2D1C_2D2C():
             else:
                 contColX+=1;
 
+        listMiercoles = []
+        for x in miercoles:
+            listMiercoles.extend(x.strip().split('\n'))
+
         ##################################################################
 
         contFilJ = 1
@@ -2100,6 +2624,10 @@ def extractDataTable1_2D1C_2D2C():
             else:
                 contColJ+=1;
 
+        listJueves = []
+        for x in jueves:
+            listJueves.extend(x.strip().split('\n'))
+
         ##################################################################
 
         contFilV = 1
@@ -2118,6 +2646,22 @@ def extractDataTable1_2D1C_2D2C():
                         contFilV+=1
             else:
                 contColV+=1;
+
+        listViernes = []
+        for x in viernes:
+            listViernes.extend(x.strip().split('\n'))
+
+        if(cuatrimestre == '1' or cuatrimestre == 'primero' or cuatrimestre == 'uno'):
+            if(dia.lower() == 'lunes'):
+                print(listLunes)
+            if(dia.lower() == 'martes'):
+                print(listMartes)
+            if(dia.lower() == 'miercoles'):
+                print(listMiercoles)
+            if(dia.lower() == 'jueves'):
+                print(listJueves)
+            if(dia.lower() == 'viernes'):
+                print(listViernes)
         
     with open(os.path.join(OUTPUT, './HORARIOS/HORARIOS1819-page-10-table-2.csv'), 'r') as archivo:
         datos = pd.read_csv(archivo, header=0)
@@ -2143,6 +2687,10 @@ def extractDataTable1_2D1C_2D2C():
             else:
                 contColL+=1;
 
+        listLunes = []
+        for x in lunes:
+            listLunes.extend(x.strip().split('\n'))
+
         ##################################################################
             
         contFilM = 1
@@ -2161,6 +2709,10 @@ def extractDataTable1_2D1C_2D2C():
                         contFilM+=1
             else:
                 contColM+=1;
+
+        listMartes = []
+        for x in martes:
+            listMartes.extend(x.strip().split('\n'))
 
         ##################################################################
 
@@ -2181,6 +2733,10 @@ def extractDataTable1_2D1C_2D2C():
             else:
                 contColX+=1;
 
+        listMiercoles = []
+        for x in miercoles:
+            listMiercoles.extend(x.strip().split('\n'))
+
         ##################################################################
 
         contFilJ = 1
@@ -2199,6 +2755,10 @@ def extractDataTable1_2D1C_2D2C():
                         contFilJ+=1
             else:
                 contColJ+=1;
+        
+        listJueves = []
+        for x in jueves:
+            listJueves.extend(x.strip().split('\n'))
 
         ##################################################################
 
@@ -2218,6 +2778,22 @@ def extractDataTable1_2D1C_2D2C():
                         contFilV+=1
             else:
                 contColV+=1;
+
+        listViernes = []
+        for x in viernes:
+            listViernes.extend(x.strip().split('\n'))
+
+        if(cuatrimestre == '2' or cuatrimestre == 'segundo' or cuatrimestre == 'dos'):
+            if(dia.lower() == 'lunes'):
+                print(listLunes)
+            if(dia.lower() == 'martes'):
+                print(listMartes)
+            if(dia.lower() == 'miercoles'):
+                print(listMiercoles)
+            if(dia.lower() == 'jueves'):
+                print(listJueves)
+            if(dia.lower() == 'viernes'):
+                print(listViernes)
 
 def extractDataTable1_3A1C():
     tablas = camelot.read_pdf(os.path.join(
@@ -4207,21 +4783,32 @@ def extractDataTable1_4C_1C_2C_TecnologiasInformacion():
 
 
 if __name__ == '__main__':
-    if(sys.argv[3:]):
-        if(sys.argv[1] == '1'):
-            cuatrimestre = sys.argv[2]
-            dia = sys.argv[3]
-            extractDataTable1_1A1C_1A2C(cuatrimestre, dia)
-            # extractDataTable1_1B1C_1B2C()
-            # extractDataTable1_1C1C_1C2C()
-            # extractDataTable1_1D1C_1D2C()
-            # extractDataTable1_1E1C_1E2C()
-            # extractDataTable1_1F1C_1F2C()
+    if(sys.argv[4:]):
+        cuatrimestre = sys.argv[3]
+        dia = sys.argv[4]
+        if(sys.argv[1] == '1' or sys.argv[1] == 'primero' or sys.argv[1] == 'uno'):
+            if(sys.argv[2] == 'A' or sys.argv[2] == 'a'):
+                extractDataTable1_1A1C_1A2C(cuatrimestre, dia)
+            if(sys.argv[2] == 'B' or sys.argv[2] == 'b'):
+                extractDataTable1_1B1C_1B2C(cuatrimestre, dia)
+            if(sys.argv[2] == 'C' or sys.argv[2] == 'c'):
+                extractDataTable1_1C1C_1C2C(cuatrimestre, dia)
+            if(sys.argv[2] == 'D' or sys.argv[2] == 'd'):
+                extractDataTable1_1D1C_1D2C(cuatrimestre, dia)
+            if(sys.argv[2] == 'E' or sys.argv[2] == 'e'):
+                extractDataTable1_1E1C_1E2C(cuatrimestre, dia)
+            if(sys.argv[2] == 'F' or sys.argv[2] == 'f'):
+                extractDataTable1_1F1C_1F2C(cuatrimestre, dia)
 
-            # extractDataTable1_2A1C_2A2C()
-            # extractDataTable1_2B1C_2B2C()
-            # extractDataTable1_2C1C_2C2C()
-            # extractDataTable1_2D1C_2D2C()
+        if(sys.argv[1] == '2' or sys.argv[1] == 'segundo' or sys.argv[1] == 'dos'):
+            if(sys.argv[2] == 'A' or sys.argv[2] == 'a'):
+                extractDataTable1_2A1C_2A2C(cuatrimestre, dia)
+            if(sys.argv[2] == 'B' or sys.argv[2] == 'b'):
+                extractDataTable1_2B1C_2B2C(cuatrimestre, dia)
+            if(sys.argv[2] == 'C' or sys.argv[2] == 'c'):
+                extractDataTable1_2C1C_2C2C(cuatrimestre, dia)
+            if(sys.argv[2] == 'D' or sys.argv[2] == 'd'):    
+                extractDataTable1_2D1C_2D2C(cuatrimestre, dia)
 
             # extractDataTable1_3A1C()
             # extractDataTable1_3B1C()
@@ -4239,4 +4826,4 @@ if __name__ == '__main__':
             # extractDataTable1_4C_1C_2C_SistemasInformacion()
             # extractDataTable1_4C_1C_2C_TecnologiasInformacion()
     else:
-        print("Error: indicar el curso, el cuatrimestre y el día")
+        print("Error: indicar el curso, el grupo, el cuatrimestre y el día")
