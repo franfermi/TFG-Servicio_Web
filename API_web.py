@@ -15,15 +15,14 @@ app = Flask(__name__)
    "status": "OK"
 }
 
-# db = os.environ['NAME_BD']
-# host_db = os.environ['HOST_BD']
-# usuario = os.environ['USER_BD']
-# pw = os.environ['PW_BD']
-
+db = os.environ['NAME_DB']
+host_db = os.environ['HOST_DB']
+usuario = os.environ['USER_DB']
+pw = os.environ['PW_DB']
 
 def buscarAsignatura(nombAsig):
-    # connect_db = psycopg2.connect(database=db, user=usuario, password=pw, host=host_db)
-    # cursor = connect_db.cursor()
+    connect_db = psycopg2.connect(database=db, user=usuario, password=pw, host=host_db)
+    cursor = connect_db.cursor()
 
     cursor.execute("SELECT * FROM AsignaturasGII WHERE asignatura LIKE %s", [nombAsig])
     asig = gDocen = fExam = hTeo = ""
@@ -50,6 +49,12 @@ def docker():
 
 @app.route("/")
 def index():
+    try:
+        connect_db = psycopg2.connect(database=db, user=usuario, password=pw, host=host_db)
+        cursor = connect_db.cursor()
+        print("Conexión establecida")
+    except:
+        print("Error en la conexión a la BD")
     return render_template("index.html")
 
 @app.route("/busqueda", methods=['POST'])
