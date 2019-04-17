@@ -24,20 +24,46 @@ def buscarAsignatura(nombAsig):
     connect_db = psycopg2.connect(database=db, user=usuario, password=pw, host=host_db)
     cursor = connect_db.cursor()
 
-    cursor.execute("SELECT * FROM AsignaturasGII WHERE asignatura LIKE %s", [nombAsig])
-    asig = gDocen = fExam = hTeo = ""
+    # cursor.execute("SELECT * FROM AsignaturasGII WHERE asignatura LIKE %s", [nombAsig])
+    # asig = gDocen = fExam = hTeo = ""
+    # vAsig = []
+    # f = cursor.fetchall()
+
+    # for c in f:
+    #     asig = "-Asignatura: " + str(c[0]) 
+    #     vAsig.append(asig)
+    #     gDocen = " -Guía docente: " + str(c[1])
+    #     vAsig.append(gDocen)
+    #     fExam = " -Fecha exámen final: " + str(c[2]) 
+    #     vAsig.append(fExam)
+    #     hTeo  = " -Horario teoría: " + str(c[3])
+    #     vAsig.append(hTeo)
+
+    # connect_db.close()
+
+    # return vAsig
+
+def obtenerGuiaDocente(nombAsig):
+    connect_db = psycopg2.connect(database=db, user=usuario, password=pw, host=host_db)
+    cursor = connect_db.cursor()
+
+    asignatura = nombAsig.upper()
+
+    cursor.execute('SELECT * FROM "GuiasDocentes" WHERE asignatura = %s', [asignatura])
+
+    connect_db.commit()
+
+    asig = profesores = contactos = ""
     vAsig = []
     f = cursor.fetchall()
 
     for c in f:
         asig = "-Asignatura: " + str(c[0]) 
         vAsig.append(asig)
-        gDocen = " -Guía docente: " + str(c[1])
-        vAsig.append(gDocen)
-        fExam = " -Fecha exámen final: " + str(c[2]) 
-        vAsig.append(fExam)
-        hTeo  = " -Horario teoría: " + str(c[3])
-        vAsig.append(hTeo)
+        profesores = " -Profesores: " + str(c[1])
+        vAsig.append(profesores)
+        contactos = " -Contactos: " + str(c[2]) 
+        vAsig.append(contactos)
 
     connect_db.close()
 
@@ -60,7 +86,7 @@ def index():
 @app.route("/busqueda", methods=['POST'])
 def busqueda():
 	asig = request.form['asignatura']
-	res = buscarAsignatura(asig)
+	res = obtenerGuiaDocente(asig)
 
 	return render_template("result.html", resultado=res)
 
