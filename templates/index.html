@@ -40,8 +40,8 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li><a href="#home" class="smoothScroll">Home</a></li>
-      			<li> <a href="#about" class="smoothScroll"> About</a></li>
-      			<li> <a href="#contact" class="smoothScroll"> Contact</a></li>
+      			<li> <a href="#about" class="smoothScroll">About</a></li>
+      			<li> <a href="#contact" class="smoothScroll">Contact</a></li>
         </div><!--/.nav-collapse -->
       </div>
     </div>
@@ -59,11 +59,29 @@
 		<div class="container" id="about" name="about">
 			<div class="row white">
 			<br>
-        <center>
-        <form action="/busqueda" method="POST">
-                  <input type="text" name="asignatura" placeholder="Introduzca asignatura...">
-                  <input type="submit" value="Enviar">
-        </form>
+          <center>
+            <b><p>Información sobre profesores y contactos</p></b>
+          <form action="/busqueda" method="POST">
+                    <input type="text" name="asignatura" placeholder="Ejemplo: ALEM">
+                    <input type="submit" value="Enviar">
+          </form>
+          <center>
+            <b><p>Información sobre horarios</p></b>
+          <form action="/busqueda" method="POST">
+                    <input type="text" size="15" name="curso" placeholder="Ejemplo: tercero ó 3">
+                    <input type="text" size="15" name="cuatrimetre" placeholder="Ejemplo: primero ó 1">
+                    <input type="text" size="15" name="grupo" placeholder="Ejemplo: A ó a">
+                    <input type="text" size="15" name="dia" placeholder="Ejemplo: lunes">
+                    <input type="submit" value="Enviar">
+          </form>
+          <center>
+              <b><p>Información sobre fecha exámenes</p></b>
+            <form action="/busqueda" method="POST">
+                      <input type="text" name="asignatura" placeholder="Ejemplo: ALEM">
+                      <input type="text" name="semestre" placeholder="Ejemplo: primero ó 1">
+                      <input type="text" name="convocatoria" placeholder="Ejemplo: ordinaria">
+                      <input type="submit" value="Enviar">
+            </form>
         <br>
         </center>
 				<h1 class="centered">Proyecto servicio web</h1>
