@@ -72,6 +72,24 @@ def extractDataTeable_GuiaDocente(asignatura):
             connect_db.commit()
             print("Fila insertada correctamente")
 
+    if asignatura == 'FS':
+        tablas = camelot.read_pdf(os.path.join(RESOURCE, 'ETSIIT_GII_FS_1718_FundDelSoftware.v1.pdf'), pages='1')
+        tablas.export(os.path.join(OUTPUT, 'ETSIIT_GII_FS_1718_FundDelSoftware.v1.csv'), f='csv', compress=False)
+
+        with open(os.path.join(OUTPUT, 'ETSIIT_GII_FS_1718_FundDelSoftware.v1-page-1-table-1.csv'), 'r') as archivo:
+            datos = pd.read_csv(archivo, header=0)
+            datosNoNaN = datos.fillna(value='')
+            
+            profesores = (datosNoNaN.iloc[2,0])
+            contactos = (datosNoNaN.iloc[2,1])
+
+            sql_insert_query = """INSERT INTO "GuiasDocentes" VALUES(%s, %s, %s)"""
+            insert_tuple = (asignatura, profesores, contactos)
+            result = cursor.execute(sql_insert_query, insert_tuple)
+
+            connect_db.commit()
+            print("Fila insertada correctamente")
+
 
 if __name__ == '__main__':
     if sys.argv[1:]:

@@ -58,11 +58,11 @@ def obtenerGuiaDocente(nombAsig):
     f = cursor.fetchall()
 
     for c in f:
-        asig = "-Asignatura: " + str(c[0]) 
+        asig = "-Asignatura: " + str(c[0])
         vAsig.append(asig)
-        profesores = " -Profesores: " + str(c[1])
+        profesores = " -Profesores: " + str(c[1].replace('","', ', ').replace('{', '').replace('}', '').replace('"', ''))
         vAsig.append(profesores)
-        contactos = " -Contactos: " + str(c[2]) 
+        contactos = " -Contactos: " + str(c[2].replace('","', ', ').replace('{', '').replace('}', '').replace('"', '')) 
         vAsig.append(contactos)
 
     connect_db.close()
