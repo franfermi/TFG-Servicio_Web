@@ -6,9 +6,15 @@ import csv
 import os
 import pandas as pd
 import sys
+import psycopg2
 
 RESOURCE = './resources'
 OUTPUT = './outputs'
+
+db = os.environ['NAME_DB']
+host_db = os.environ['HOST_DB']
+usuario = os.environ['USER_DB']
+pw = os.environ['PW_DB']
 
 def extractDataTable1_1A1C_1A2C(cuatrimestre, dia):
     tablas = camelot.read_pdf(os.path.join(
@@ -169,15 +175,15 @@ def extractDataTable1_1A1C_1A2C(cuatrimestre, dia):
 
         if(cuatrimestre == '1' or cuatrimestre == 'primero' or cuatrimestre == 'uno'):
             if(dia.lower() == 'lunes'):
-                print(listLunes)
+                return listLunes
             if(dia.lower() == 'martes'):
-                print(listMartes)
+                return listMartes
             if(dia.lower() == 'miercoles'):
-                print(listMiercoles)
+                return listMiercoles
             if(dia.lower() == 'jueves'):
-                print(listJueves)
+                return listJueves
             if(dia.lower() == 'viernes'):
-                print(listViernes)
+                return listViernes
         
     with open(os.path.join(OUTPUT, './HORARIOS/HORARIOS1819-page-1-table-2.csv'), 'r') as archivo:
         datos = pd.read_csv(archivo, header=0)
@@ -301,15 +307,15 @@ def extractDataTable1_1A1C_1A2C(cuatrimestre, dia):
 
         if(cuatrimestre == '2' or cuatrimestre == 'segundo' or cuatrimestre == 'dos'):
             if(dia.lower() == 'lunes'):
-                print(listLunes)
+                return listLunes
             if(dia.lower() == 'martes'):
-                print(listMartes)
+                return listMartes
             if(dia.lower() == 'miercoles'):
-                print(listMiercoles)
+                return listMiercoles
             if(dia.lower() == 'jueves'):
-                print(listJueves)
+                return listJueves
             if(dia.lower() == 'viernes'):
-                print(listViernes)
+                return listViernes
 
 def extractDataTable1_1B1C_1B2C(cuatrimestre, dia):
     tablas = camelot.read_pdf(os.path.join(
@@ -4785,10 +4791,23 @@ def extractDataTable1_4C_1C_2C_TecnologiasInformacion():
 if __name__ == '__main__':
     if(sys.argv[4:]):
         cuatrimestre = sys.argv[3]
-        dia = sys.argv[4]
+        dia = sys.argv[4].upper()
+        
+        connect_db = psycopg2.connect(database=db, user=usuario, password=pw, host=host_db)
+        cursor = connect_db.cursor()
+
         if(sys.argv[1] == '1' or sys.argv[1] == 'primero' or sys.argv[1] == 'uno'):
             if(sys.argv[2] == 'A' or sys.argv[2] == 'a'):
-                extractDataTable1_1A1C_1A2C(cuatrimestre, dia)
+                if(cuatrimestre == '1' or cuatrimestre == 'primero' or cuatrimestre == 'primer'):
+                    listDia = extractDataTable1_1A1C_1A2C(cuatrimestre, dia)
+
+                    sql_insert_query = """INSERT INTO "Horarios" VALUES(%s, %s, %s, %s, %s)"""
+                    insert_tuple = (1, 1, 'A', dia, listDia)
+                    result = cursor.execute(sql_insert_query, insert_tuple)
+
+                    connect_db.commit()
+                    print("Fila insertada correctamente")
+
             if(sys.argv[2] == 'B' or sys.argv[2] == 'b'):
                 extractDataTable1_1B1C_1B2C(cuatrimestre, dia)
             if(sys.argv[2] == 'C' or sys.argv[2] == 'c'):

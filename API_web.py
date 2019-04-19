@@ -69,6 +69,36 @@ def obtenerGuiaDocente(nombAsig):
 
     return vAsig
 
+def obtenerHorarios(curso, cuatrimestre, grupo, dia):
+    connect_db = psycopg2.connect(database=db, user=usuario, password=pw, host=host_db)
+    cursor = connect_db.cursor()
+
+    cursor.execute('SELECT * FROM "Horarios" WHERE curso = %s and cuatrimestre = %s and grupo = %s and dia = %s', [(curso), (cuatrimestre), (grupo), (dia.upper())])
+
+    connect_db.commit()
+
+    cursoH = cuatrimestreH = grupoH = diaH = diaHorario = ''
+    vHorario = []
+    f = cursor.fetchall()
+
+    for c in f:
+        cursoH = "-Curso: " + str(c[0])
+        vHorario.append(cursoH)
+        cuatrimestreH = "-Cuatrimestre: " + str(c[1])
+        vHorario.append(cuatrimestreH)
+        grupoH = "-Grupo: " + str(c[2])
+        vHorario.append(grupoH)
+        diaH = "-Día: " + str(c[3])
+        vHorario.append(diaH)
+        diaHorario = "-Horario: " + str(c[4].replace('"', '').replace(',', ', ').replace('{', '').replace('}', ''))
+        vHorario.append(diaHorario)
+        # contactos = " -Contactos: " + str(c[2].replace('","', ', ').replace('{', '').replace('}', '').replace('"', '')) 
+        # vAsig.append(contactos)
+
+    connect_db.close()
+
+    return vHorario
+
 @app.route("/status")
 def docker():
     return jsonify(status='OK')
@@ -83,12 +113,32 @@ def index():
         print("Error en la conexión a la BD")
     return render_template("index.html")
 
-@app.route("/busqueda", methods=['POST'])
-def busqueda():
+@app.route("/busquedaProfesoresContactos", methods=['POST'])
+def busquedaPC():
 	asig = request.form['asignatura']
 	res = obtenerGuiaDocente(asig)
 
-	return render_template("result.html", resultado=res)
+	return render_template("resultGD.html", resultado=res)
+
+@app.route("/busquedaHorarios", methods=['POST'])
+def busquedaHO():
+    cursoHO = request.form['curso']
+    cuatrimestreHO = request.form['cuatrimestre']
+    grupoHO = request.form['grupo']
+    diaHO = request.form['dia']
+    res = obtenerHorarios(cursoHO, cuatrimestreHO, grupoHO, diaHO)
+
+    return render_template("resultHO.html", resultado=res)
+
+# @app.route("/busquedaExamenes", methods=['POST'])
+# def busqueda():
+	# curso = request.form['curso']
+    # cuatrimestre = request.form['cuatrimestre']
+    # grupo = request.form['grupo']
+    # dia = request.form['dia']
+	# res = obtenerGuiaDocente(asig)
+
+	# return render_template("result.html", resultado=res)
 
 @app.errorhandler(404)
 def page_not_found(error):
