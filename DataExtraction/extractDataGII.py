@@ -5,12 +5,13 @@ import camelot
 import csv
 import os
 import pandas as pd
+import sys
 
 RESOURCE = './resources'
 OUTPUT = './outputs'
 
 
-def extractDataTable1_1SemOrdinaria():
+def extractDataTable1_1SemOrdinaria(asignaturaEX):
     tablas = camelot.read_pdf(os.path.join(
         RESOURCE, 'CalendarioExamenes18-19-GII.pdf'))
     tablas.export(os.path.join(
@@ -31,22 +32,24 @@ def extractDataTable1_1SemOrdinaria():
         examenes22Ene = datosNoNaN.iloc[:, 16]
         examenes23Ene = datosNoNaN.iloc[:, 17]
 
-        # print(examenes10Ene.value_counts())
-        # print(examenes22Ene.count())
-        # print(examenes22Ene)
-
         contTope = examenes10Ene.count()
         contAsig = datosNoNaN.iloc[3, :].count()
         cont10E = 0
         cont10Easig = 0
         exAsig10E = []
         asignatura = []
+        resultado = []
 
         while cont10E < contTope:
             if(examenes10Ene[cont10E] == 'M'):
                 asignatura = datosNoNaN.iloc[cont10E, :]
                 while cont10Easig < contAsig:
                     if(asignatura[cont10Easig] >= 'A' and asignatura[cont10Easig] <= 'z'):
+                        # if(asignatura[cont10Easig]==asignaturaEX):
+                        #     resultado.append("10 de Enero")
+                        #     resultado.append(asignatura[cont10Easig])
+                        #     resultado.append(asignatura[cont10Easig+1])
+                        #     resultado.append(asignatura[cont10Easig+2])
                         exAsig10E.append(str(asignatura[cont10Easig]))
                     cont10Easig += 1
             elif(examenes10Ene[cont10E] == 'T'):
@@ -120,6 +123,7 @@ def extractDataTable1_1SemOrdinaria():
                         exAsig15E.append(str(asignatura[cont15Easig]))
                     cont15Easig += 1
             cont15E += 1
+
         ################################
         cont16E = 0
         cont16Easig = 0
@@ -249,18 +253,132 @@ def extractDataTable1_1SemOrdinaria():
         ################################
         # Comprobación del contenido
         cont = 0
-        print("------------------------------------")
-        print("1er Semestre - Ordinaria")
-        print("------------------------------------")
-        while cont < len(exAsig10E):
-            print(str(exAsig10E[cont]))
+        resultado = []
+        encontrado  = False
+
+        while(cont < len(exAsig10E) and (encontrado == False)):
+            if(exAsig10E[cont] == asignaturaEX):
+                resultado.append("10 de Enero")
+                resultado.append(exAsig10E[cont])
+                resultado.append(exAsig10E[cont+1])
+                resultado.append(exAsig10E[cont+2])
+                encontrado = True
+            cont += 1
+        
+        cont = 0
+        while(cont < len(exAsig11E) and (encontrado == False)):
+            if(exAsig11E[cont] == asignaturaEX):
+                resultado.append("11 de Enero")
+                resultado.append(exAsig11E[cont])
+                resultado.append(exAsig11E[cont+1])
+                resultado.append(exAsig11E[cont+2])
+                encontrado = True
             cont += 1
 
-        # for num in datosNoNaN:
-        #     print (datosNoNaN[num:num+1])
+        cont = 0
+        while(cont < len(exAsig14E) and (encontrado == False)):
+            if(exAsig14E[cont] == asignaturaEX):
+                resultado.append("14 de Enero")
+                resultado.append(exAsig14E[cont])
+                resultado.append(exAsig14E[cont+1])
+                resultado.append(exAsig14E[cont+2])
+                encontrado = True
+            cont += 1
+
+        cont = 0
+        while(cont < len(exAsig14E) and (encontrado == False)):
+            if(exAsig14E[cont] == asignaturaEX):
+                resultado.append("14 de Enero")
+                resultado.append(exAsig14E[cont])
+                resultado.append(exAsig14E[cont+1])
+                resultado.append(exAsig14E[cont+2])
+                encontrado = True
+            cont += 1
+
+        cont = 0
+        while(cont < len(exAsig14E) and (encontrado == False)):
+            if(exAsig14E[cont] == asignaturaEX):
+                resultado.append("14 de Enero")
+                resultado.append(exAsig14E[cont])
+                resultado.append(exAsig14E[cont+1])
+                resultado.append(exAsig14E[cont+2])
+                encontrado = True
+            cont += 1
+
+        cont = 0
+        while(cont < len(exAsig15E) and (encontrado == False)):
+            if(exAsig15E[cont] == asignaturaEX):
+                resultado.append("15 de Enero")
+                resultado.append(exAsig15E[cont])
+                resultado.append(exAsig15E[cont+1])
+                resultado.append(exAsig15E[cont+2])
+                encontrado = True
+            cont += 1
+
+        cont = 0
+        while(cont < len(exAsig16E) and (encontrado == False)):
+            if(exAsig16E[cont] == asignaturaEX):
+                resultado.append("16 de Enero")
+                resultado.append(exAsig16E[cont])
+                resultado.append(exAsig16E[cont+1])
+                resultado.append(exAsig16E[cont+2])
+                encontrado = True
+            cont += 1
+    
+        cont = 0
+        while(cont < len(exAsig17E) and (encontrado == False)):
+            if(exAsig17E[cont] == asignaturaEX):
+                resultado.append("17 de Enero")
+                resultado.append(exAsig17E[cont])
+                resultado.append(exAsig17E[cont+1])
+                resultado.append(exAsig17E[cont+2])
+                encontrado = True
+            cont += 1
+
+        cont = 0
+        while(cont < len(exAsig18E) and (encontrado == False)):
+            if(exAsig18E[cont] == asignaturaEX):
+                resultado.append("18 de Enero")
+                resultado.append(exAsig18E[cont])
+                resultado.append(exAsig18E[cont+1])
+                resultado.append(exAsig18E[cont+2])
+                encontrado = True
+            cont += 1
+
+        cont = 0
+        while(cont < len(exAsig21E) and (encontrado == False)):
+            if(exAsig21E[cont] == asignaturaEX):
+                resultado.append("21 de Enero")
+                resultado.append(exAsig21E[cont])
+                resultado.append(exAsig21E[cont+1])
+                resultado.append(exAsig21E[cont+2])
+                encontrado = True
+            cont += 1
+
+        cont = 0
+        while(cont < len(exAsig22E) and (encontrado == False)):
+            if(exAsig22E[cont] == asignaturaEX):
+                resultado.append("22 de Enero")
+                resultado.append(exAsig22E[cont])
+                resultado.append(exAsig22E[cont+1])
+                resultado.append(exAsig22E[cont+2])
+                encontrado = True
+            cont += 1
+        
+        cont = 0
+        while(cont < len(exAsig23E) and (encontrado == False)):
+            if(exAsig23E[cont] == asignaturaEX):
+                resultado.append("23 de Enero")
+                resultado.append(exAsig23E[cont])
+                resultado.append(exAsig23E[cont+1])
+                resultado.append(exAsig23E[cont+2])
+                encontrado = True
+            cont += 1
+
+        return resultado
 
 
-def extractDataTable2_1SemOrdinaria():
+def extractDataTable2_1SemOrdinaria(asignatura):
     tablas = camelot.read_pdf(os.path.join(
         RESOURCE, 'CalendarioExamenes18-19-GII.pdf'), pages='2')
     tablas.export(os.path.join(
@@ -500,12 +618,63 @@ def extractDataTable2_1SemOrdinaria():
         ################################
         # Comprobación del contenido
         cont = 0
-        print("------------------------------------")
-        print("1er Semestre - Ordinaria cont")
-        print("------------------------------------")
-        while cont < len(exAsig10E):
-            print(str(exAsig10E[cont]))
+        resultado = []
+        encontrado  = False
+
+        while (cont < len(exAsig10E) and (encontrado != False)):
+            if(exAsig10E[cont] == asignaturaEX):
+                resultado.append(exAsig10E[cont])
+                resultado.append(exAsig10E[cont+1])
+                resultado.append(exAsig10E[cont+2])
+                encontrado = True
+            if(exAsig11E[cont] == asignaturaEX):
+                resultado.append(exAsig11E[cont])
+                resultado.append(exAsig11E[cont+1])
+                resultado.append(exAsig11E[cont+2])
+                encontrado = True
+            if(exAsig14E[cont] == asignaturaEX):
+                resultado.append(exAsig14E[cont])
+                resultado.append(exAsig14E[cont+1])
+                resultado.append(exAsig14E[cont+2])
+                encontrado = True
+            if(exAsig15E[cont] == asignaturaEX):
+                resultado.append(exAsig15E[cont])
+                resultado.append(exAsig15E[cont+1])
+                resultado.append(exAsig15E[cont+2])
+                encontrado = True
+            if(exAsig16E[cont] == asignaturaEX):
+                resultado.append(exAsig16E[cont])
+                resultado.append(exAsig16E[cont+1])
+                resultado.append(exAsig16E[cont+2])
+                encontrado = True
+            if(exAsig17E[cont] == asignaturaEX):
+                resultado.append(exAsig17E[cont])
+                resultado.append(exAsig17E[cont+1])
+                resultado.append(exAsig17E[cont+2])
+                encontrado = True
+            if(exAsig18E[cont] == asignaturaEX):
+                resultado.append(exAsig18E[cont])
+                resultado.append(exAsig18E[cont+1])
+                resultado.append(exAsig18E[cont+2])
+                encontrado = True
+            if(exAsig21E[cont] == asignaturaEX):
+                resultado.append(exAsig21E[cont])
+                resultado.append(exAsig21E[cont+1])
+                resultado.append(exAsig21E[cont+2])
+                encontrado = True
+            if(exAsig22E[cont] == asignaturaEX):
+                resultado.append(exAsig22E[cont])
+                resultado.append(exAsig22E[cont+1])
+                resultado.append(exAsig22E[cont+2])
+                encontrado = True
+            if(exAsig23E[cont] == asignaturaEX):
+                resultado.append(exAsig23E[cont])
+                resultado.append(exAsig23E[cont+1])
+                resultado.append(exAsig23E[cont+2])
+                encontrado = True
             cont += 1
+
+        return resultado
 
 
 def extractDataTable1_1SemExtraordinaria():
@@ -2617,14 +2786,17 @@ def extractDataTable3_2SemExtraordinaria():
             cont+=1
 
 if __name__ == '__main__':
-    # extractDataTable1_1SemOrdinaria()
-    # extractDataTable2_1SemOrdinaria()
-    # extractDataTable1_1SemExtraordinaria()
-    # extractDataTable2_1SemExtraordinaria()
+    if(sys.argv[1:]):
+        asignaturaEX = sys.argv[1]
+        res=extractDataTable1_1SemOrdinaria(asignaturaEX)
+        print(res)
+        # extractDataTable2_1SemOrdinaria()
+        # extractDataTable1_1SemExtraordinaria()
+        # extractDataTable2_1SemExtraordinaria()
 
-    # extractDataTable1_2SemOrdinaria()
-    # extractDataTable2_2SemOrdinaria()
-    # extractDataTable3_2SemOrdinaria()
-    # extractDataTable1_2SemExtraordinaria()
-    # extractDataTable2_2SemExtraordinaria()
-    extractDataTable3_2SemExtraordinaria()
+        # extractDataTable1_2SemOrdinaria()
+        # extractDataTable2_2SemOrdinaria()
+        # extractDataTable3_2SemOrdinaria()
+        # extractDataTable1_2SemExtraordinaria()
+        # extractDataTable2_2SemExtraordinaria()
+        # extractDataTable3_2SemExtraordinaria()
