@@ -98,32 +98,31 @@ def obtenerHorarios(curso, cuatrimestre, grupo, dia):
     return vHorario
 
 def obtenerFechaEx(asignatura, semestre, convocatoria):
-    # connect_db = psycopg2.connect(database=db, user=usuario, password=pw, host=host_db)
-    # cursor = connect_db.cursor()
+    connect_db = psycopg2.connect(database=db, user=usuario, password=pw, host=host_db)
+    cursor = connect_db.cursor()
 
-    # cursor.execute('SELECT * FROM "Horarios" WHERE curso = %s and cuatrimestre = %s and grupo = %s and dia = %s', [(curso), (cuatrimestre), (grupo), (dia.upper())])
+    cursor.execute('SELECT * FROM "FechasExamenes" WHERE asignatura = %s and semestre = %s and convocatoria = %s', [(asignatura), (semestre), (convocatoria.lower())])
 
-    # connect_db.commit()
+    connect_db.commit()
 
-    # cursoH = cuatrimestreH = grupoH = diaH = diaHorario = ''
-    # vHorario = []
-    # f = cursor.fetchall()
+    asignaturaEX = semestreEX = convocatoriaEX = fechaEX = ''
+    vFechaExamen = []
+    f = cursor.fetchall()
 
-    # for c in f:
-    #     cursoH = "-Curso: " + str(c[0])
-    #     vHorario.append(cursoH)
-    #     cuatrimestreH = "-Cuatrimestre: " + str(c[1])
-    #     vHorario.append(cuatrimestreH)
-    #     grupoH = "-Grupo: " + str(c[2])
-    #     vHorario.append(grupoH)
-    #     diaH = "-Día: " + str(c[3])
-    #     vHorario.append(diaH)
-    #     diaHorario = "-Horario: " + str(c[4].replace('"', '').replace(',', ', ').replace('{', '').replace('}', ''))
-    #     vHorario.append(diaHorario)
+    for c in f:
+        asignaturaEX = "-Asignatura: " + str(c[0])
+        vFechaExamen.append(asignaturaEX)
+        semestreEX = "-Semestre: " + str(c[1])
+        vFechaExamen.append(semestreEX)
+        convocatoriaEX = "-Convocatoria: " + str(c[2])
+        vFechaExamen.append(convocatoriaEX)
+        fechaEX = "-Fecha exámen (M=mañana y T=tarde): " + str(c[3].replace('"', '').replace(',', ', ').replace('{', '').replace('}', ''))
+        vFechaExamen.append(fechaEX)
+        vFechaExamen.append("Los exámenes por la mañana serán a las 9:00 y los exámenes por la tarde a las 16:00.")
 
-    # connect_db.close()
+    connect_db.close()
 
-    # return vHorario
+    return vFechaExamen
 
 @app.route("/status")
 def docker():
@@ -158,12 +157,12 @@ def busquedaHO():
 
 @app.route("/busquedaExamenes", methods=['POST'])
 def busquedaEX():
-	asignaturaEX = request.form['asignatura']
+    asignaturaEX = request.form['asignatura']
     semestreEX = request.form['semestre']
     convocatoriaEX = request.form['convocatoria']
-	res = obtenerFechaEx(asignaturaEX, semestreEX, convocatoriaEX)
+    res = obtenerFechaEx(asignaturaEX, semestreEX, convocatoriaEX)
 
-	return render_template("resultEX.html", resultado=res)
+    return render_template("resultEX.html", resultado=res)
 
 @app.errorhandler(404)
 def page_not_found(error):
