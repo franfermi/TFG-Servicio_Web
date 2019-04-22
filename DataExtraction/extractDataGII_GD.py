@@ -90,6 +90,60 @@ def extractDataTeable_GuiaDocente(asignatura):
             connect_db.commit()
             print("Fila insertada correctamente")
 
+    if asignatura == 'FP':
+        tablas = camelot.read_pdf(os.path.join(RESOURCE, 'ficha_GInf_FP_2961115.pdf'), pages='1')
+        tablas.export(os.path.join(OUTPUT, 'ficha_GInf_FP_2961115.csv'), f='csv', compress=False)
+
+        with open(os.path.join(OUTPUT, 'ficha_GInf_FP_2961115-page-1-table-1.csv'), 'r') as archivo:
+            datos = pd.read_csv(archivo, header=0)
+            datosNoNaN = datos.fillna(value='')
+            
+            profesores = (datosNoNaN.iloc[2,0])
+            contactos = (datosNoNaN.iloc[2,1])
+
+            sql_insert_query = """INSERT INTO "GuiasDocentes" VALUES(%s, %s, %s)"""
+            insert_tuple = (asignatura, profesores, contactos)
+            result = cursor.execute(sql_insert_query, insert_tuple)
+
+            connect_db.commit()
+            print("Fila insertada correctamente")
+
+    if asignatura == 'FFT':
+        tablas = camelot.read_pdf(os.path.join(RESOURCE, 'guia_docente_fft_gii_17_18.pdf'), pages='1')
+        tablas.export(os.path.join(OUTPUT, 'guia_docente_fft_gii_17_18.csv'), f='csv', compress=False)
+
+        with open(os.path.join(OUTPUT, 'guia_docente_fft_gii_17_18-page-1-table-1.csv'), 'r') as archivo:
+            datos = pd.read_csv(archivo, header=0)
+            datosNoNaN = datos.fillna(value='')
+            
+            profesores = (datosNoNaN.iloc[2,0])
+            contactos = (datosNoNaN.iloc[2,1])
+
+            sql_insert_query = """INSERT INTO "GuiasDocentes" VALUES(%s, %s, %s)"""
+            insert_tuple = (asignatura, profesores, contactos)
+            result = cursor.execute(sql_insert_query, insert_tuple)
+
+            connect_db.commit()
+            print("Fila insertada correctamente")
+
+    if asignatura == 'ES':
+        tablas = camelot.read_pdf(os.path.join(RESOURCE, 'estadistica.pdf'), pages='1')
+        tablas.export(os.path.join(OUTPUT, 'estadistica.csv'), f='csv', compress=False)
+
+        with open(os.path.join(OUTPUT, 'estadistica-page-1-table-1.csv'), 'r') as archivo:
+            datos = pd.read_csv(archivo, header=0)
+            datosNoNaN = datos.fillna(value='')
+            
+            profesores = (datosNoNaN.iloc[2,0])
+            contactos = (datosNoNaN.iloc[2,1])
+
+            sql_insert_query = """INSERT INTO "GuiasDocentes" VALUES(%s, %s, %s)"""
+            insert_tuple = (asignatura, profesores, contactos)
+            result = cursor.execute(sql_insert_query, insert_tuple)
+
+            connect_db.commit()
+            print("Fila insertada correctamente")
+
 
 if __name__ == '__main__':
     if sys.argv[1:]:
