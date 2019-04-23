@@ -292,26 +292,6 @@ def extractDataTable1_1SemOrdinaria(asignaturaEX):
             cont += 1
 
         cont = 0
-        while(cont < len(exAsig14E) and (encontrado == False)):
-            if(exAsig14E[cont] == asignaturaEX):
-                resultado.append("14 de Enero")
-                resultado.append(exAsig14E[cont])
-                resultado.append(exAsig14E[cont+1])
-                resultado.append(exAsig14E[cont+2])
-                encontrado = True
-            cont += 1
-
-        cont = 0
-        while(cont < len(exAsig14E) and (encontrado == False)):
-            if(exAsig14E[cont] == asignaturaEX):
-                resultado.append("14 de Enero")
-                resultado.append(exAsig14E[cont])
-                resultado.append(exAsig14E[cont+1])
-                resultado.append(exAsig14E[cont+2])
-                encontrado = True
-            cont += 1
-
-        cont = 0
         while(cont < len(exAsig15E) and (encontrado == False)):
             if(exAsig15E[cont] == asignaturaEX):
                 resultado.append("15 de Enero")
@@ -384,7 +364,7 @@ def extractDataTable1_1SemOrdinaria(asignaturaEX):
         return resultado
 
 
-def extractDataTable2_1SemOrdinaria(asignatura):
+def extractDataTable2_1SemOrdinaria(asignaturaEX):
     tablas = camelot.read_pdf(os.path.join(
         RESOURCE, 'CalendarioExamenes18-19-GII.pdf'), pages='2')
     tablas.export(os.path.join(
@@ -407,7 +387,7 @@ def extractDataTable2_1SemOrdinaria(asignatura):
 
         # print(examenes10Ene.value_counts())
         # print(examenes10Ene.count())
-        # print(examenes10Ene)
+        # print(examenes18Ene)
         # print(datosNoNaN.iloc[3,:])
 
         contTope = examenes10Ene.count()
@@ -657,26 +637,6 @@ def extractDataTable2_1SemOrdinaria(asignatura):
             cont += 1
 
         cont = 0
-        while(cont < len(exAsig14E) and (encontrado == False)):
-            if(exAsig14E[cont] == asignaturaEX):
-                resultado.append("14 de Enero")
-                resultado.append(exAsig14E[cont])
-                resultado.append(exAsig14E[cont+1])
-                resultado.append(exAsig14E[cont+2])
-                encontrado = True
-            cont += 1
-
-        cont = 0
-        while(cont < len(exAsig14E) and (encontrado == False)):
-            if(exAsig14E[cont] == asignaturaEX):
-                resultado.append("14 de Enero")
-                resultado.append(exAsig14E[cont])
-                resultado.append(exAsig14E[cont+1])
-                resultado.append(exAsig14E[cont+2])
-                encontrado = True
-            cont += 1
-
-        cont = 0
         while(cont < len(exAsig15E) and (encontrado == False)):
             if(exAsig15E[cont] == asignaturaEX):
                 resultado.append("15 de Enero")
@@ -748,10 +708,8 @@ def extractDataTable2_1SemOrdinaria(asignatura):
 
         return resultado
 
-        return resultado
 
-
-def extractDataTable1_1SemExtraordinaria():
+def extractDataTable1_1SemExtraordinaria(asignaturaEX):
     tablas = camelot.read_pdf(os.path.join(RESOURCE, 'CalendarioExamenes18-19-GII.pdf'), pages='3')
     tablas.export(os.path.join(OUTPUT, 'CalendarioExamenes18-19-GII.csv'), f='csv', compress=False)
 
@@ -759,245 +717,342 @@ def extractDataTable1_1SemExtraordinaria():
         datos = pd.read_csv(archivo, header=-1)
         datosNoNaN = datos.fillna(value='0')
 
-    examenes31Ene = datosNoNaN.iloc[:,6]
-    examenes1Feb = datosNoNaN.iloc[:,7]
-    examenes4Feb = datosNoNaN.iloc[:,9]
-    examenes5Feb = datosNoNaN.iloc[:,10]
-    examenes6Feb = datosNoNaN.iloc[:,11]
-    examenes7Feb = datosNoNaN.iloc[:,12]
-    examenes8Feb = datosNoNaN.iloc[:,13]
-    examenes11Feb = datosNoNaN.iloc[:,15]
-    examenes12Feb = datosNoNaN.iloc[:,16]
-    examenes13Feb = datosNoNaN.iloc[:,17]
+        examenes31Ene = datosNoNaN.iloc[:,6]
+        examenes1Feb = datosNoNaN.iloc[:,7]
+        examenes4Feb = datosNoNaN.iloc[:,9]
+        examenes5Feb = datosNoNaN.iloc[:,10]
+        examenes6Feb = datosNoNaN.iloc[:,11]
+        examenes7Feb = datosNoNaN.iloc[:,12]
+        examenes8Feb = datosNoNaN.iloc[:,13]
+        examenes11Feb = datosNoNaN.iloc[:,15]
+        examenes12Feb = datosNoNaN.iloc[:,16]
+        examenes13Feb = datosNoNaN.iloc[:,17]
 
-    # print(examenes10Ene.value_counts())
-    # print(examenes10Ene.count())
-    # print(examenes10Ene)
-    # print(datosNoNaN.iloc[3,:])
+        # print(examenes10Ene.value_counts())
+        # print(examenes10Ene.count())
+        # print(examenes31Ene)
+        # print(datosNoNaN.iloc[3,:])
 
-    contTope = examenes31Ene.count()
-    contAsig = datosNoNaN.iloc[3,:].count()
-    cont31E = 0
-    cont31Easig = 0
-    exAsig31E = []
+        contTope = examenes31Ene.count()
+        contAsig = datosNoNaN.iloc[3,:].count()
+        cont31E = 0
+        cont31Easig = 0
+        exAsig31E = []
 
-    while cont31E < contTope:
-        if(examenes31Ene[cont31E]=='M'):
-            asignatura = datosNoNaN.iloc[cont31E,:]
-            cont31Easig = 0
-            while cont31Easig < contAsig:
-                if(asignatura[cont31Easig] >= 'A' and asignatura[cont31Easig] <= 'z'):
-                    exAsig31E.append(str(asignatura[cont31Easig]))
-                cont31Easig+=1
-        elif(examenes31Ene[cont31E]=='T'):
-            asignatura = datosNoNaN.iloc[cont31E,:]
-            cont31Easig = 0
-            while cont31Easig < contAsig:
-                if(asignatura[cont31Easig] >= 'A' and asignatura[cont31Easig] <= 'z'):
-                    exAsig31E.append(str(asignatura[cont31Easig]))
-                cont31Easig+=1
-        cont31E+=1
-    # ################################
-    cont1F = 0
-    cont1Fasig = 0
-    exAsig1F = []
+        while cont31E < contTope:
+            if(examenes31Ene[cont31E]=='M'):
+                asignatura = datosNoNaN.iloc[cont31E,:]
+                cont31Easig = 0
+                while cont31Easig < contAsig:
+                    if(asignatura[cont31Easig] >= 'A' and asignatura[cont31Easig] <= 'z'):
+                        exAsig31E.append(str(asignatura[cont31Easig]))
+                    cont31Easig+=1
+            elif(examenes31Ene[cont31E]=='T'):
+                asignatura = datosNoNaN.iloc[cont31E,:]
+                cont31Easig = 0
+                while cont31Easig < contAsig:
+                    if(asignatura[cont31Easig] >= 'A' and asignatura[cont31Easig] <= 'z'):
+                        exAsig31E.append(str(asignatura[cont31Easig]))
+                    cont31Easig+=1
+            cont31E+=1
+        # ################################
+        cont1F = 0
+        cont1Fasig = 0
+        exAsig1F = []
 
-    while cont1F < contTope:
-        if(examenes1Feb[cont1F]=='M'):
-            asignatura = datosNoNaN.iloc[cont1F,:]
-            cont1Fasig = 0
-            while cont1Fasig < contAsig:
-                if(asignatura[cont1Fasig] >= 'A' and asignatura[cont1Fasig] <= 'z'):
-                    exAsig1F.append(str(asignatura[cont1Fasig]))
-                cont1Fasig+=1
-        elif(examenes1Feb[cont1F]=='T'):
-            asignatura = datosNoNaN.iloc[cont1F,:]
-            cont1Fasig = 0
-            while cont1Fasig < contAsig:
-                if(asignatura[cont1Fasig] >= 'A' and asignatura[cont1Fasig] <= 'z'):
-                    exAsig1F.append(str(asignatura[cont1Fasig]))
-                cont1Fasig+=1
-        cont1F+=1
-    ################################
-    cont4F = 0
-    cont4Fasig = 0
-    exAsig4F = []
+        while cont1F < contTope:
+            if(examenes1Feb[cont1F]=='M'):
+                asignatura = datosNoNaN.iloc[cont1F,:]
+                cont1Fasig = 0
+                while cont1Fasig < contAsig:
+                    if(asignatura[cont1Fasig] >= 'A' and asignatura[cont1Fasig] <= 'z'):
+                        exAsig1F.append(str(asignatura[cont1Fasig]))
+                    cont1Fasig+=1
+            elif(examenes1Feb[cont1F]=='T'):
+                asignatura = datosNoNaN.iloc[cont1F,:]
+                cont1Fasig = 0
+                while cont1Fasig < contAsig:
+                    if(asignatura[cont1Fasig] >= 'A' and asignatura[cont1Fasig] <= 'z'):
+                        exAsig1F.append(str(asignatura[cont1Fasig]))
+                    cont1Fasig+=1
+            cont1F+=1
+        ################################
+        cont4F = 0
+        cont4Fasig = 0
+        exAsig4F = []
 
-    while cont4F < contTope:
-        if(examenes4Feb[cont4F]=='M'):
-            asignatura = datosNoNaN.iloc[cont4F,:]
-            cont4Fasig = 0
-            while cont4Fasig < contAsig:
-                if(asignatura[cont4Fasig] >= 'A' and asignatura[cont4Fasig] <= 'z'):
-                    exAsig4F.append(str(asignatura[cont4Fasig]))
-                cont4Fasig+=1
-        elif(examenes4Feb[cont4F]=='T'):
-            asignatura = datosNoNaN.iloc[cont4F,:]
-            cont4Fasig = 0
-            while cont4Fasig < contAsig:
-                if(asignatura[cont4Fasig] >= 'A' and asignatura[cont4Fasig] <= 'z'):
-                    exAsig4F.append(str(asignatura[cont4Fasig]))
-                cont4Fasig+=1
-        cont4F+=1
-    ################################
-    cont5F = 0
-    cont5Fasig = 0
-    exAsig5F = []
+        while cont4F < contTope:
+            if(examenes4Feb[cont4F]=='M'):
+                asignatura = datosNoNaN.iloc[cont4F,:]
+                cont4Fasig = 0
+                while cont4Fasig < contAsig:
+                    if(asignatura[cont4Fasig] >= 'A' and asignatura[cont4Fasig] <= 'z'):
+                        exAsig4F.append(str(asignatura[cont4Fasig]))
+                    cont4Fasig+=1
+            elif(examenes4Feb[cont4F]=='T'):
+                asignatura = datosNoNaN.iloc[cont4F,:]
+                cont4Fasig = 0
+                while cont4Fasig < contAsig:
+                    if(asignatura[cont4Fasig] >= 'A' and asignatura[cont4Fasig] <= 'z'):
+                        exAsig4F.append(str(asignatura[cont4Fasig]))
+                    cont4Fasig+=1
+            cont4F+=1
+        ################################
+        cont5F = 0
+        cont5Fasig = 0
+        exAsig5F = []
 
-    while cont5F < contTope:
-        if(examenes5Feb[cont5F]=='M'):
-            asignatura = datosNoNaN.iloc[cont5F,:]
-            cont5Fasig = 0
-            while cont5Fasig < contAsig:
-                if(asignatura[cont5Fasig] >= 'A' and asignatura[cont5Fasig] <= 'z'):
-                    exAsig5F.append(str(asignatura[cont5Fasig]))
-                cont5Fasig+=1
-        elif(examenes5Feb[cont5F]=='T'):
-            asignatura = datosNoNaN.iloc[cont5F,:]
-            cont5Fasig = 0
-            while cont5Fasig < contAsig:
-                if(asignatura[cont5Fasig] >= 'A' and asignatura[cont5Fasig] <= 'z'):
-                    exAsig5F.append(str(asignatura[cont5Fasig]))
-                cont5Fasig+=1
-        cont5F+=1
-    ################################
-    cont6F = 0
-    cont6Fasig = 0
-    exAsig6F = []
+        while cont5F < contTope:
+            if(examenes5Feb[cont5F]=='M'):
+                asignatura = datosNoNaN.iloc[cont5F,:]
+                cont5Fasig = 0
+                while cont5Fasig < contAsig:
+                    if(asignatura[cont5Fasig] >= 'A' and asignatura[cont5Fasig] <= 'z'):
+                        exAsig5F.append(str(asignatura[cont5Fasig]))
+                    cont5Fasig+=1
+            elif(examenes5Feb[cont5F]=='T'):
+                asignatura = datosNoNaN.iloc[cont5F,:]
+                cont5Fasig = 0
+                while cont5Fasig < contAsig:
+                    if(asignatura[cont5Fasig] >= 'A' and asignatura[cont5Fasig] <= 'z'):
+                        exAsig5F.append(str(asignatura[cont5Fasig]))
+                    cont5Fasig+=1
+            cont5F+=1
+        ################################
+        cont6F = 0
+        cont6Fasig = 0
+        exAsig6F = []
 
-    while cont6F < contTope:
-        if(examenes6Feb[cont6F]=='M'):
-            asignatura = datosNoNaN.iloc[cont6F,:]
-            cont6Fasig = 0
-            while cont6Fasig < contAsig:
-                if(asignatura[cont6Fasig] >= 'A' and asignatura[cont6Fasig] <= 'z'):
-                    exAsig6F.append(str(asignatura[cont6Fasig]))
-                cont6Fasig+=1
-        elif(examenes6Feb[cont6F]=='T'):
-            asignatura = datosNoNaN.iloc[cont6F,:]
-            cont6Fasig = 0
-            while cont6Fasig < contAsig:
-                if(asignatura[cont6Fasig] >= 'A' and asignatura[cont6Fasig] <= 'z'):
-                    exAsig6F.append(str(asignatura[cont6Fasig]))
-                cont6Fasig+=1
-        cont6F+=1
-    ################################
-    cont7F = 0
-    cont7Fasig = 0
-    exAsig7F = []
+        while cont6F < contTope:
+            if(examenes6Feb[cont6F]=='M'):
+                asignatura = datosNoNaN.iloc[cont6F,:]
+                cont6Fasig = 0
+                while cont6Fasig < contAsig:
+                    if(asignatura[cont6Fasig] >= 'A' and asignatura[cont6Fasig] <= 'z'):
+                        exAsig6F.append(str(asignatura[cont6Fasig]))
+                    cont6Fasig+=1
+            elif(examenes6Feb[cont6F]=='T'):
+                asignatura = datosNoNaN.iloc[cont6F,:]
+                cont6Fasig = 0
+                while cont6Fasig < contAsig:
+                    if(asignatura[cont6Fasig] >= 'A' and asignatura[cont6Fasig] <= 'z'):
+                        exAsig6F.append(str(asignatura[cont6Fasig]))
+                    cont6Fasig+=1
+            cont6F+=1
+        ################################
+        cont7F = 0
+        cont7Fasig = 0
+        exAsig7F = []
 
-    while cont7F < contTope:
-        if(examenes7Feb[cont7F]=='M'):
-            asignatura = datosNoNaN.iloc[cont7F,:]
-            cont7Fasig = 0
-            while cont7Fasig < contAsig:
-                if(asignatura[cont7Fasig] >= 'A' and asignatura[cont7Fasig] <= 'z'):
-                    exAsig7F.append(str(asignatura[cont7Fasig]))
-                cont7Fasig+=1
-        elif(examenes7Feb[cont7F]=='T'):
-            asignatura = datosNoNaN.iloc[cont7F,:]
-            cont7Fasig = 0
-            while cont7Fasig < contAsig:
-                if(asignatura[cont7Fasig] >= 'A' and asignatura[cont7Fasig] <= 'z'):
-                    exAsig7F.append(str(asignatura[cont7Fasig]))
-                cont7Fasig+=1
-        cont7F+=1
-    ################################
-    cont8F = 0
-    cont8Fasig = 0
-    exAsig8F = []
+        while cont7F < contTope:
+            if(examenes7Feb[cont7F]=='M'):
+                asignatura = datosNoNaN.iloc[cont7F,:]
+                cont7Fasig = 0
+                while cont7Fasig < contAsig:
+                    if(asignatura[cont7Fasig] >= 'A' and asignatura[cont7Fasig] <= 'z'):
+                        exAsig7F.append(str(asignatura[cont7Fasig]))
+                    cont7Fasig+=1
+            elif(examenes7Feb[cont7F]=='T'):
+                asignatura = datosNoNaN.iloc[cont7F,:]
+                cont7Fasig = 0
+                while cont7Fasig < contAsig:
+                    if(asignatura[cont7Fasig] >= 'A' and asignatura[cont7Fasig] <= 'z'):
+                        exAsig7F.append(str(asignatura[cont7Fasig]))
+                    cont7Fasig+=1
+            cont7F+=1
+        ################################
+        cont8F = 0
+        cont8Fasig = 0
+        exAsig8F = []
 
-    while cont8F < contTope:
-        if(examenes8Feb[cont8F]=='M'):
-            asignatura = datosNoNaN.iloc[cont8F,:]
-            cont8Fasig = 0
-            while cont8Fasig < contAsig:
-                if(asignatura[cont8Fasig] >= 'A' and asignatura[cont8Fasig] <= 'z'):
-                    exAsig8F.append(str(asignatura[cont8Fasig]))
-                cont8Fasig+=1
-        elif(examenes8Feb[cont8F]=='T'):
-            asignatura = datosNoNaN.iloc[cont8F,:]
-            cont8Fasig = 0
-            while cont8Fasig < contAsig:
-                if(asignatura[cont8Fasig] >= 'A' and asignatura[cont8Fasig] <= 'z'):
-                    exAsig8F.append(str(asignatura[cont8Fasig]))
-                cont8Fasig+=1
-        cont8F+=1
-    ################################
-    cont11F = 0
-    cont11Fasig = 0
-    exAsig11F = []
+        while cont8F < contTope:
+            if(examenes8Feb[cont8F]=='M'):
+                asignatura = datosNoNaN.iloc[cont8F,:]
+                cont8Fasig = 0
+                while cont8Fasig < contAsig:
+                    if(asignatura[cont8Fasig] >= 'A' and asignatura[cont8Fasig] <= 'z'):
+                        exAsig8F.append(str(asignatura[cont8Fasig]))
+                    cont8Fasig+=1
+            elif(examenes8Feb[cont8F]=='T'):
+                asignatura = datosNoNaN.iloc[cont8F,:]
+                cont8Fasig = 0
+                while cont8Fasig < contAsig:
+                    if(asignatura[cont8Fasig] >= 'A' and asignatura[cont8Fasig] <= 'z'):
+                        exAsig8F.append(str(asignatura[cont8Fasig]))
+                    cont8Fasig+=1
+            cont8F+=1
+        ################################
+        cont11F = 0
+        cont11Fasig = 0
+        exAsig11F = []
 
-    while cont11F < contTope:
-        if(examenes11Feb[cont11F]=='M'):
-            asignatura = datosNoNaN.iloc[cont11F,:]
-            cont11Fasig = 0
-            while cont11Fasig < contAsig:
-                if(asignatura[cont11Fasig] >= 'A' and asignatura[cont11Fasig] <= 'z'):
-                    exAsig11F.append(str(asignatura[cont11Fasig]))
-                cont11Fasig+=1
-        elif(examenes11Feb[cont11F]=='T'):
-            asignatura = datosNoNaN.iloc[cont11F,:]
-            cont11Fasig = 0
-            while cont11Fasig < contAsig:
-                if(asignatura[cont11Fasig] >= 'A' and asignatura[cont11Fasig] <= 'z'):
-                    exAsig11F.append(str(asignatura[cont11Fasig]))
-                cont11Fasig+=1
-        cont11F+=1
-    ################################
-    cont12F = 0
-    cont12Fasig = 0
-    exAsig12F = []
+        while cont11F < contTope:
+            if(examenes11Feb[cont11F]=='M'):
+                asignatura = datosNoNaN.iloc[cont11F,:]
+                cont11Fasig = 0
+                while cont11Fasig < contAsig:
+                    if(asignatura[cont11Fasig] >= 'A' and asignatura[cont11Fasig] <= 'z'):
+                        exAsig11F.append(str(asignatura[cont11Fasig]))
+                    cont11Fasig+=1
+            elif(examenes11Feb[cont11F]=='T'):
+                asignatura = datosNoNaN.iloc[cont11F,:]
+                cont11Fasig = 0
+                while cont11Fasig < contAsig:
+                    if(asignatura[cont11Fasig] >= 'A' and asignatura[cont11Fasig] <= 'z'):
+                        exAsig11F.append(str(asignatura[cont11Fasig]))
+                    cont11Fasig+=1
+            cont11F+=1
+        ################################
+        cont12F = 0
+        cont12Fasig = 0
+        exAsig12F = []
 
-    while cont12F < contTope:
-        if(examenes12Feb[cont12F]=='M'):
-            asignatura = datosNoNaN.iloc[cont12F,:]
-            cont12Fasig = 0
-            while cont12Fasig < contAsig:
-                if(asignatura[cont12Fasig] >= 'A' and asignatura[cont12Fasig] <= 'É'):
-                    exAsig12F.append(str(asignatura[cont12Fasig]))
-                cont12Fasig+=1
-        elif(examenes12Feb[cont12F]=='T'):
-            asignatura = datosNoNaN.iloc[cont12F,:]
-            cont12Fasig = 0
-            while cont12Fasig < contAsig:
-                if(asignatura[cont12Fasig] >= 'A' and asignatura[cont12Fasig] <= 'z'):
-                    exAsig12F.append(str(asignatura[cont12Fasig]))
-                cont12Fasig+=1
-        cont12F+=1
-    ################################
-    cont13F = 0
-    cont13Fasig = 0
-    exAsig13F = []
+        while cont12F < contTope:
+            if(examenes12Feb[cont12F]=='M'):
+                asignatura = datosNoNaN.iloc[cont12F,:]
+                cont12Fasig = 0
+                while cont12Fasig < contAsig:
+                    if(asignatura[cont12Fasig] >= 'A' and asignatura[cont12Fasig] <= 'É'):
+                        exAsig12F.append(str(asignatura[cont12Fasig]))
+                    cont12Fasig+=1
+            elif(examenes12Feb[cont12F]=='T'):
+                asignatura = datosNoNaN.iloc[cont12F,:]
+                cont12Fasig = 0
+                while cont12Fasig < contAsig:
+                    if(asignatura[cont12Fasig] >= 'A' and asignatura[cont12Fasig] <= 'z'):
+                        exAsig12F.append(str(asignatura[cont12Fasig]))
+                    cont12Fasig+=1
+            cont12F+=1
+        ################################
+        cont13F = 0
+        cont13Fasig = 0
+        exAsig13F = []
 
-    while cont13F < contTope:
-        if(examenes13Feb[cont13F]=='M'):
-            asignatura = datosNoNaN.iloc[cont13F,:]
-            cont13Fasig = 0
-            while cont13Fasig < contAsig:
-                if(asignatura[cont13Fasig] >= 'A' and asignatura[cont13Fasig] <= 'z'):
-                    exAsig13F.append(str(asignatura[cont13Fasig]))
-                cont13Fasig+=1
-        elif(examenes13Feb[cont13F]=='T'):
-            asignatura = datosNoNaN.iloc[cont13F,:]
-            cont13Fasig = 0
-            while cont13Fasig < contAsig:
-                if(asignatura[cont13Fasig] >= 'A' and asignatura[cont13Fasig] <= 'z'):
-                    exAsig13F.append(str(asignatura[cont13Fasig]))
-                cont13Fasig+=1
-        cont13F+=1
-    ################################
-    #Comprobación del contenido
-    cont=0
-    print("------------------------------------")
-    print("1er Semestre - Extraordinaria")
-    print("------------------------------------")
-    while cont < len(exAsig31E):
-        print(str(exAsig31E[cont]))
-        cont+=1
+        while cont13F < contTope:
+            if(examenes13Feb[cont13F]=='M'):
+                asignatura = datosNoNaN.iloc[cont13F,:]
+                cont13Fasig = 0
+                while cont13Fasig < contAsig:
+                    if(asignatura[cont13Fasig] >= 'A' and asignatura[cont13Fasig] <= 'z'):
+                        exAsig13F.append(str(asignatura[cont13Fasig]))
+                    cont13Fasig+=1
+            elif(examenes13Feb[cont13F]=='T'):
+                asignatura = datosNoNaN.iloc[cont13F,:]
+                cont13Fasig = 0
+                while cont13Fasig < contAsig:
+                    if(asignatura[cont13Fasig] >= 'A' and asignatura[cont13Fasig] <= 'z'):
+                        exAsig13F.append(str(asignatura[cont13Fasig]))
+                    cont13Fasig+=1
+            cont13F+=1
+        ################################
+        #Comprobación del contenido
+        cont = 0
+        resultado = []
+        encontrado  = False
+
+        while(cont < len(exAsig31E) and (encontrado == False)):
+            if(exAsig31E[cont] == asignaturaEX):
+                resultado.append("31 de Enero")
+                resultado.append(exAsig31E[cont])
+                resultado.append(exAsig31E[cont+1])
+                resultado.append(exAsig31E[cont+2])
+                encontrado = True
+            cont += 1
+        
+        cont = 0
+        while(cont < len(exAsig1F) and (encontrado == False)):
+            if(exAsig1F[cont] == asignaturaEX):
+                resultado.append("1 de Febrero")
+                resultado.append(exAsig1F[cont])
+                resultado.append(exAsig1F[cont+1])
+                resultado.append(exAsig1F[cont+2])
+                encontrado = True
+            cont += 1
+
+        cont = 0
+        while(cont < len(exAsig4F) and (encontrado == False)):
+            if(exAsig4F[cont] == asignaturaEX):
+                resultado.append("4 de Febrero")
+                resultado.append(exAsig4F[cont])
+                resultado.append(exAsig4F[cont+1])
+                resultado.append(exAsig4F[cont+2])
+                encontrado = True
+            cont += 1
+
+        cont = 0
+        while(cont < len(exAsig5F) and (encontrado == False)):
+            if(exAsig5F[cont] == asignaturaEX):
+                resultado.append("5 de Febrero")
+                resultado.append(exAsig5F[cont])
+                resultado.append(exAsig5F[cont+1])
+                resultado.append(exAsig5F[cont+2])
+                encontrado = True
+            cont += 1
+
+        cont = 0
+        while(cont < len(exAsig6F) and (encontrado == False)):
+            if(exAsig6F[cont] == asignaturaEX):
+                resultado.append("6 de Febrero")
+                resultado.append(exAsig6F[cont])
+                resultado.append(exAsig6F[cont+1])
+                resultado.append(exAsig6F[cont+2])
+                encontrado = True
+            cont += 1
+
+        cont = 0
+        while(cont < len(exAsig7F) and (encontrado == False)):
+            if(exAsig7F[cont] == asignaturaEX):
+                resultado.append("7 de Febrero")
+                resultado.append(exAsig7F[cont])
+                resultado.append(exAsig7F[cont+1])
+                resultado.append(exAsig7F[cont+2])
+                encontrado = True
+            cont += 1
+
+        cont = 0
+        while(cont < len(exAsig8F) and (encontrado == False)):
+            if(exAsig8F[cont] == asignaturaEX):
+                resultado.append("8 de Febrero")
+                resultado.append(exAsig8F[cont])
+                resultado.append(exAsig8F[cont+1])
+                resultado.append(exAsig8F[cont+2])
+                encontrado = True
+            cont += 1
+    
+        cont = 0
+        while(cont < len(exAsig11F) and (encontrado == False)):
+            if(exAsig11F[cont] == asignaturaEX):
+                resultado.append("11 de Febrero")
+                resultado.append(exAsig11F[cont])
+                resultado.append(exAsig11F[cont+1])
+                resultado.append(exAsig11F[cont+2])
+                encontrado = True
+            cont += 1
+
+        cont = 0
+        while(cont < len(exAsig12F) and (encontrado == False)):
+            if(exAsig12F[cont] == asignaturaEX):
+                resultado.append("12 de Febrero")
+                resultado.append(exAsig12F[cont])
+                resultado.append(exAsig12F[cont+1])
+                resultado.append(exAsig12F[cont+2])
+                encontrado = True
+            cont += 1
+
+        cont = 0
+        while(cont < len(exAsig13F) and (encontrado == False)):
+            if(exAsig13F[cont] == asignaturaEX):
+                resultado.append("13 de Febrero")
+                resultado.append(exAsig13F[cont])
+                resultado.append(exAsig13F[cont+1])
+                resultado.append(exAsig13F[cont+2])
+                encontrado = True
+            cont += 1
+
+        return resultado
 
 
-def extractDataTable2_1SemExtraordinaria():
+def extractDataTable2_1SemExtraordinaria(asignaturaEX):
     tablas = camelot.read_pdf(os.path.join(RESOURCE, 'CalendarioExamenes18-19-GII.pdf'), pages='4')
     tablas.export(os.path.join(OUTPUT, 'CalendarioExamenes18-19-GII.csv'), f='csv', compress=False)
 
@@ -1005,245 +1060,343 @@ def extractDataTable2_1SemExtraordinaria():
         datos = pd.read_csv(archivo, header=-1)
         datosNoNaN = datos.fillna(value='0')
 
-    examenes31Ene = datosNoNaN.iloc[:,6]
-    examenes1Feb = datosNoNaN.iloc[:,7]
-    examenes4Feb = datosNoNaN.iloc[:,9]
-    examenes5Feb = datosNoNaN.iloc[:,10]
-    examenes6Feb = datosNoNaN.iloc[:,11]
-    examenes7Feb = datosNoNaN.iloc[:,12]
-    examenes8Feb = datosNoNaN.iloc[:,13]
-    examenes11Feb = datosNoNaN.iloc[:,15]
-    examenes12Feb = datosNoNaN.iloc[:,16]
-    examenes13Feb = datosNoNaN.iloc[:,17]
+        examenes31Ene = datosNoNaN.iloc[:,6]
+        examenes1Feb = datosNoNaN.iloc[:,7]
+        examenes4Feb = datosNoNaN.iloc[:,9]
+        examenes5Feb = datosNoNaN.iloc[:,10]
+        examenes6Feb = datosNoNaN.iloc[:,11]
+        examenes7Feb = datosNoNaN.iloc[:,12]
+        examenes8Feb = datosNoNaN.iloc[:,13]
+        examenes11Feb = datosNoNaN.iloc[:,15]
+        examenes12Feb = datosNoNaN.iloc[:,16]
+        examenes13Feb = datosNoNaN.iloc[:,17]
 
-    # print(examenes10Ene.value_counts())
-    # print(examenes10Ene.count())
-    # print(examenes10Ene)
-    # print(datosNoNaN.iloc[3,:])
+        # print(examenes10Ene.value_counts())
+        # print(examenes10Ene.count())
+        # print(examenes10Ene)
+        # print(datosNoNaN.iloc[3,:])
 
-    contTope = examenes31Ene.count()
-    contAsig = datosNoNaN.iloc[3,:].count()
-    cont31E = 0
-    cont31Easig = 0
-    exAsig31E = []
+        contTope = examenes31Ene.count()
+        contAsig = datosNoNaN.iloc[3,:].count()
+        cont31E = 0
+        cont31Easig = 0
+        exAsig31E = []
 
-    while cont31E < contTope:
-        if(examenes31Ene[cont31E]=='M'):
-            asignatura = datosNoNaN.iloc[cont31E,:]
-            cont31Easig = 0
-            while cont31Easig < contAsig:
-                if(asignatura[cont31Easig] >= 'A' and asignatura[cont31Easig] <= 'z'):
-                    exAsig31E.append(str(asignatura[cont31Easig]))
-                cont31Easig+=1
-        elif(examenes31Ene[cont31E]=='T'):
-            asignatura = datosNoNaN.iloc[cont31E,:]
-            cont31Easig = 0
-            while cont31Easig < contAsig:
-                if(asignatura[cont31Easig] >= 'A' and asignatura[cont31Easig] <= 'z'):
-                    exAsig31E.append(str(asignatura[cont31Easig]))
-                cont31Easig+=1
-        cont31E+=1
-    # ################################
-    cont1F = 0
-    cont1Fasig = 0
-    exAsig1F = []
+        while cont31E < contTope:
+            if(examenes31Ene[cont31E]=='M'):
+                asignatura = datosNoNaN.iloc[cont31E,:]
+                cont31Easig = 0
+                while cont31Easig < contAsig:
+                    if(asignatura[cont31Easig] >= 'A' and asignatura[cont31Easig] <= 'z'):
+                        exAsig31E.append(str(asignatura[cont31Easig]))
+                    cont31Easig+=1
+            elif(examenes31Ene[cont31E]=='T'):
+                asignatura = datosNoNaN.iloc[cont31E,:]
+                cont31Easig = 0
+                while cont31Easig < contAsig:
+                    if(asignatura[cont31Easig] >= 'A' and asignatura[cont31Easig] <= 'z'):
+                        exAsig31E.append(str(asignatura[cont31Easig]))
+                    cont31Easig+=1
+            cont31E+=1
+        # ################################
+        cont1F = 0
+        cont1Fasig = 0
+        exAsig1F = []
 
-    while cont1F < contTope:
-        if(examenes1Feb[cont1F]=='M'):
-            asignatura = datosNoNaN.iloc[cont1F,:]
-            cont1Fasig = 0
-            while cont1Fasig < contAsig:
-                if(asignatura[cont1Fasig] >= 'A' and asignatura[cont1Fasig] <= 'z'):
-                    exAsig1F.append(str(asignatura[cont1Fasig]))
-                cont1Fasig+=1
-        elif(examenes1Feb[cont1F]=='T'):
-            asignatura = datosNoNaN.iloc[cont1F,:]
-            cont1Fasig = 0
-            while cont1Fasig < contAsig:
-                if(asignatura[cont1Fasig] >= 'A' and asignatura[cont1Fasig] <= 'z'):
-                    exAsig1F.append(str(asignatura[cont1Fasig]))
-                cont1Fasig+=1
-        cont1F+=1
-    ################################
-    cont4F = 0
-    cont4Fasig = 0
-    exAsig4F = []
+        while cont1F < contTope:
+            if(examenes1Feb[cont1F]=='M'):
+                asignatura = datosNoNaN.iloc[cont1F,:]
+                cont1Fasig = 0
+                while cont1Fasig < contAsig:
+                    if(asignatura[cont1Fasig] >= 'A' and asignatura[cont1Fasig] <= 'z'):
+                        exAsig1F.append(str(asignatura[cont1Fasig]))
+                    cont1Fasig+=1
+            elif(examenes1Feb[cont1F]=='T'):
+                asignatura = datosNoNaN.iloc[cont1F,:]
+                cont1Fasig = 0
+                while cont1Fasig < contAsig:
+                    if(asignatura[cont1Fasig] >= 'A' and asignatura[cont1Fasig] <= 'z'):
+                        exAsig1F.append(str(asignatura[cont1Fasig]))
+                    cont1Fasig+=1
+            cont1F+=1
+        ################################
+        cont4F = 0
+        cont4Fasig = 0
+        exAsig4F = []
 
-    while cont4F < contTope:
-        if(examenes4Feb[cont4F]=='M'):
-            asignatura = datosNoNaN.iloc[cont4F,:]
-            cont4Fasig = 0
-            while cont4Fasig < contAsig:
-                if(asignatura[cont4Fasig] >= 'A' and asignatura[cont4Fasig] <= 'z'):
-                    exAsig4F.append(str(asignatura[cont4Fasig]))
-                cont4Fasig+=1
-        elif(examenes4Feb[cont4F]=='T'):
-            asignatura = datosNoNaN.iloc[cont4F,:]
-            cont4Fasig = 0
-            while cont4Fasig < contAsig:
-                if(asignatura[cont4Fasig] >= 'A' and asignatura[cont4Fasig] <= 'z'):
-                    exAsig4F.append(str(asignatura[cont4Fasig]))
-                cont4Fasig+=1
-        cont4F+=1
-    ################################
-    cont5F = 0
-    cont5Fasig = 0
-    exAsig5F = []
+        while cont4F < contTope:
+            if(examenes4Feb[cont4F]=='M'):
+                asignatura = datosNoNaN.iloc[cont4F,:]
+                cont4Fasig = 0
+                while cont4Fasig < contAsig:
+                    if(asignatura[cont4Fasig] >= 'A' and asignatura[cont4Fasig] <= 'z'):
+                        exAsig4F.append(str(asignatura[cont4Fasig]))
+                    cont4Fasig+=1
+            elif(examenes4Feb[cont4F]=='T'):
+                asignatura = datosNoNaN.iloc[cont4F,:]
+                cont4Fasig = 0
+                while cont4Fasig < contAsig:
+                    if(asignatura[cont4Fasig] >= 'A' and asignatura[cont4Fasig] <= 'z'):
+                        exAsig4F.append(str(asignatura[cont4Fasig]))
+                    cont4Fasig+=1
+            cont4F+=1
 
-    while cont5F < contTope:
-        if(examenes5Feb[cont5F]=='M'):
-            asignatura = datosNoNaN.iloc[cont5F,:]
-            cont5Fasig = 0
-            while cont5Fasig < contAsig:
-                if(asignatura[cont5Fasig] >= 'A' and asignatura[cont5Fasig] <= 'z'):
-                    exAsig5F.append(str(asignatura[cont5Fasig]))
-                cont5Fasig+=1
-        elif(examenes5Feb[cont5F]=='T'):
-            asignatura = datosNoNaN.iloc[cont5F,:]
-            cont5Fasig = 0
-            while cont5Fasig < contAsig:
-                if(asignatura[cont5Fasig] >= 'A' and asignatura[cont5Fasig] <= 'z'):
-                    exAsig5F.append(str(asignatura[cont5Fasig]))
-                cont5Fasig+=1
-        cont5F+=1
-    ################################
-    cont6F = 0
-    cont6Fasig = 0
-    exAsig6F = []
+        ################################
+        cont5F = 0
+        cont5Fasig = 0
+        exAsig5F = []
 
-    while cont6F < contTope:
-        if(examenes6Feb[cont6F]=='M'):
-            asignatura = datosNoNaN.iloc[cont6F,:]
-            cont6Fasig = 0
-            while cont6Fasig < contAsig:
-                if(asignatura[cont6Fasig] >= 'A' and asignatura[cont6Fasig] <= 'z'):
-                    exAsig6F.append(str(asignatura[cont6Fasig]))
-                cont6Fasig+=1
-        elif(examenes6Feb[cont6F]=='T'):
-            asignatura = datosNoNaN.iloc[cont6F,:]
-            cont6Fasig = 0
-            while cont6Fasig < contAsig:
-                if(asignatura[cont6Fasig] >= 'A' and asignatura[cont6Fasig] <= 'z'):
-                    exAsig6F.append(str(asignatura[cont6Fasig]))
-                cont6Fasig+=1
-        cont6F+=1
-    ################################
-    cont7F = 0
-    cont7Fasig = 0
-    exAsig7F = []
+        while cont5F < contTope:
+            if(examenes5Feb[cont5F]=='M'):
+                asignatura = datosNoNaN.iloc[cont5F,:]
+                cont5Fasig = 0
+                while cont5Fasig < contAsig:
+                    if(asignatura[cont5Fasig] >= 'A' and asignatura[cont5Fasig] <= 'z'):
+                        exAsig5F.append(str(asignatura[cont5Fasig]))
+                    cont5Fasig+=1
+            elif(examenes5Feb[cont5F]=='T'):
+                asignatura = datosNoNaN.iloc[cont5F,:]
+                cont5Fasig = 0
+                while cont5Fasig < contAsig:
+                    if(asignatura[cont5Fasig] >= 'A' and asignatura[cont5Fasig] <= 'z'):
+                        exAsig5F.append(str(asignatura[cont5Fasig]))
+                    cont5Fasig+=1
+            cont5F+=1
+        ################################
+        cont6F = 0
+        cont6Fasig = 0
+        exAsig6F = []
 
-    while cont7F < contTope:
-        if(examenes7Feb[cont7F]=='M'):
-            asignatura = datosNoNaN.iloc[cont7F,:]
-            cont7Fasig = 0
-            while cont7Fasig < contAsig:
-                if(asignatura[cont7Fasig] >= 'A' and asignatura[cont7Fasig] <= 'z'):
-                    exAsig7F.append(str(asignatura[cont7Fasig]))
-                cont7Fasig+=1
-        elif(examenes7Feb[cont7F]=='T'):
-            asignatura = datosNoNaN.iloc[cont7F,:]
-            cont7Fasig = 0
-            while cont7Fasig < contAsig:
-                if(asignatura[cont7Fasig] >= 'A' and asignatura[cont7Fasig] <= 'z'):
-                    exAsig7F.append(str(asignatura[cont7Fasig]))
-                cont7Fasig+=1
-        cont7F+=1
-    ################################
-    cont8F = 0
-    cont8Fasig = 0
-    exAsig8F = []
+        while cont6F < contTope:
+            if(examenes6Feb[cont6F]=='M'):
+                asignatura = datosNoNaN.iloc[cont6F,:]
+                cont6Fasig = 0
+                while cont6Fasig < contAsig:
+                    if(asignatura[cont6Fasig] >= 'A' and asignatura[cont6Fasig] <= 'z'):
+                        exAsig6F.append(str(asignatura[cont6Fasig]))
+                    cont6Fasig+=1
+            elif(examenes6Feb[cont6F]=='T'):
+                asignatura = datosNoNaN.iloc[cont6F,:]
+                cont6Fasig = 0
+                while cont6Fasig < contAsig:
+                    if(asignatura[cont6Fasig] >= 'A' and asignatura[cont6Fasig] <= 'z'):
+                        exAsig6F.append(str(asignatura[cont6Fasig]))
+                    cont6Fasig+=1
+            cont6F+=1
+        ################################
+        cont7F = 0
+        cont7Fasig = 0
+        exAsig7F = []
 
-    while cont8F < contTope:
-        if(examenes8Feb[cont8F]=='M'):
-            asignatura = datosNoNaN.iloc[cont8F,:]
-            cont8Fasig = 0
-            while cont8Fasig < contAsig:
-                if(asignatura[cont8Fasig] >= 'A' and asignatura[cont8Fasig] <= 'z'):
-                    exAsig8F.append(str(asignatura[cont8Fasig]))
-                cont8Fasig+=1
-        elif(examenes8Feb[cont8F]=='T'):
-            asignatura = datosNoNaN.iloc[cont8F,:]
-            cont8Fasig = 0
-            while cont8Fasig < contAsig:
-                if(asignatura[cont8Fasig] >= 'A' and asignatura[cont8Fasig] <= 'z'):
-                    exAsig8F.append(str(asignatura[cont8Fasig]))
-                cont8Fasig+=1
-        cont8F+=1
-    ################################
-    cont11F = 0
-    cont11Fasig = 0
-    exAsig11F = []
+        while cont7F < contTope:
+            if(examenes7Feb[cont7F]=='M'):
+                asignatura = datosNoNaN.iloc[cont7F,:]
+                cont7Fasig = 0
+                while cont7Fasig < contAsig:
+                    if(asignatura[cont7Fasig] >= 'A' and asignatura[cont7Fasig] <= 'z'):
+                        exAsig7F.append(str(asignatura[cont7Fasig]))
+                    cont7Fasig+=1
+            elif(examenes7Feb[cont7F]=='T'):
+                asignatura = datosNoNaN.iloc[cont7F,:]
+                cont7Fasig = 0
+                while cont7Fasig < contAsig:
+                    if(asignatura[cont7Fasig] >= 'A' and asignatura[cont7Fasig] <= 'z'):
+                        exAsig7F.append(str(asignatura[cont7Fasig]))
+                    cont7Fasig+=1
+            cont7F+=1
+        ################################
+        cont8F = 0
+        cont8Fasig = 0
+        exAsig8F = []
 
-    while cont11F < contTope:
-        if(examenes11Feb[cont11F]=='M'):
-            asignatura = datosNoNaN.iloc[cont11F,:]
-            cont11Fasig = 0
-            while cont11Fasig < contAsig:
-                if(asignatura[cont11Fasig] >= 'A' and asignatura[cont11Fasig] <= 'z'):
-                    exAsig11F.append(str(asignatura[cont11Fasig]))
-                cont11Fasig+=1
-        elif(examenes11Feb[cont11F]=='T'):
-            asignatura = datosNoNaN.iloc[cont11F,:]
-            cont11Fasig = 0
-            while cont11Fasig < contAsig:
-                if(asignatura[cont11Fasig] >= 'A' and asignatura[cont11Fasig] <= 'z'):
-                    if(asignatura[cont11Fasig] != 'Int' and asignatura[cont11Fasig] != 'Tit'
-                        and asignatura[cont11Fasig] != 'Cur' and asignatura[cont11Fasig] != 'Cuat'
-                            and asignatura[cont11Fasig] != 'Acr'):
+        while cont8F < contTope:
+            if(examenes8Feb[cont8F]=='M'):
+                asignatura = datosNoNaN.iloc[cont8F,:]
+                cont8Fasig = 0
+                while cont8Fasig < contAsig:
+                    if(asignatura[cont8Fasig] >= 'A' and asignatura[cont8Fasig] <= 'z'):
+                        exAsig8F.append(str(asignatura[cont8Fasig]))
+                    cont8Fasig+=1
+            elif(examenes8Feb[cont8F]=='T'):
+                asignatura = datosNoNaN.iloc[cont8F,:]
+                cont8Fasig = 0
+                while cont8Fasig < contAsig:
+                    if(asignatura[cont8Fasig] >= 'A' and asignatura[cont8Fasig] <= 'z'):
+                        exAsig8F.append(str(asignatura[cont8Fasig]))
+                    cont8Fasig+=1
+            cont8F+=1
+        ################################
+        cont11F = 0
+        cont11Fasig = 0
+        exAsig11F = []
+
+        while cont11F < contTope:
+            if(examenes11Feb[cont11F]=='M'):
+                asignatura = datosNoNaN.iloc[cont11F,:]
+                cont11Fasig = 0
+                while cont11Fasig < contAsig:
+                    if(asignatura[cont11Fasig] >= 'A' and asignatura[cont11Fasig] <= 'z'):
                         exAsig11F.append(str(asignatura[cont11Fasig]))
-                cont11Fasig+=1
-        cont11F+=1
-    ################################
-    cont12F = 0
-    cont12Fasig = 0
-    exAsig12F = []
+                    cont11Fasig+=1
+            elif(examenes11Feb[cont11F]=='T'):
+                asignatura = datosNoNaN.iloc[cont11F,:]
+                cont11Fasig = 0
+                while cont11Fasig < contAsig:
+                    if(asignatura[cont11Fasig] >= 'A' and asignatura[cont11Fasig] <= 'z'):
+                        if(asignatura[cont11Fasig] != 'Int' and asignatura[cont11Fasig] != 'Tit'
+                            and asignatura[cont11Fasig] != 'Cur' and asignatura[cont11Fasig] != 'Cuat'
+                                and asignatura[cont11Fasig] != 'Acr'):
+                            exAsig11F.append(str(asignatura[cont11Fasig]))
+                    cont11Fasig+=1
+            cont11F+=1
+        ################################
+        cont12F = 0
+        cont12Fasig = 0
+        exAsig12F = []
 
-    while cont12F < contTope:
-        if(examenes12Feb[cont12F]=='M'):
-            asignatura = datosNoNaN.iloc[cont12F,:]
-            cont12Fasig = 0
-            while cont12Fasig < contAsig:
-                if(asignatura[cont12Fasig] >= 'A' and asignatura[cont12Fasig] <= 'É'):
-                    exAsig12F.append(str(asignatura[cont12Fasig]))
-                cont12Fasig+=1
-        elif(examenes12Feb[cont12F]=='T'):
-            asignatura = datosNoNaN.iloc[cont12F,:]
-            cont12Fasig = 0
-            while cont12Fasig < contAsig:
-                if(asignatura[cont12Fasig] >= 'A' and asignatura[cont12Fasig] <= 'z'):
-                    exAsig12F.append(str(asignatura[cont12Fasig]))
-                cont12Fasig+=1
-        cont12F+=1
-    ################################
-    cont13F = 0
-    cont13Fasig = 0
-    exAsig13F = []
+        while cont12F < contTope:
+            if(examenes12Feb[cont12F]=='M'):
+                asignatura = datosNoNaN.iloc[cont12F,:]
+                cont12Fasig = 0
+                while cont12Fasig < contAsig:
+                    if(asignatura[cont12Fasig] >= 'A' and asignatura[cont12Fasig] <= 'É'):
+                        exAsig12F.append(str(asignatura[cont12Fasig]))
+                    cont12Fasig+=1
+            elif(examenes12Feb[cont12F]=='T'):
+                asignatura = datosNoNaN.iloc[cont12F,:]
+                cont12Fasig = 0
+                while cont12Fasig < contAsig:
+                    if(asignatura[cont12Fasig] >= 'A' and asignatura[cont12Fasig] <= 'z'):
+                        exAsig12F.append(str(asignatura[cont12Fasig]))
+                    cont12Fasig+=1
+            cont12F+=1
+        ################################
+        cont13F = 0
+        cont13Fasig = 0
+        exAsig13F = []
 
-    while cont13F < contTope:
-        if(examenes13Feb[cont13F]=='M'):
-            asignatura = datosNoNaN.iloc[cont13F,:]
-            cont13Fasig = 0
-            while cont13Fasig < contAsig:
-                if(asignatura[cont13Fasig] >= 'A' and asignatura[cont13Fasig] <= 'z'):
-                    exAsig13F.append(str(asignatura[cont13Fasig]))
-                cont13Fasig+=1
-        elif(examenes13Feb[cont13F]=='T'):
-            asignatura = datosNoNaN.iloc[cont13F,:]
-            cont13Fasig = 0
-            while cont13Fasig < contAsig:
-                if(asignatura[cont13Fasig] >= 'A' and asignatura[cont13Fasig] <= 'z'):
-                    exAsig13F.append(str(asignatura[cont13Fasig]))
-                cont13Fasig+=1
-        cont13F+=1
-    ################################
-    #Comprobación del contenido
-    cont=0
-    print("------------------------------------")
-    print("1er Semestre - Extraordinaria cont")
-    print("------------------------------------")
-    while cont < len(exAsig31E):
-        print(str(exAsig31E[cont]))
-        cont+=1
+        while cont13F < contTope:
+            if(examenes13Feb[cont13F]=='M'):
+                asignatura = datosNoNaN.iloc[cont13F,:]
+                cont13Fasig = 0
+                while cont13Fasig < contAsig:
+                    if(asignatura[cont13Fasig] >= 'A' and asignatura[cont13Fasig] <= 'z'):
+                        exAsig13F.append(str(asignatura[cont13Fasig]))
+                    cont13Fasig+=1
+            elif(examenes13Feb[cont13F]=='T'):
+                asignatura = datosNoNaN.iloc[cont13F,:]
+                cont13Fasig = 0
+                while cont13Fasig < contAsig:
+                    if(asignatura[cont13Fasig] >= 'A' and asignatura[cont13Fasig] <= 'z'):
+                        exAsig13F.append(str(asignatura[cont13Fasig]))
+                    cont13Fasig+=1
+            cont13F+=1
+        ################################
+        #Comprobación del contenido
+        cont = 0
+        resultado = []
+        encontrado  = False
+
+        while(cont < len(exAsig31E) and (encontrado == False)):
+            if(exAsig31E[cont] == asignaturaEX):
+                resultado.append("31 de Enero")
+                resultado.append(exAsig31E[cont])
+                resultado.append(exAsig31E[cont+1])
+                resultado.append(exAsig31E[cont+2])
+                encontrado = True
+            cont += 1
+        
+        cont = 0
+        while(cont < len(exAsig1F) and (encontrado == False)):
+            if(exAsig1F[cont] == asignaturaEX):
+                resultado.append("1 de Febrero")
+                resultado.append(exAsig1F[cont])
+                resultado.append(exAsig1F[cont+1])
+                resultado.append(exAsig1F[cont+2])
+                encontrado = True
+            cont += 1
+
+        cont = 0
+        while(cont < len(exAsig4F) and (encontrado == False)):
+            if(exAsig4F[cont] == asignaturaEX):
+                resultado.append("4 de Febrero")
+                resultado.append(exAsig4F[cont])
+                resultado.append(exAsig4F[cont+1])
+                resultado.append(exAsig4F[cont+2])
+                encontrado = True
+            cont += 1
+
+        cont = 0
+        while(cont < len(exAsig5F) and (encontrado == False)):
+            if(exAsig5F[cont] == asignaturaEX):
+                resultado.append("5 de Febrero")
+                resultado.append(exAsig5F[cont])
+                resultado.append(exAsig5F[cont+1])
+                resultado.append(exAsig5F[cont+2])
+                encontrado = True
+            cont += 1
+
+        cont = 0
+        while(cont < len(exAsig6F) and (encontrado == False)):
+            if(exAsig6F[cont] == asignaturaEX):
+                resultado.append("6 de Febrero")
+                resultado.append(exAsig6F[cont])
+                resultado.append(exAsig6F[cont+1])
+                resultado.append(exAsig6F[cont+2])
+                encontrado = True
+            cont += 1
+
+        cont = 0
+        while(cont < len(exAsig7F) and (encontrado == False)):
+            if(exAsig7F[cont] == asignaturaEX):
+                resultado.append("7 de Febrero")
+                resultado.append(exAsig7F[cont])
+                resultado.append(exAsig7F[cont+1])
+                resultado.append(exAsig7F[cont+2])
+                encontrado = True
+            cont += 1
+
+        cont = 0
+        while(cont < len(exAsig8F) and (encontrado == False)):
+            if(exAsig8F[cont] == asignaturaEX):
+                resultado.append("8 de Febrero")
+                resultado.append(exAsig8F[cont])
+                resultado.append(exAsig8F[cont+1])
+                resultado.append(exAsig8F[cont+2])
+                encontrado = True
+            cont += 1
+    
+        cont = 0
+        while(cont < len(exAsig11F) and (encontrado == False)):
+            if(exAsig11F[cont] == asignaturaEX):
+                resultado.append("11 de Febrero")
+                resultado.append(exAsig11F[cont])
+                resultado.append(exAsig11F[cont+1])
+                resultado.append(exAsig11F[cont+2])
+                encontrado = True
+            cont += 1
+
+        cont = 0
+        while(cont < len(exAsig12F) and (encontrado == False)):
+            if(exAsig12F[cont] == asignaturaEX):
+                resultado.append("12 de Febrero")
+                resultado.append(exAsig12F[cont])
+                resultado.append(exAsig12F[cont+1])
+                resultado.append(exAsig12F[cont+2])
+                encontrado = True
+            cont += 1
+
+        cont = 0
+        while(cont < len(exAsig13F) and (encontrado == False)):
+            if(exAsig13F[cont] == asignaturaEX):
+                resultado.append("13 de Febrero")
+                resultado.append(exAsig13F[cont])
+                resultado.append(exAsig13F[cont+1])
+                resultado.append(exAsig13F[cont+2])
+                encontrado = True
+            cont += 1
+
+        return resultado
 
 
 def extractDataTable1_2SemOrdinaria():
@@ -2880,8 +3033,16 @@ if __name__ == '__main__':
                 print("Fila insertada correctamente")
 
             if(sys.argv[3] == 'extraordinaria'):
-                res = extractDataTable1_1SemExtraordinaria()
-                res = extractDataTable2_1SemExtraordinaria()
+                res = extractDataTable1_1SemExtraordinaria(asignaturaEX)
+                if len(res) == 0:
+                    res = extractDataTable2_1SemExtraordinaria(asignaturaEX)
+
+                sql_insert_query = """INSERT INTO "FechasExamenes" VALUES(%s, %s, %s, %s)"""
+                insert_tuple = (asignaturaEX, 1, 'extraordinaria', res)
+                result = cursor.execute(sql_insert_query, insert_tuple)
+
+                connect_db.commit()
+                print("Fila insertada correctamente")                
 
         # extractDataTable1_2SemOrdinaria()
         # extractDataTable2_2SemOrdinaria()
