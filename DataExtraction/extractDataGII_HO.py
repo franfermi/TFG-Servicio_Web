@@ -697,15 +697,15 @@ def extractDataTable1_1C1C_1C2C(cuatrimestre, dia):
 
         if(cuatrimestre == '1' or cuatrimestre == 'primero' or cuatrimestre == 'uno'):
             if(dia.lower() == 'lunes'):
-                print(listLunes)
+                return listLunes
             if(dia.lower() == 'martes'):
-                print(listMartes)
+                return listMartes
             if(dia.lower() == 'miercoles'):
-                print(listMiercoles)
+                return listMiercoles
             if(dia.lower() == 'jueves'):
-                print(listJueves)
+                return listJueves
             if(dia.lower() == 'viernes'):
-                print(listViernes)
+                return listViernes
         
     with open(os.path.join(OUTPUT, './HORARIOS/HORARIOS1819-page-3-table-2.csv'), 'r') as archivo:
         datos = pd.read_csv(archivo, header=0)
@@ -829,15 +829,15 @@ def extractDataTable1_1C1C_1C2C(cuatrimestre, dia):
 
         if(cuatrimestre == '2' or cuatrimestre == 'segundo' or cuatrimestre == 'dos'):
             if(dia.lower() == 'lunes'):
-                print(listLunes)
+                return listLunes
             if(dia.lower() == 'martes'):
-                print(listMartes)
+                return listMartes
             if(dia.lower() == 'miercoles'):
-                print(listMiercoles)
+                return listMiercoles
             if(dia.lower() == 'jueves'):
-                print(listJueves)
+                return listJueves
             if(dia.lower() == 'viernes'):
-                print(listViernes)
+                return listViernes
 
 def extractDataTable1_1D1C_1D2C(cuatrimestre, dia):
     tablas = camelot.read_pdf(os.path.join(
@@ -973,15 +973,15 @@ def extractDataTable1_1D1C_1D2C(cuatrimestre, dia):
 
         if(cuatrimestre == '1' or cuatrimestre == 'primero' or cuatrimestre == 'uno'):
             if(dia.lower() == 'lunes'):
-                print(listLunes)
+                return listLunes
             if(dia.lower() == 'martes'):
-                print(listMartes)
+                return listMartes
             if(dia.lower() == 'miercoles'):
-                print(listMiercoles)
+                return listMiercoles
             if(dia.lower() == 'jueves'):
-                print(listJueves)
+                return listJueves
             if(dia.lower() == 'viernes'):
-                print(listViernes)
+                return listViernes
         
     with open(os.path.join(OUTPUT, './HORARIOS/HORARIOS1819-page-4-table-2.csv'), 'r') as archivo:
         datos = pd.read_csv(archivo, header=0)
@@ -1105,15 +1105,15 @@ def extractDataTable1_1D1C_1D2C(cuatrimestre, dia):
 
         if(cuatrimestre == '2' or cuatrimestre == 'segundo' or cuatrimestre == 'dos'):
             if(dia.lower() == 'lunes'):
-                print(listLunes)
+                return listLunes
             if(dia.lower() == 'martes'):
-                print(listMartes)
+                return listMartes
             if(dia.lower() == 'miercoles'):
-                print(listMiercoles)
+                return listMiercoles
             if(dia.lower() == 'jueves'):
-                print(listJueves)
+                return listJueves
             if(dia.lower() == 'viernes'):
-                print(listViernes)
+                return listViernes
 
 def extractDataTable1_1E1C_1E2C(cuatrimestre, dia):
     tablas = camelot.read_pdf(os.path.join(
@@ -1249,15 +1249,15 @@ def extractDataTable1_1E1C_1E2C(cuatrimestre, dia):
 
         if(cuatrimestre == '1' or cuatrimestre == 'primero' or cuatrimestre == 'uno'):
             if(dia.lower() == 'lunes'):
-                print(listLunes)
+                return listLunes
             if(dia.lower() == 'martes'):
-                print(listMartes)
+                return listMartes
             if(dia.lower() == 'miercoles'):
-                print(listMiercoles)
+                return listMiercoles
             if(dia.lower() == 'jueves'):
-                print(listJueves)
+                return listJueves
             if(dia.lower() == 'viernes'):
-                print(listViernes)
+                return listViernes
         
     with open(os.path.join(OUTPUT, './HORARIOS/HORARIOS1819-page-5-table-2.csv'), 'r') as archivo:
         datos = pd.read_csv(archivo, header=0)
@@ -1381,15 +1381,15 @@ def extractDataTable1_1E1C_1E2C(cuatrimestre, dia):
 
         if(cuatrimestre == '2' or cuatrimestre == 'segundo' or cuatrimestre == 'dos'):
             if(dia.lower() == 'lunes'):
-                print(listLunes)
+                return listLunes
             if(dia.lower() == 'martes'):
-                print(listMartes)
+                return listMartes
             if(dia.lower() == 'miercoles'):
-                print(listMiercoles)
+                return listMiercoles
             if(dia.lower() == 'jueves'):
-                print(listJueves)
+                return listJueves
             if(dia.lower() == 'viernes'):
-                print(listViernes)
+                return listViernes
 
 def extractDataTable1_1F1C_1F2C(cuatrimestre, dia):
     tablas = camelot.read_pdf(os.path.join(
@@ -1450,9 +1450,9 @@ def extractDataTable1_1F1C_1F2C(cuatrimestre, dia):
             else:
                 contColM+=1;
 
-        listLunes = []
-        for x in lunes:
-            listLunes.extend(x.strip().split('\n'))
+        listMartes = []
+        for x in martes:
+            listMartes.extend(x.strip().split('\n'))
 
         ##################################################################
 
@@ -1525,15 +1525,15 @@ def extractDataTable1_1F1C_1F2C(cuatrimestre, dia):
 
         if(cuatrimestre == '1' or cuatrimestre == 'primero' or cuatrimestre == 'uno'):
             if(dia.lower() == 'lunes'):
-                print(listLunes)
+                return listLunes
             if(dia.lower() == 'martes'):
-                print(listMartes)
+                return listMartes
             if(dia.lower() == 'miercoles'):
-                print(listMiercoles)
+                return listMiercoles
             if(dia.lower() == 'jueves'):
-                print(listJueves)
+                return listJueves
             if(dia.lower() == 'viernes'):
-                print(listViernes)
+                return listViernes
 
     with open(os.path.join(OUTPUT, './HORARIOS/HORARIOS1819-page-6-table-2.csv'), 'r') as archivo:
         datos = pd.read_csv(archivo, header=0)
@@ -1657,15 +1657,15 @@ def extractDataTable1_1F1C_1F2C(cuatrimestre, dia):
 
         if(cuatrimestre == '2' or cuatrimestre == 'segundo' or cuatrimestre == 'dos'):
             if(dia.lower() == 'lunes'):
-                print(listLunes)
+                return listLunes
             if(dia.lower() == 'martes'):
-                print(listMartes)
+                return listMartes
             if(dia.lower() == 'miercoles'):
-                print(listMiercoles)
+                return listMiercoles
             if(dia.lower() == 'jueves'):
-                print(listJueves)
+                return listJueves
             if(dia.lower() == 'viernes'):
-                print(listViernes)
+                return listViernes
 
 def extractDataTable1_2A1C_2A2C(cuatrimestre, dia):
     tablas = camelot.read_pdf(os.path.join(
@@ -4810,13 +4810,88 @@ if __name__ == '__main__':
                     print("Fila insertada correctamente")
 
             if(sys.argv[2] == 'C' or sys.argv[2] == 'c'):
-                extractDataTable1_1C1C_1C2C(cuatrimestre, dia)
+                if(cuatrimestre == '1' or cuatrimestre == 'primero' or cuatrimestre == 'primer'):
+                    listDia = extractDataTable1_1C1C_1C2C(cuatrimestre, dia)
+
+                    sql_insert_query = """INSERT INTO "Horarios" VALUES(%s, %s, %s, %s, %s)"""
+                    insert_tuple = (1, 1, 'C', dia, listDia)
+                    result = cursor.execute(sql_insert_query, insert_tuple)
+
+                    connect_db.commit()
+                    print("Fila insertada correctamente")
+
+                if(cuatrimestre == '2' or cuatrimestre == 'segundo'):
+                    listDia = extractDataTable1_1C1C_1C2C(cuatrimestre, dia)
+
+                    sql_insert_query = """INSERT INTO "Horarios" VALUES(%s, %s, %s, %s, %s)"""
+                    insert_tuple = (1, 2, 'C', dia, listDia)
+                    result = cursor.execute(sql_insert_query, insert_tuple)
+
+                    connect_db.commit()
+                    print("Fila insertada correctamente")
+            
             if(sys.argv[2] == 'D' or sys.argv[2] == 'd'):
-                extractDataTable1_1D1C_1D2C(cuatrimestre, dia)
+                if(cuatrimestre == '1' or cuatrimestre == 'primero' or cuatrimestre == 'primer'):
+                    listDia = extractDataTable1_1D1C_1D2C(cuatrimestre, dia)
+
+                    sql_insert_query = """INSERT INTO "Horarios" VALUES(%s, %s, %s, %s, %s)"""
+                    insert_tuple = (1, 1, 'D', dia, listDia)
+                    result = cursor.execute(sql_insert_query, insert_tuple)
+
+                    connect_db.commit()
+                    print("Fila insertada correctamente")
+
+                if(cuatrimestre == '2' or cuatrimestre == 'segundo'):
+                    listDia = extractDataTable1_1D1C_1D2C(cuatrimestre, dia)
+
+                    sql_insert_query = """INSERT INTO "Horarios" VALUES(%s, %s, %s, %s, %s)"""
+                    insert_tuple = (1, 2, 'C', dia, listDia)
+                    result = cursor.execute(sql_insert_query, insert_tuple)
+
+                    connect_db.commit()
+                    print("Fila insertada correctamente")
+            
             if(sys.argv[2] == 'E' or sys.argv[2] == 'e'):
-                extractDataTable1_1E1C_1E2C(cuatrimestre, dia)
+                if(cuatrimestre == '1' or cuatrimestre == 'primero' or cuatrimestre == 'primer'):
+                    listDia = extractDataTable1_1E1C_1E2C(cuatrimestre, dia)
+
+                    sql_insert_query = """INSERT INTO "Horarios" VALUES(%s, %s, %s, %s, %s)"""
+                    insert_tuple = (1, 1, 'E', dia, listDia)
+                    result = cursor.execute(sql_insert_query, insert_tuple)
+
+                    connect_db.commit()
+                    print("Fila insertada correctamente")
+
+                if(cuatrimestre == '2' or cuatrimestre == 'segundo'):
+                    listDia = extractDataTable1_1E1C_1E2C(cuatrimestre, dia)
+
+                    sql_insert_query = """INSERT INTO "Horarios" VALUES(%s, %s, %s, %s, %s)"""
+                    insert_tuple = (1, 2, 'E', dia, listDia)
+                    result = cursor.execute(sql_insert_query, insert_tuple)
+
+                    connect_db.commit()
+                    print("Fila insertada correctamente")
+
             if(sys.argv[2] == 'F' or sys.argv[2] == 'f'):
-                extractDataTable1_1F1C_1F2C(cuatrimestre, dia)
+                if(cuatrimestre == '1' or cuatrimestre == 'primero' or cuatrimestre == 'primer'):
+                    listDia = extractDataTable1_1F1C_1F2C(cuatrimestre, dia)
+
+                    sql_insert_query = """INSERT INTO "Horarios" VALUES(%s, %s, %s, %s, %s)"""
+                    insert_tuple = (1, 1, 'F', dia, listDia)
+                    result = cursor.execute(sql_insert_query, insert_tuple)
+
+                    connect_db.commit()
+                    print("Fila insertada correctamente")
+
+                if(cuatrimestre == '2' or cuatrimestre == 'segundo'):
+                    listDia = extractDataTable1_1F1C_1F2C(cuatrimestre, dia)
+
+                    sql_insert_query = """INSERT INTO "Horarios" VALUES(%s, %s, %s, %s, %s)"""
+                    insert_tuple = (1, 2, 'F', dia, listDia)
+                    result = cursor.execute(sql_insert_query, insert_tuple)
+
+                    connect_db.commit()
+                    print("Fila insertada correctamente")
 
         if(sys.argv[1] == '2' or sys.argv[1] == 'segundo' or sys.argv[1] == 'dos'):
             if(sys.argv[2] == 'A' or sys.argv[2] == 'a'):
