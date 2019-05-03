@@ -9,7 +9,6 @@ import funciones_API
 
 app = Flask(__name__)
 
-
 {
    "status": "OK"
 }
