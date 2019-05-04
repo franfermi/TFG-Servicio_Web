@@ -2,7 +2,7 @@
 
 import os
 import telebot
-#import funcionesDB
+import funcionesDB
 
 TOKEN = os.environ['TOKEN']
 bot = telebot.TeleBot(TOKEN)
@@ -11,8 +11,8 @@ commands = { # command description used in the "ayuda" command
     'hola': 'Comando de inicio',
     'adios': 'Comando de despedida',
     'ayuda': 'Da informacion sobre los comandos disponibles',
-    'num_asignaturas': 'Número de asignaturas almacenadas',
-    'asig_disponibles': 'Asignaturas almacenadas',
+    'informacion': 'Muestra la información que se puede consultar',
+    '/profesores': 'Información sobre profesores y contactos de una asignatura',
     'mostrar_todo': 'Muestra toda la información almacenada'
 }
 
@@ -27,7 +27,7 @@ bot.set_update_listener(listener)
 def comando_hola(message):
     """Función de bienvenida al bot de Telegram. """
     chat_id = message.chat.id
-    bot.send_message(chat_id, "Bienvenid@ al canal de SubjectsGII, use el comando /ayuda para más información")
+    bot.send_message(chat_id, "Bienvenid@ al canal de Informática_UGR-Bot, use el comando /ayuda para más información")
 
 @bot.message_handler(commands=['adios'])
 def comando_hola(message):
@@ -35,19 +35,24 @@ def comando_hola(message):
     chat_id = message.chat.id
     bot.send_message(chat_id, "Hasta pronto!")
 
-@bot.message_handler(commands=['num_asignaturas'])
+@bot.message_handler(commands=['informacion'])
 def comando_numAsig(message):
-    """Función que muestra el número de asignaturas almacenadas. """
+    """Función que muestra la información que se puede consultar. """
     chat_id = message.chat.id
-    res = funcionesDB.numeroAsigDisponibles()
-    bot.send_message(chat_id, res)
+    bot.send_message(chat_id, "Se pueden realizar las siguientes consultas= " + 
+                    "/profesores : Información sobre los profesores y sus contactos de una asignatura.")
 
-@bot.message_handler(commands=['asig_disponibles'])
-def comando_asigDisponibles(message):
+@bot.message_handler(commands=['profesores'])
+def comando_obtenerGD(message):
     """Función que muestra las asignaturas almacenadas. """
     chat_id = message.chat.id
-    res = funcionesDB.mostrarAsigDisponibles()
-    bot.send_message(chat_id, res)
+    asignatura = message.text[12:16]
+
+    if(asignatura == ""):
+        bot.send_message(chat_id, "Debes indicar la asignatura que deseas buscar")
+    else:
+        res = funcionesDB.obtenerGuiaDocente(asignatura)
+        bot.send_message(chat_id, res)
 
 @bot.message_handler(commands=['mostrar_todo'])
 def comando_asigDisponibles(message):
