@@ -13,6 +13,7 @@ commands = { # command description used in the "ayuda" command
     'ayuda': 'Da informacion sobre los comandos disponibles',
     'profesores': 'Información sobre profesores y contactos de una asignatura',
     'horarios': 'Información sobre el horario',
+    'examenes': 'Infromación sobre el examen final de la asignatura',
 }
 
 def listener(messages):
@@ -51,14 +52,32 @@ def comando_obtenerHO(message):
     """Función que muestra el horario. """
     chat_id = message.chat.id
     curso = message.text[10:11]
-    cuatrimestre = message.text[12:13]
+    semestre = message.text[12:13]
     grupo = message.text[14:15]
     dia = message.text[16:]
 
-    if(curso == "" or cuatrimestre == "" or grupo == "" or dia == ""):
-        bot.send_message(chat_id, "Debes indicar el curso, cuatrimestre, grupo y dia. Ej: 1 1 A lunes")
+    if(curso == "" or semestre == "" or grupo == "" or dia == ""):
+        bot.send_message(chat_id, "Debes indicar el curso, semestre, grupo y dia. Ej: 1 1 A lunes")
     else:
-        res = funcionesDB.obtenerHorarios(curso, cuatrimestre, grupo, dia)
+        res = funcionesDB.obtenerHorarios(curso, semestre, grupo, dia)
+        bot.send_message(chat_id, res)
+
+@bot.message_handler(commands=['examenes'])
+def comando_obtenerEX(message):
+    """Función que muestra el examen final de la asignatura. """
+    chat_id = message.chat.id
+    asignatura = message.text[10:14]
+    semestre = message.text[15:16]
+    convocatoria = message.text[17:]
+
+    print(asignatura)
+    print(semestre)
+    print(convocatoria)
+
+    if(asignatura == "" or semestre == "" or convocatoria == ""):
+        bot.send_message(chat_id, "Debes indicar la asignatura, semestre y convocatoria. Ej: ALEM 1 ordinaria")
+    else:
+        res = funcionesDB.obtenerFechaEx(asignatura, semestre, convocatoria)
         bot.send_message(chat_id, res)
 
 @bot.message_handler(commands=['ayuda'])
