@@ -16,19 +16,39 @@ def obtenerGuiaDocente(nombAsig):
 
     asignatura = nombAsig.upper()
 
-    cursor.execute('SELECT * FROM "GuiasDocentes" WHERE asignatura = %s', [asignatura])
+    cursor.execute('SELECT * FROM "GuiasDocentes" WHERE asignatura = %s', [asignatura.upper()])
 
     connect_db.commit()
-    print("Esta entrando en la funcion!!")
-    asig = profesores = contactos = ""
-    vAsig = []
+
+    guiaDocente = []
     f = cursor.fetchall()
 
     for c in f:
-        res = "-Asignatura: " + str(c[0]) + "\n\n-Profesores: " + str(c[1]) + "\n\n-Contactos: " +str(c[2])
-        vAsig.append(res)
+        res = '-Asignatura: ' + str(c[0]) \
+        + '\n\n-Profesores: ' + str(c[1].replace('","', ', ').replace('{', '').replace('}', '').replace('"', '')) \
+        + '\n\n-Contactos: ' + str(c[2].replace('","', ', ').replace('{', '').replace('}', '').replace('"', ''))
+        guiaDocente.append(res)
 
-    return vAsig
+    return guiaDocente
+
+def obtenerHorarios(curso, cuatrimestre, grupo, dia):
+
+    cursor.execute('SELECT * FROM "Horarios" WHERE curso = %s and cuatrimestre = %s and grupo = %s and dia = %s', [(curso), (cuatrimestre), (grupo.upper()), (dia.upper())])
+
+    connect_db.commit()
+
+    horario = []
+    f = cursor.fetchall()
+
+    for c in f:
+        res = "-Curso: " + str(c[0]) \
+        + "\n\n-Cuatrimestre: " + str(c[1]) \
+        + "\n\n-Grupo: " + str(c[2]) \
+        + "\n\n-Día: " + str(c[3]) \
+        + "\n\n-Horario: " + str(c[4].replace('"', '').replace(',', ', ').replace('{', '').replace('}', ''))
+        horario.append(res)
+
+    return horario
 
 # def conexionBD():
 #     connect_db = psycopg2.connect(database=db, user=usuario, password=pw, host=host_db)
