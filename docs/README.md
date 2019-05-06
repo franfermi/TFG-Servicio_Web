@@ -1,4 +1,4 @@
-![](/home/francisco/Escritorio/TFG/Proyecto/docs/img/logoUGR.png)
+![curl](https://github.com/franfermi/TFG-Servicio_Web/blob/master/docs/img/logoUGR.png)
 
 
 
@@ -36,7 +36,7 @@
 
 ​																			
 
-​																			![](/home/francisco/Escritorio/TFG/Proyecto/docs/img/logoETSIIT.png)
+​																			![curl](https://github.com/franfermi/TFG-Servicio_Web/blob/master/docs/img/logoETSIIT.png)
 
 ​													Escuela Técnica Superior de Ingenierı́as Informática y de
 ​																					Telecomunicación
@@ -301,7 +301,7 @@ Bibliotecas que he probado y he tenido que descartar:
 
 Al final, tras muchas pruebas y agobios debido al formato/estructura de los PDFs, encontré la biblioteca **camelot** la cual consiguió pasar los test, además incluye ventaja de ser capaz de detectar en un PDF donde se encuentra una tabla si por ejemplo está rodeada de texto, así como otras más.
 
-![](/home/francisco/Escritorio/TFG/Proyecto/docs/img/comparacionContenido.jpg)
+![curl](https://github.com/franfermi/TFG-Servicio_Web/blob/master/docs/img/comparacionContenido.jpg)
 
 En la imagen anterior se muestra el contenido de un PDF extraído mediate *Camelot* en la primera tabla y en la segunda es propio contenido convertido a *csv*, como se puede observar es exactamente igual. Por tanto, es la mejor elección ya que a la hora de realizar la extracción, el resultado será igual que el de la tabla de entrada.
 
@@ -532,7 +532,7 @@ A continuación mostraré ejemplos sobre funciones que he realizado en cada uno 
 
 Para el almacenamiento de datos me he decantado por el uso de Postgres a través de la plataforma Heroku, la cual proporciona la integración automática de la base de datos en el propio despliegue de la aplicación.  Para hacer uso de la BD tenemos que configurarla en Heroku como *Add-ons*.
 
-![curl](/home/francisco/Escritorio/TFG/Proyecto/docs/img/configPostgres.png)
+![curl](https://github.com/franfermi/TFG-Servicio_Web/blob/master/docs/img/configPostgres.png)
 
 Como se puede observar ya se encuentra configurada y contiene 3 tablas que más adelante comentaré de que se tratan. Para poder acceder a nuestra BD creada, tenemos una pestaña de ajustes en la cual podemos acceder a los credenciales de esta. Con dichos datos podemos conectarnos a ella desde cualquier programa en Python que hablaremos más adelante y desde un cliente a través del cual gestionaremos el contenido. 
 
@@ -542,13 +542,13 @@ El cliente que he usado para la gestión de la BD es pgAdmin, desde el nos encar
 
 La estructura en la cual se van a almacenar los datos es la siguiente:
 
-![curl](/home/francisco/Escritorio/TFG/Proyecto/docs/img/estructuraTablasBD.png)
+![curl](https://github.com/franfermi/TFG-Servicio_Web/blob/master/docs/img/estructuraTablasBD.png)
 
 La estructura se corresponde con 3 tablas, cada una de ella se encarga de almacenar una solicitud de búsqueda desde la API.
 
 - **FechasExamenes**: Se trata de una tabla que contiene 4 columnas, las siglas de la asignatura la cual queremos obtener la fecha del examen final, el semestre al que corresponde la asignatura (se podría descartar pero es más cómodo tener esta columna para ordenaciones en la BD), convocatoria, ya sea ordinaria o extraordinaria, y por último, la columna fecha que almacena el valor obtenido de la búsqueda. Un ejemplo de fila almacenada en la BD es el siguiente:
 
-  ![curl](/home/francisco/Escritorio/TFG/Proyecto/docs/img/ejemploContenidoDBex.png)
+  ![curl](https://github.com/franfermi/TFG-Servicio_Web/blob/master/docs/img/ejemploContenidoDBex.png)
 
 
 
@@ -558,11 +558,11 @@ La estructura se corresponde con 3 tablas, cada una de ella se encarga de almace
 
 - **GuiasDocentes**: Se trata de una tabla que contiene 3 columnas, las siglas de la asignatura la cual queremos obtener información de la guía docente correspondiente, como resultado obtenemos la lista de profesores y el listado de como contactar con ellos. Un ejemplo de fila almacenada en la BD es el siguiente:
 
-  ![curl](/home/francisco/Escritorio/TFG/Proyecto/docs/img/ejemploContenidoBDgd.png)
+  ![curl](https://github.com/franfermi/TFG-Servicio_Web/blob/master/docs/img/ejemploContenidoBDgd.png)
 
 - **Horarios**: Se trata de una tabla que contiene 5 columnas, el curso del que queremos obtener el horario, el cuatrimestre y grupo correspondiente y el día de la semana que nos interesa saber su horario, por último, el contenido de la consulta se almacena en la columna restante en la cual se mostrará las asignaturas con sus respectivas aulas en cada intervalo de horas. Un ejemplo de fila almacenada en la BD es el siguiente:
 
-  ![curl](/home/francisco/Escritorio/TFG/Proyecto/docs/img/ejemploContenidoBDho.png)
+  ![curl](https://github.com/franfermi/TFG-Servicio_Web/blob/master/docs/img/ejemploContenidoBDho.png)
 
 
 
@@ -580,13 +580,13 @@ Los pasos a seguir para su despliegue son los siguientes:
 
 <code>heroku login</code>
 
-![curl](./img/login_heroku.png)
+![curl](https://github.com/franfermi/TFG-Servicio_Web/blob/master/docs/img/login_heroku.png)
 
 -Creamos la aplicación la cual vamos a desplegar.
 
 <code>heroku apps:create --region eu subjectsgii</code>
 
-![curl](./img/config_app.png)
+![curl](https://github.com/franfermi/TFG-Servicio_Web/blob/master/docs/img/config_app.png)
 
 -Añadimos los siguientes ficheros:
 
@@ -600,13 +600,13 @@ En la opción de despliegue de Heroku, en métodos de despliegue seleccionamos l
 
 Por último, activamos el despliegue automático para cada vez que realicemos un push de nuestro proyecto se actualice también en Heroku.
 
-![curl](./img/despliegueAutHeroku.png)
+![curl](https://github.com/franfermi/TFG-Servicio_Web/blob/master/docs/img/despliegueAutHeroku.png)
 
 -Para configurar el token de Telegram para su uso desde Heroku:
 
 <code>heroku config:set TOKEN=$ --app informaticaugrbot</code>
 
-![curl](./img/configBotHeroku.png)
+![curl](https://github.com/franfermi/TFG-Servicio_Web/blob/master/docs/img/configBotHeroku.png)
 
 -Por último, lanzamos tanto el bot como el servicio web.
 
@@ -616,8 +616,8 @@ Por último, activamos el despliegue automático para cada vez que realicemos un
 
 <code>heroku ps:scale web=1 --app informaticaugrbot</code>
 
-![curl](./img/despliegueWebCorrecto.png)
+![curl](https://github.com/franfermi/TFG-Servicio_Web/blob/master/docs/img/despliegueWebCorrecto.png)
 
 -Comprobamos que están activos y funcionando en heroku.
 
-![curl](./img/dynosHeroku.png)
+![curl](https://github.com/franfermi/TFG-Servicio_Web/blob/master/docs/img/dynosHeroku.png)
