@@ -9,6 +9,7 @@ import funciones_API
 
 app = Flask(__name__)
 
+
 {
    "status": "OK"
 }
@@ -40,7 +41,9 @@ def busquedaHO():
     cuatrimestreHO = request.form['cuatrimestre']
     grupoHO = request.form['grupo']
     diaHO = request.form['dia']
-    res = funciones_API.obtenerHorarios(cursoHO, cuatrimestreHO, grupoHO, diaHO)
+    especialidadHO = request.form['especialidad']
+
+    res = funciones_API.obtenerHorarios(cursoHO, cuatrimestreHO, grupoHO, diaHO, especialidadHO)
 
     return render_template("resultHO.html", resultado=res)
 

@@ -68,10 +68,18 @@
           <center>
             <b><p>Información sobre horarios</p></b>
           <form action="/busquedaHorarios" method="POST">
-                    <input type="text" size="15" name="curso" placeholder="Ejemplo: tercero ó 3">
-                    <input type="text" size="15" name="cuatrimestre" placeholder="Ejemplo: primero ó 1">
-                    <input type="text" size="15" name="grupo" placeholder="Ejemplo: A ó a">
-                    <input type="text" size="15" name="dia" placeholder="Ejemplo: lunes">
+                    <input type="text" size="12" name="curso" placeholder="Ejemplo: tercero ó 3">
+                    <input type="text" size="12" name="cuatrimestre" placeholder="Ejemplo: primero ó 1">
+                    <input type="text" size="12" name="grupo" placeholder="Ejemplo: A ó a">
+                    <input type="text" size="12" name="dia" placeholder="Ejemplo: lunes">
+                    <br>
+                    <input type="radio" name="especialidad" value="" checked>Común<br>
+                    <input type="radio" name="especialidad" value="computadores">Ing. Computadores<br>
+                    <input type="radio" name="especialidad" value="software">Ing. Software<br>
+                    <input type="radio" name="especialidad" value="sistemas inteligentes">Comp. y Sist. Inteligentes<br>
+                    <input type="radio" name="especialidad" value="sistemas informacion">Sist. Información<br>
+                    <input type="radio" name="especialidad" value="tecnologias informacion">Tec. Información<br>
+
                     <input type="submit" value="Enviar">
           </form>
           <center>

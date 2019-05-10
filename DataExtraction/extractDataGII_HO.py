@@ -1801,15 +1801,15 @@ def extractDataTable1_2A1C_2A2C(cuatrimestre, dia):
 
         if(cuatrimestre == '1' or cuatrimestre == 'primero' or cuatrimestre == 'uno'):
             if(dia.lower() == 'lunes'):
-                print(listLunes)
+                return listLunes
             if(dia.lower() == 'martes'):
-                print(listMartes)
+                return listMartes
             if(dia.lower() == 'miercoles'):
-                print(listMiercoles)
+                return listMiercoles
             if(dia.lower() == 'jueves'):
-                print(listJueves)
+                return listJueves
             if(dia.lower() == 'viernes'):
-                print(listViernes)
+                return listViernes
         
     with open(os.path.join(OUTPUT, './HORARIOS/HORARIOS1819-page-7-table-2.csv'), 'r') as archivo:
         datos = pd.read_csv(archivo, header=0)
@@ -1933,15 +1933,15 @@ def extractDataTable1_2A1C_2A2C(cuatrimestre, dia):
 
         if(cuatrimestre == '2' or cuatrimestre == 'segundo' or cuatrimestre == 'dos'):
             if(dia.lower() == 'lunes'):
-                print(listLunes)
+                return listLunes
             if(dia.lower() == 'martes'):
-                print(listMartes)
+                return listMartes
             if(dia.lower() == 'miercoles'):
-                print(listMiercoles)
+                return listMiercoles
             if(dia.lower() == 'jueves'):
-                print(listJueves)
+                return listJueves
             if(dia.lower() == 'viernes'):
-                print(listViernes)
+                return listViernes
 
 def extractDataTable1_2B1C_2B2C(cuatrimestre, dia):
     tablas = camelot.read_pdf(os.path.join(
@@ -2077,15 +2077,15 @@ def extractDataTable1_2B1C_2B2C(cuatrimestre, dia):
 
         if(cuatrimestre == '1' or cuatrimestre == 'primero' or cuatrimestre == 'uno'):
             if(dia.lower() == 'lunes'):
-                print(listLunes)
+                return listLunes
             if(dia.lower() == 'martes'):
-                print(listMartes)
+                return listMartes
             if(dia.lower() == 'miercoles'):
-                print(listMiercoles)
+                return listMiercoles
             if(dia.lower() == 'jueves'):
-                print(listJueves)
+                return listJueves
             if(dia.lower() == 'viernes'):
-                print(listViernes)
+                return listViernes
         
     with open(os.path.join(OUTPUT, './HORARIOS/HORARIOS1819-page-8-table-2.csv'), 'r') as archivo:
         datos = pd.read_csv(archivo, header=0)
@@ -2209,15 +2209,15 @@ def extractDataTable1_2B1C_2B2C(cuatrimestre, dia):
 
         if(cuatrimestre == '2' or cuatrimestre == 'segundo' or cuatrimestre == 'dos'):
             if(dia.lower() == 'lunes'):
-                print(listLunes)
+                return listLunes
             if(dia.lower() == 'martes'):
-                print(listMartes)
+                return listMartes
             if(dia.lower() == 'miercoles'):
-                print(listMiercoles)
+                return listMiercoles
             if(dia.lower() == 'jueves'):
-                print(listJueves)
+                return listJueves
             if(dia.lower() == 'viernes'):
-                print(listViernes)
+                return listViernes
 
 def extractDataTable1_2C1C_2C2C(cuatrimestre, dia):
     tablas = camelot.read_pdf(os.path.join(
@@ -2353,15 +2353,15 @@ def extractDataTable1_2C1C_2C2C(cuatrimestre, dia):
 
         if(cuatrimestre == '1' or cuatrimestre == 'primero' or cuatrimestre == 'uno'):
             if(dia.lower() == 'lunes'):
-                print(listLunes)
+                return listLunes
             if(dia.lower() == 'martes'):
-                print(listMartes)
+                return listMartes
             if(dia.lower() == 'miercoles'):
-                print(listMiercoles)
+                return listMiercoles
             if(dia.lower() == 'jueves'):
-                print(listJueves)
+                return listJueves
             if(dia.lower() == 'viernes'):
-                print(listViernes)
+                return listViernes
         
     with open(os.path.join(OUTPUT, './HORARIOS/HORARIOS1819-page-9-table-2.csv'), 'r') as archivo:
         datos = pd.read_csv(archivo, header=0)
@@ -2485,15 +2485,15 @@ def extractDataTable1_2C1C_2C2C(cuatrimestre, dia):
 
         if(cuatrimestre == '2' or cuatrimestre == 'segundo' or cuatrimestre == 'dos'):
             if(dia.lower() == 'lunes'):
-                print(listLunes)
+                return listLunes
             if(dia.lower() == 'martes'):
-                print(listMartes)
+                return listMartes
             if(dia.lower() == 'miercoles'):
-                print(listMiercoles)
+                return listMiercoles
             if(dia.lower() == 'jueves'):
-                print(listJueves)
+                return listJueves
             if(dia.lower() == 'viernes'):
-                print(listViernes)
+                return listViernes
 
 def extractDataTable1_2D1C_2D2C(cuatrimestre, dia):
     tablas = camelot.read_pdf(os.path.join(
@@ -2629,15 +2629,15 @@ def extractDataTable1_2D1C_2D2C(cuatrimestre, dia):
 
         if(cuatrimestre == '1' or cuatrimestre == 'primero' or cuatrimestre == 'uno'):
             if(dia.lower() == 'lunes'):
-                print(listLunes)
+                return listLunes
             if(dia.lower() == 'martes'):
-                print(listMartes)
+                return listMartes
             if(dia.lower() == 'miercoles'):
-                print(listMiercoles)
+                return listMiercoles
             if(dia.lower() == 'jueves'):
-                print(listJueves)
+                return listJueves
             if(dia.lower() == 'viernes'):
-                print(listViernes)
+                return listViernes
         
     with open(os.path.join(OUTPUT, './HORARIOS/HORARIOS1819-page-10-table-2.csv'), 'r') as archivo:
         datos = pd.read_csv(archivo, header=0)
@@ -2761,17 +2761,17 @@ def extractDataTable1_2D1C_2D2C(cuatrimestre, dia):
 
         if(cuatrimestre == '2' or cuatrimestre == 'segundo' or cuatrimestre == 'dos'):
             if(dia.lower() == 'lunes'):
-                print(listLunes)
+                return listLunes
             if(dia.lower() == 'martes'):
-                print(listMartes)
+                return listMartes
             if(dia.lower() == 'miercoles'):
-                print(listMiercoles)
+                return listMiercoles
             if(dia.lower() == 'jueves'):
-                print(listJueves)
+                return listJueves
             if(dia.lower() == 'viernes'):
-                print(listViernes)
+                return listViernes
 
-def extractDataTable1_3A1C():
+def extractDataTable1_3A1C(dia):
     tablas = camelot.read_pdf(os.path.join(
         RESOURCE, 'HORARIOS1819.pdf'), pages='11')
     tablas.export(os.path.join(
@@ -2807,6 +2807,10 @@ def extractDataTable1_3A1C():
             else:
                 contColL+=1;
 
+        listLunes = []
+        for x in lunes:
+            listLunes.extend(x.strip().split('\n'))
+
         ##################################################################
             
         contFilM = 1
@@ -2825,6 +2829,10 @@ def extractDataTable1_3A1C():
                         contFilM+=1
             else:
                 contColM+=1;
+
+        listMartes = []
+        for x in martes:
+            listMartes.extend(x.strip().split('\n'))
 
         ##################################################################
 
@@ -2845,6 +2853,10 @@ def extractDataTable1_3A1C():
             else:
                 contColX+=1;
 
+        listMiercoles = []
+        for x in miercoles:
+            listMiercoles.extend(x.strip().split('\n'))
+
         ##################################################################
 
         contFilJ = 1
@@ -2863,6 +2875,10 @@ def extractDataTable1_3A1C():
                         contFilJ+=1
             else:
                 contColJ+=1;
+
+        listJueves = []
+        for x in jueves:
+            listJueves.extend(x.strip().split('\n'))
 
         ##################################################################
 
@@ -2883,7 +2899,23 @@ def extractDataTable1_3A1C():
             else:
                 contColV+=1;
 
-def extractDataTable1_3B1C():
+        listViernes = []
+        for x in viernes:
+            listViernes.extend(x.strip().split('\n'))
+        
+        if(cuatrimestre == '1' or cuatrimestre == 'primero' or cuatrimestre == 'uno'):
+            if(dia.lower() == 'lunes'):
+                return listLunes
+            if(dia.lower() == 'martes'):
+                return listMartes
+            if(dia.lower() == 'miercoles'):
+                return listMiercoles
+            if(dia.lower() == 'jueves'):
+                return listJueves
+            if(dia.lower() == 'viernes'):
+                return listViernes
+
+def extractDataTable1_3B1C(dia):
     tablas = camelot.read_pdf(os.path.join(
         RESOURCE, 'HORARIOS1819.pdf'), pages='12')
     tablas.export(os.path.join(
@@ -2918,7 +2950,11 @@ def extractDataTable1_3B1C():
                         contFilL+=1
             else:
                 contColL+=1;
-        
+
+        listLunes = []
+        for x in lunes:
+            listLunes.extend(x.strip().split('\n'))
+
         ##################################################################
             
         contFilM = 1
@@ -2937,6 +2973,10 @@ def extractDataTable1_3B1C():
                         contFilM+=1
             else:
                 contColM+=1;
+
+        listMartes = []
+        for x in martes:
+            listMartes.extend(x.strip().split('\n'))
 
         ##################################################################
 
@@ -2957,6 +2997,10 @@ def extractDataTable1_3B1C():
             else:
                 contColX+=1;
 
+        listMiercoles = []
+        for x in miercoles:
+            listMiercoles.extend(x.strip().split('\n'))
+
         ##################################################################
 
         contFilJ = 1
@@ -2976,6 +3020,10 @@ def extractDataTable1_3B1C():
             else:
                 contColJ+=1;
 
+        listJueves = []
+        for x in jueves:
+            listJueves.extend(x.strip().split('\n'))
+
         ##################################################################
 
         contFilV = 1
@@ -2994,8 +3042,24 @@ def extractDataTable1_3B1C():
                         contFilV+=1
             else:
                 contColV+=1;
+
+        listViernes = []
+        for x in viernes:
+            listViernes.extend(x.strip().split('\n'))
+        
+        if(cuatrimestre == '1' or cuatrimestre == 'primero' or cuatrimestre == 'uno'):
+            if(dia.lower() == 'lunes'):
+                return listLunes
+            if(dia.lower() == 'martes'):
+                return listMartes
+            if(dia.lower() == 'miercoles'):
+                return listMiercoles
+            if(dia.lower() == 'jueves'):
+                return listJueves
+            if(dia.lower() == 'viernes'):
+                return listViernes
             
-def extractDataTable1_3C1C():
+def extractDataTable1_3C1C(dia):
     tablas = camelot.read_pdf(os.path.join(
         RESOURCE, 'HORARIOS1819.pdf'), pages='13')
     tablas.export(os.path.join(
@@ -3031,6 +3095,10 @@ def extractDataTable1_3C1C():
             else:
                 contColL+=1;
 
+        listLunes = []
+        for x in lunes:
+            listLunes.extend(x.strip().split('\n'))
+
         ##################################################################
             
         contFilM = 1
@@ -3049,7 +3117,11 @@ def extractDataTable1_3C1C():
                         contFilM+=1
             else:
                 contColM+=1;
-   
+
+        listMartes = []
+        for x in martes:
+            listMartes.extend(x.strip().split('\n'))
+
         ##################################################################
 
         contFilX = 1
@@ -3068,6 +3140,10 @@ def extractDataTable1_3C1C():
                         contFilX+=1
             else:
                 contColX+=1;
+
+        listMiercoles = []
+        for x in miercoles:
+            listMiercoles.extend(x.strip().split('\n'))
 
         ##################################################################
 
@@ -3088,6 +3164,10 @@ def extractDataTable1_3C1C():
             else:
                 contColJ+=1;
 
+        listJueves = []
+        for x in jueves:
+            listJueves.extend(x.strip().split('\n'))
+
         ##################################################################
 
         contFilV = 1
@@ -3106,8 +3186,24 @@ def extractDataTable1_3C1C():
                         contFilV+=1
             else:
                 contColV+=1;
+
+        listViernes = []
+        for x in viernes:
+            listViernes.extend(x.strip().split('\n'))
+        
+        if(cuatrimestre == '1' or cuatrimestre == 'primero' or cuatrimestre == 'uno'):
+            if(dia.lower() == 'lunes'):
+                return listLunes
+            if(dia.lower() == 'martes'):
+                return listMartes
+            if(dia.lower() == 'miercoles'):
+                return listMiercoles
+            if(dia.lower() == 'jueves'):
+                return listJueves
+            if(dia.lower() == 'viernes'):
+                return listViernes
      
-def extractDataTable1_3C_Computadores():
+def extractDataTable1_3C_Computadores(dia):
     tablas = camelot.read_pdf(os.path.join(
         RESOURCE, 'HORARIOS1819.pdf'), pages='14')
     tablas.export(os.path.join(
@@ -3143,6 +3239,10 @@ def extractDataTable1_3C_Computadores():
             else:
                 contColL+=1;
 
+        listLunes = []
+        for x in lunes:
+            listLunes.extend(x.strip().split('\n'))
+
         ##################################################################
             
         contFilM = 1
@@ -3161,7 +3261,11 @@ def extractDataTable1_3C_Computadores():
                         contFilM+=1
             else:
                 contColM+=1;
-   
+
+        listMartes = []
+        for x in martes:
+            listMartes.extend(x.strip().split('\n'))
+
         ##################################################################
 
         contFilX = 1
@@ -3180,6 +3284,10 @@ def extractDataTable1_3C_Computadores():
                         contFilX+=1
             else:
                 contColX+=1;
+
+        listMiercoles = []
+        for x in miercoles:
+            listMiercoles.extend(x.strip().split('\n'))
 
         ##################################################################
 
@@ -3200,6 +3308,10 @@ def extractDataTable1_3C_Computadores():
             else:
                 contColJ+=1;
 
+        listJueves = []
+        for x in jueves:
+            listJueves.extend(x.strip().split('\n'))
+
         ##################################################################
 
         contFilV = 1
@@ -3218,8 +3330,23 @@ def extractDataTable1_3C_Computadores():
                         contFilV+=1
             else:
                 contColV+=1;
+
+        listViernes = []
+        for x in viernes:
+            listViernes.extend(x.strip().split('\n'))
+        
+        if(dia.lower() == 'lunes'):
+            return listLunes
+        if(dia.lower() == 'martes'):
+            return listMartes
+        if(dia.lower() == 'miercoles'):
+            return listMiercoles
+        if(dia.lower() == 'jueves'):
+            return listJueves
+        if(dia.lower() == 'viernes'):
+            return listViernes
  
-def extractDataTable1_3C_Software():
+def extractDataTable1_3C_Software(dia):
     tablas = camelot.read_pdf(os.path.join(
         RESOURCE, 'HORARIOS1819.pdf'), pages='15')
     tablas.export(os.path.join(
@@ -3255,6 +3382,10 @@ def extractDataTable1_3C_Software():
             else:
                 contColL+=1;
 
+        listLunes = []
+        for x in lunes:
+            listLunes.extend(x.strip().split('\n'))
+
         ##################################################################
             
         contFilM = 1
@@ -3273,7 +3404,11 @@ def extractDataTable1_3C_Software():
                         contFilM+=1
             else:
                 contColM+=1;
-   
+
+        listMartes = []
+        for x in martes:
+            listMartes.extend(x.strip().split('\n'))
+
         ##################################################################
 
         contFilX = 1
@@ -3292,6 +3427,10 @@ def extractDataTable1_3C_Software():
                         contFilX+=1
             else:
                 contColX+=1;
+
+        listMiercoles = []
+        for x in miercoles:
+            listMiercoles.extend(x.strip().split('\n'))
 
         ##################################################################
 
@@ -3312,6 +3451,10 @@ def extractDataTable1_3C_Software():
             else:
                 contColJ+=1;
 
+        listJueves = []
+        for x in jueves:
+            listJueves.extend(x.strip().split('\n'))
+
         ##################################################################
 
         contFilV = 1
@@ -3330,8 +3473,23 @@ def extractDataTable1_3C_Software():
                         contFilV+=1
             else:
                 contColV+=1;
+
+        listViernes = []
+        for x in viernes:
+            listViernes.extend(x.strip().split('\n'))
+        
+        if(dia.lower() == 'lunes'):
+            return listLunes
+        if(dia.lower() == 'martes'):
+            return listMartes
+        if(dia.lower() == 'miercoles'):
+            return listMiercoles
+        if(dia.lower() == 'jueves'):
+            return listJueves
+        if(dia.lower() == 'viernes'):
+            return listViernes
  
-def extractDataTable1_3C_Computacion_SistemasInteligentes():
+def extractDataTable1_3C_Computacion_SistemasInteligentes(dia):
     tablas = camelot.read_pdf(os.path.join(
         RESOURCE, 'HORARIOS1819.pdf'), pages='16')
     tablas.export(os.path.join(
@@ -3367,6 +3525,10 @@ def extractDataTable1_3C_Computacion_SistemasInteligentes():
             else:
                 contColL+=1;
 
+        listLunes = []
+        for x in lunes:
+            listLunes.extend(x.strip().split('\n'))
+
         ##################################################################
             
         contFilM = 1
@@ -3385,7 +3547,11 @@ def extractDataTable1_3C_Computacion_SistemasInteligentes():
                         contFilM+=1
             else:
                 contColM+=1;
-   
+
+        listMartes = []
+        for x in martes:
+            listMartes.extend(x.strip().split('\n'))
+
         ##################################################################
 
         contFilX = 1
@@ -3404,6 +3570,10 @@ def extractDataTable1_3C_Computacion_SistemasInteligentes():
                         contFilX+=1
             else:
                 contColX+=1;
+
+        listMiercoles = []
+        for x in miercoles:
+            listMiercoles.extend(x.strip().split('\n'))
 
         ##################################################################
 
@@ -3424,6 +3594,10 @@ def extractDataTable1_3C_Computacion_SistemasInteligentes():
             else:
                 contColJ+=1;
 
+        listJueves = []
+        for x in jueves:
+            listJueves.extend(x.strip().split('\n'))
+
         ##################################################################
 
         contFilV = 1
@@ -3442,8 +3616,23 @@ def extractDataTable1_3C_Computacion_SistemasInteligentes():
                         contFilV+=1
             else:
                 contColV+=1;
- 
-def extractDataTable1_3C_SistemasInformacion():
+
+        listViernes = []
+        for x in viernes:
+            listViernes.extend(x.strip().split('\n'))
+        
+        if(dia.lower() == 'lunes'):
+            return listLunes
+        if(dia.lower() == 'martes'):
+            return listMartes
+        if(dia.lower() == 'miercoles'):
+            return listMiercoles
+        if(dia.lower() == 'jueves'):
+            return listJueves
+        if(dia.lower() == 'viernes'):
+            return listViernes
+
+def extractDataTable1_3C_SistemasInformacion(dia):
     tablas = camelot.read_pdf(os.path.join(
         RESOURCE, 'HORARIOS1819.pdf'), pages='17')
     tablas.export(os.path.join(
@@ -3479,6 +3668,10 @@ def extractDataTable1_3C_SistemasInformacion():
             else:
                 contColL+=1;
 
+        listLunes = []
+        for x in lunes:
+            listLunes.extend(x.strip().split('\n'))
+
         ##################################################################
             
         contFilM = 1
@@ -3497,7 +3690,11 @@ def extractDataTable1_3C_SistemasInformacion():
                         contFilM+=1
             else:
                 contColM+=1;
-   
+
+        listMartes = []
+        for x in martes:
+            listMartes.extend(x.strip().split('\n'))
+
         ##################################################################
 
         contFilX = 1
@@ -3516,6 +3713,10 @@ def extractDataTable1_3C_SistemasInformacion():
                         contFilX+=1
             else:
                 contColX+=1;
+
+        listMiercoles = []
+        for x in miercoles:
+            listMiercoles.extend(x.strip().split('\n'))
 
         ##################################################################
 
@@ -3536,6 +3737,10 @@ def extractDataTable1_3C_SistemasInformacion():
             else:
                 contColJ+=1;
 
+        listJueves = []
+        for x in jueves:
+            listJueves.extend(x.strip().split('\n'))
+
         ##################################################################
 
         contFilV = 1
@@ -3554,8 +3759,23 @@ def extractDataTable1_3C_SistemasInformacion():
                         contFilV+=1
             else:
                 contColV+=1;
+
+        listViernes = []
+        for x in viernes:
+            listViernes.extend(x.strip().split('\n'))
+        
+        if(dia.lower() == 'lunes'):
+            return listLunes
+        if(dia.lower() == 'martes'):
+            return listMartes
+        if(dia.lower() == 'miercoles'):
+            return listMiercoles
+        if(dia.lower() == 'jueves'):
+            return listJueves
+        if(dia.lower() == 'viernes'):
+            return listViernes
  
-def extractDataTable1_3C_TecnologiasInformacion():
+def extractDataTable1_3C_TecnologiasInformacion(dia):
     tablas = camelot.read_pdf(os.path.join(
         RESOURCE, 'HORARIOS1819.pdf'), pages='18')
     tablas.export(os.path.join(
@@ -3591,6 +3811,10 @@ def extractDataTable1_3C_TecnologiasInformacion():
             else:
                 contColL+=1;
 
+        listLunes = []
+        for x in lunes:
+            listLunes.extend(x.strip().split('\n'))
+
         ##################################################################
             
         contFilM = 1
@@ -3609,7 +3833,11 @@ def extractDataTable1_3C_TecnologiasInformacion():
                         contFilM+=1
             else:
                 contColM+=1;
-   
+
+        listMartes = []
+        for x in martes:
+            listMartes.extend(x.strip().split('\n'))
+
         ##################################################################
 
         contFilX = 1
@@ -3628,6 +3856,10 @@ def extractDataTable1_3C_TecnologiasInformacion():
                         contFilX+=1
             else:
                 contColX+=1;
+
+        listMiercoles = []
+        for x in miercoles:
+            listMiercoles.extend(x.strip().split('\n'))
 
         ##################################################################
 
@@ -3648,6 +3880,10 @@ def extractDataTable1_3C_TecnologiasInformacion():
             else:
                 contColJ+=1;
 
+        listJueves = []
+        for x in jueves:
+            listJueves.extend(x.strip().split('\n'))
+
         ##################################################################
 
         contFilV = 1
@@ -3666,6 +3902,21 @@ def extractDataTable1_3C_TecnologiasInformacion():
                         contFilV+=1
             else:
                 contColV+=1;
+
+        listViernes = []
+        for x in viernes:
+            listViernes.extend(x.strip().split('\n'))
+        
+        if(dia.lower() == 'lunes'):
+            return listLunes
+        if(dia.lower() == 'martes'):
+            return listMartes
+        if(dia.lower() == 'miercoles'):
+            return listMiercoles
+        if(dia.lower() == 'jueves'):
+            return listJueves
+        if(dia.lower() == 'viernes'):
+            return listViernes
  
 def extractDataTable1_4C_1C_2C_Computadores():
     tablas = camelot.read_pdf(os.path.join(
@@ -4762,6 +5013,10 @@ if __name__ == '__main__':
     if(sys.argv[4:]):
         cuatrimestre = sys.argv[3]
         dia = sys.argv[4].upper()
+        especialidad = ''
+
+        if(sys.argv[1] == '3' and cuatrimestre == '2'):
+            especialidad = sys.argv[5].upper()
         
         connect_db = psycopg2.connect(database=db, user=usuario, password=pw, host=host_db)
         cursor = connect_db.cursor()
@@ -4895,23 +5150,173 @@ if __name__ == '__main__':
 
         if(sys.argv[1] == '2' or sys.argv[1] == 'segundo' or sys.argv[1] == 'dos'):
             if(sys.argv[2] == 'A' or sys.argv[2] == 'a'):
-                extractDataTable1_2A1C_2A2C(cuatrimestre, dia)
+                if(cuatrimestre == '1' or cuatrimestre == 'primero' or cuatrimestre == 'primer'):
+                    listDia = extractDataTable1_2A1C_2A2C(cuatrimestre, dia)
+
+                    sql_insert_query = """INSERT INTO "Horarios" VALUES(%s, %s, %s, %s, %s)"""
+                    insert_tuple = (2, 1, 'A', dia, listDia)
+                    result = cursor.execute(sql_insert_query, insert_tuple)
+
+                    connect_db.commit()
+                    print("Fila insertada correctamente")
+
+                if(cuatrimestre == '2' or cuatrimestre == 'segundo'):
+                    listDia = extractDataTable1_2A1C_2A2C(cuatrimestre, dia)
+
+                    sql_insert_query = """INSERT INTO "Horarios" VALUES(%s, %s, %s, %s, %s)"""
+                    insert_tuple = (2, 2, 'A', dia, listDia)
+                    result = cursor.execute(sql_insert_query, insert_tuple)
+
+                    connect_db.commit()
+                    print("Fila insertada correctamente")
+    
             if(sys.argv[2] == 'B' or sys.argv[2] == 'b'):
-                extractDataTable1_2B1C_2B2C(cuatrimestre, dia)
+                if(cuatrimestre == '1' or cuatrimestre == 'primero' or cuatrimestre == 'primer'):
+                    listDia = extractDataTable1_2B1C_2B2C(cuatrimestre, dia)
+
+                    sql_insert_query = """INSERT INTO "Horarios" VALUES(%s, %s, %s, %s, %s)"""
+                    insert_tuple = (2, 1, 'B', dia, listDia)
+                    result = cursor.execute(sql_insert_query, insert_tuple)
+
+                    connect_db.commit()
+                    print("Fila insertada correctamente")
+
+                if(cuatrimestre == '2' or cuatrimestre == 'segundo'):
+                    listDia = extractDataTable1_2B1C_2B2C(cuatrimestre, dia)
+
+                    sql_insert_query = """INSERT INTO "Horarios" VALUES(%s, %s, %s, %s, %s)"""
+                    insert_tuple = (2, 2, 'B', dia, listDia)
+                    result = cursor.execute(sql_insert_query, insert_tuple)
+
+                    connect_db.commit()
+                    print("Fila insertada correctamente")
+
             if(sys.argv[2] == 'C' or sys.argv[2] == 'c'):
-                extractDataTable1_2C1C_2C2C(cuatrimestre, dia)
+                if(cuatrimestre == '1' or cuatrimestre == 'primero' or cuatrimestre == 'primer'):
+                    listDia = extractDataTable1_2C1C_2C2C(cuatrimestre, dia)
+
+                    sql_insert_query = """INSERT INTO "Horarios" VALUES(%s, %s, %s, %s, %s)"""
+                    insert_tuple = (2, 1, 'C', dia, listDia)
+                    result = cursor.execute(sql_insert_query, insert_tuple)
+
+                    connect_db.commit()
+                    print("Fila insertada correctamente")
+
+                if(cuatrimestre == '2' or cuatrimestre == 'segundo'):
+                    listDia = extractDataTable1_2C1C_2C2C(cuatrimestre, dia)
+
+                    sql_insert_query = """INSERT INTO "Horarios" VALUES(%s, %s, %s, %s, %s)"""
+                    insert_tuple = (2, 2, 'C', dia, listDia)
+                    result = cursor.execute(sql_insert_query, insert_tuple)
+
+                    connect_db.commit()
+                    print("Fila insertada correctamente")
+
             if(sys.argv[2] == 'D' or sys.argv[2] == 'd'):    
-                extractDataTable1_2D1C_2D2C(cuatrimestre, dia)
+                if(cuatrimestre == '1' or cuatrimestre == 'primero' or cuatrimestre == 'primer'):
+                    listDia = extractDataTable1_2D1C_2D2C(cuatrimestre, dia)
 
-            # extractDataTable1_3A1C()
-            # extractDataTable1_3B1C()
-            # extractDataTable1_3C1C()
+                    sql_insert_query = """INSERT INTO "Horarios" VALUES(%s, %s, %s, %s, %s)"""
+                    insert_tuple = (2, 1, 'D', dia, listDia)
+                    result = cursor.execute(sql_insert_query, insert_tuple)
 
-            # extractDataTable1_3C_Computadores()
-            # extractDataTable1_3C_Software()
-            # extractDataTable1_3C_Computacion_SistemasInteligentes()
-            # extractDataTable1_3C_SistemasInformacion()
-            # extractDataTable1_3C_TecnologiasInformacion()
+                    connect_db.commit()
+                    print("Fila insertada correctamente")
+
+                if(cuatrimestre == '2' or cuatrimestre == 'segundo'):
+                    listDia = extractDataTable1_2D1C_2D2C(cuatrimestre, dia)
+
+                    sql_insert_query = """INSERT INTO "Horarios" VALUES(%s, %s, %s, %s, %s)"""
+                    insert_tuple = (2, 2, 'D', dia, listDia)
+                    result = cursor.execute(sql_insert_query, insert_tuple)
+
+                    connect_db.commit()
+                    print("Fila insertada correctamente")
+
+        if(sys.argv[1] == '3' or sys.argv[1] == 'tercero' or sys.argv[1] == 'tres'):
+            if(sys.argv[2] == 'A' or sys.argv[2] == 'a'):
+                if(cuatrimestre == '1' or cuatrimestre == 'primero' or cuatrimestre == 'primer'):
+                    listDia = extractDataTable1_3A1C(dia)
+
+                    sql_insert_query = """INSERT INTO "Horarios" VALUES(%s, %s, %s, %s, %s)"""
+                    insert_tuple = (3, 1, 'A', dia, listDia)
+                    result = cursor.execute(sql_insert_query, insert_tuple)
+
+                    connect_db.commit()
+                    print("Fila insertada correctamente")
+
+            if(sys.argv[2] == 'B' or sys.argv[2] == 'b'):
+                if(cuatrimestre == '1' or cuatrimestre == 'primero' or cuatrimestre == 'primer'):
+                    listDia = extractDataTable1_3B1C(dia)
+
+                    sql_insert_query = """INSERT INTO "Horarios" VALUES(%s, %s, %s, %s, %s)"""
+                    insert_tuple = (3, 1, 'B', dia, listDia)
+                    result = cursor.execute(sql_insert_query, insert_tuple)
+
+                    connect_db.commit()
+                    print("Fila insertada correctamente")
+
+            if(sys.argv[2] == 'C' or sys.argv[2] == 'c'):
+                if(cuatrimestre == '1' or cuatrimestre == 'primero' or cuatrimestre == 'primer'):
+                    listDia = extractDataTable1_3C1C(dia)
+
+                    sql_insert_query = """INSERT INTO "Horarios" VALUES(%s, %s, %s, %s, %s)"""
+                    insert_tuple = (3, 1, 'C', dia, listDia)
+                    result = cursor.execute(sql_insert_query, insert_tuple)
+
+                    connect_db.commit()
+                    print("Fila insertada correctamente")
+
+            if(sys.argv[2] == '-'):
+                if(especialidad == 'COMPUTADORES'):
+                    listDia = extractDataTable1_3C_Computadores(dia)
+
+                    sql_insert_query = """INSERT INTO "Horarios" VALUES(%s, %s, %s, %s, %s, %s)"""
+                    insert_tuple = (3, 2, '-', dia, listDia, especialidad)
+                    result = cursor.execute(sql_insert_query, insert_tuple)
+
+                    connect_db.commit()
+                    print("Fila insertada correctamente")
+
+                if(especialidad == 'SOFTWARE'):
+                    listDia = extractDataTable1_3C_Software(dia)
+
+                    sql_insert_query = """INSERT INTO "Horarios" VALUES(%s, %s, %s, %s, %s, %s)"""
+                    insert_tuple = (3, 2, '-', dia, listDia, especialidad)
+                    result = cursor.execute(sql_insert_query, insert_tuple)
+
+                    connect_db.commit()
+                    print("Fila insertada correctamente")
+
+                if(especialidad == 'SISTEMAS INTELIGENTES'):
+                    listDia = extractDataTable1_3C_Computacion_SistemasInteligentes(dia)
+
+                    sql_insert_query = """INSERT INTO "Horarios" VALUES(%s, %s, %s, %s, %s, %s)"""
+                    insert_tuple = (3, 2, '-', dia, listDia, especialidad)
+                    result = cursor.execute(sql_insert_query, insert_tuple)
+
+                    connect_db.commit()
+                    print("Fila insertada correctamente")
+
+                if(especialidad == 'SISTEMAS INFORMACION'):
+                    listDia = extractDataTable1_3C_SistemasInformacion(dia)
+
+                    sql_insert_query = """INSERT INTO "Horarios" VALUES(%s, %s, %s, %s, %s, %s)"""
+                    insert_tuple = (3, 2, '-', dia, listDia, especialidad)
+                    result = cursor.execute(sql_insert_query, insert_tuple)
+
+                    connect_db.commit()
+                    print("Fila insertada correctamente")
+
+                if(especialidad == 'TECNOLOGIAS INFORMACION'):
+                    listDia = extractDataTable1_3C_TecnologiasInformacion(dia)
+
+                    sql_insert_query = """INSERT INTO "Horarios" VALUES(%s, %s, %s, %s, %s, %s)"""
+                    insert_tuple = (3, 2, '-', dia, listDia, especialidad)
+                    result = cursor.execute(sql_insert_query, insert_tuple)
+
+                    connect_db.commit()
+                    print("Fila insertada correctamente")
 
             # extractDataTable1_4C_1C_2C_Computadores()
             # extractDataTable1_4C_1C_2C_Software()

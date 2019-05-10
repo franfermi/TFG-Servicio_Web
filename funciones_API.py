@@ -42,10 +42,13 @@ def obtenerGuiaDocente(nombAsig):
 
     return vAsig
 
-def obtenerHorarios(curso, cuatrimestre, grupo, dia):
+def obtenerHorarios(curso, cuatrimestre, grupo, dia, especialidad):
 
-    cursor.execute('SELECT * FROM "Horarios" WHERE curso = %s and cuatrimestre = %s and grupo = %s and dia = %s', [(curso), (cuatrimestre), (grupo), (dia.upper())])
-
+    if(especialidad == ""):
+        cursor.execute('SELECT * FROM "Horarios" WHERE curso = %s and cuatrimestre = %s and grupo = %s and dia = %s', [(curso), (cuatrimestre), (grupo), (dia.upper())])
+    else:
+        cursor.execute('SELECT * FROM "Horarios" WHERE curso = %s and cuatrimestre = %s and dia = %s and especialidad = %s', [(curso), (cuatrimestre), (dia.upper()), (especialidad.upper())])
+    
     connect_db.commit()
 
     cursoH = cuatrimestreH = grupoH = diaH = diaHorario = ''
