@@ -64,7 +64,7 @@ def obtenerHorarios(curso, cuatrimestre, grupo, dia, especialidad):
         vHorario.append(grupoH)
         diaH = "-Día: " + str(c[3])
         vHorario.append(diaH)
-        diaHorario = "-Horario: " + str(c[4].replace('"', '').replace(',', ', ').replace('{', '').replace('}', ''))
+        diaHorario = "-Horario: " + str(c[4].replace('*', '').replace('"', '').replace(',', ', ').replace('{', '').replace('}', ''))
         vHorario.append(diaHorario)
 
     return vHorario
