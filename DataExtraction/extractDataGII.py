@@ -1071,11 +1071,6 @@ def extractDataTable2_1SemExtraordinaria(asignaturaEX):
         examenes12Feb = datosNoNaN.iloc[:,16]
         examenes13Feb = datosNoNaN.iloc[:,17]
 
-        # print(examenes10Ene.value_counts())
-        # print(examenes10Ene.count())
-        # print(examenes10Ene)
-        # print(datosNoNaN.iloc[3,:])
-
         contTope = examenes31Ene.count()
         contAsig = datosNoNaN.iloc[3,:].count()
         cont31E = 0
@@ -1140,7 +1135,6 @@ def extractDataTable2_1SemExtraordinaria(asignaturaEX):
                         exAsig4F.append(str(asignatura[cont4Fasig]))
                     cont4Fasig+=1
             cont4F+=1
-
         ################################
         cont5F = 0
         cont5Fasig = 0
@@ -1399,7 +1393,7 @@ def extractDataTable2_1SemExtraordinaria(asignaturaEX):
         return resultado
 
 
-def extractDataTable1_2SemOrdinaria():
+def extractDataTable1_2SemOrdinaria(asignaturaEX):
     tablas = camelot.read_pdf(os.path.join(
         RESOURCE, 'CalendarioExamenes18-19-GII.pdf'), pages='5')
     tablas.export(os.path.join(
@@ -1420,10 +1414,6 @@ def extractDataTable1_2SemOrdinaria():
         examenes17Jun = datosNoNaN.iloc[:, 16]
         examenes18Jun = datosNoNaN.iloc[:, 17]
         examenes19Jun = datosNoNaN.iloc[:, 18]
-
-        # print(examenes10Ene.value_counts())
-        # print(examenes22Ene.count())
-        # print(examenes19Jun)
 
         contTope = examenes5Jun.count()
         contAsig = datosNoNaN.iloc[3, :].count()
@@ -1660,18 +1650,121 @@ def extractDataTable1_2SemOrdinaria():
         ################################
         # Comprobación del contenido
         cont = 0
-        print("------------------------------------")
-        print("2do Semestre - Ordinaria")
-        print("------------------------------------")
-        while cont < len(exAsig19J):
-            print(str(exAsig19J[cont]))
+        resultado = []
+        encontrado  = False
+
+        while(cont < len(exAsig5J) and (encontrado == False)):
+            if(exAsig5J[cont] == asignaturaEX):
+                resultado.append("5 de Junio")
+                resultado.append(exAsig5J[cont])
+                resultado.append(exAsig5J[cont+1])
+                resultado.append(exAsig5J[cont+2])
+                encontrado = True
+            cont += 1
+        
+        cont = 0
+        while(cont < len(exAsig6J) and (encontrado == False)):
+            if(exAsig6J[cont] == asignaturaEX):
+                resultado.append("6 de Junio")
+                resultado.append(exAsig6J[cont])
+                resultado.append(exAsig6J[cont+1])
+                resultado.append(exAsig6J[cont+2])
+                encontrado = True
             cont += 1
 
-        # for num in datosNoNaN:
-        #     print (datosNoNaN[num:num+1])
+        cont = 0
+        while(cont < len(exAsig7J) and (encontrado == False)):
+            if(exAsig7J[cont] == asignaturaEX):
+                resultado.append("7 de Junio")
+                resultado.append(exAsig7J[cont])
+                resultado.append(exAsig7J[cont+1])
+                resultado.append(exAsig7J[cont+2])
+                encontrado = True
+            cont += 1
+
+        cont = 0
+        while(cont < len(exAsig10J) and (encontrado == False)):
+            if(exAsig10J[cont] == asignaturaEX):
+                resultado.append("10 de Junio")
+                resultado.append(exAsig10J[cont])
+                resultado.append(exAsig10J[cont+1])
+                resultado.append(exAsig10J[cont+2])
+                encontrado = True
+            cont += 1
+
+        cont = 0
+        while(cont < len(exAsig11J) and (encontrado == False)):
+            if(exAsig11J[cont] == asignaturaEX):
+                resultado.append("11 de Junio")
+                resultado.append(exAsig11J[cont])
+                resultado.append(exAsig11J[cont+1])
+                resultado.append(exAsig11J[cont+2])
+                encontrado = True
+            cont += 1
+
+        cont = 0
+        while(cont < len(exAsig12J) and (encontrado == False)):
+            if(exAsig12J[cont] == asignaturaEX):
+                resultado.append("12 de Junio")
+                resultado.append(exAsig12J[cont])
+                resultado.append(exAsig12J[cont+1])
+                resultado.append(exAsig12J[cont+2])
+                encontrado = True
+            cont += 1
+
+        cont = 0
+        while(cont < len(exAsig13J) and (encontrado == False)):
+            if(exAsig13J[cont] == asignaturaEX):
+                resultado.append("13 de Junio")
+                resultado.append(exAsig13J[cont])
+                resultado.append(exAsig13J[cont+1])
+                resultado.append(exAsig13J[cont+2])
+                encontrado = True
+            cont += 1
+    
+        cont = 0
+        while(cont < len(exAsig14J) and (encontrado == False)):
+            if(exAsig14J[cont] == asignaturaEX):
+                resultado.append("14 de Junio")
+                resultado.append(exAsig14J[cont])
+                resultado.append(exAsig14J[cont+1])
+                resultado.append(exAsig14J[cont+2])
+                encontrado = True
+            cont += 1
+
+        cont = 0
+        while(cont < len(exAsig17J) and (encontrado == False)):
+            if(exAsig17J[cont] == asignaturaEX):
+                resultado.append("17 de Junio")
+                resultado.append(exAsig17J[cont])
+                resultado.append(exAsig17J[cont+1])
+                resultado.append(exAsig17J[cont+2])
+                encontrado = True
+            cont += 1
+        cont = 0
+        while(cont < len(exAsig18J) and (encontrado == False)):
+            if(exAsig18J[cont] == asignaturaEX):
+                resultado.append("18 de Junio")
+                resultado.append(exAsig18J[cont])
+                resultado.append(exAsig18J[cont+1])
+                resultado.append(exAsig18J[cont+2])
+                encontrado = True
+            cont += 1
+
+        cont = 0
+        while(cont < len(exAsig19J) and (encontrado == False)):
+            if(exAsig19J[cont] == asignaturaEX):
+                resultado.append("19 de Junio")
+                resultado.append(exAsig19J[cont])
+                resultado.append(exAsig19J[cont+1])
+                resultado.append(exAsig19J[cont+2])
+                encontrado = True
+            cont += 1
+
+        return resultado
 
 
-def extractDataTable2_2SemOrdinaria():
+def extractDataTable2_2SemOrdinaria(asignaturaEX):
     tablas = camelot.read_pdf(os.path.join(
         RESOURCE, 'CalendarioExamenes18-19-GII.pdf'), pages='6')
     tablas.export(os.path.join(
@@ -1932,15 +2025,122 @@ def extractDataTable2_2SemOrdinaria():
         ################################
         # Comprobación del contenido
         cont = 0
-        print("------------------------------------")
-        print("2do Semestre - Ordinaria cont")
-        print("------------------------------------")
-        while cont < len(exAsig19J):
-            print(str(exAsig19J[cont]))
+        resultado = []
+        encontrado  = False
+
+        while(cont < len(exAsig5J) and (encontrado == False)):
+            if(exAsig5J[cont] == asignaturaEX):
+                resultado.append("5 de Junio")
+                resultado.append(exAsig5J[cont])
+                resultado.append(exAsig5J[cont+1])
+                resultado.append(exAsig5J[cont+2])
+                encontrado = True
+            cont += 1
+        
+        cont = 0
+        while(cont < len(exAsig6J) and (encontrado == False)):
+            if(exAsig6J[cont] == asignaturaEX):
+                resultado.append("6 de Junio")
+                resultado.append(exAsig6J[cont])
+                resultado.append(exAsig6J[cont+1])
+                resultado.append(exAsig6J[cont+2])
+                encontrado = True
             cont += 1
 
+        cont = 0
+        while(cont < len(exAsig7J) and (encontrado == False)):
+            if(exAsig7J[cont] == asignaturaEX):
+                resultado.append("7 de Junio")
+                resultado.append(exAsig7J[cont])
+                resultado.append(exAsig7J[cont+1])
+                resultado.append(exAsig7J[cont+2])
+                encontrado = True
+            cont += 1
 
-def extractDataTable3_2SemOrdinaria():
+        cont = 0
+        while(cont < len(exAsig10J) and (encontrado == False)):
+            if(exAsig10J[cont] == asignaturaEX):
+                resultado.append("10 de Junio")
+                resultado.append(exAsig10J[cont])
+                resultado.append(exAsig10J[cont+1])
+                resultado.append(exAsig10J[cont+2])
+                encontrado = True
+            cont += 1
+
+        cont = 0
+        while(cont < len(exAsig11J) and (encontrado == False)):
+            if(exAsig11J[cont] == asignaturaEX):
+                resultado.append("11 de Junio")
+                resultado.append(exAsig11J[cont])
+                resultado.append(exAsig11J[cont+1])
+                resultado.append(exAsig11J[cont+2])
+                encontrado = True
+            cont += 1
+
+        cont = 0
+        while(cont < len(exAsig12J) and (encontrado == False)):
+            if(exAsig12J[cont] == asignaturaEX):
+                resultado.append("12 de Junio")
+                resultado.append(exAsig12J[cont])
+                resultado.append(exAsig12J[cont+1])
+                resultado.append(exAsig12J[cont+2])
+                encontrado = True
+            cont += 1
+
+        cont = 0
+        while(cont < len(exAsig13J) and (encontrado == False)):
+            if(exAsig13J[cont] == asignaturaEX):
+                resultado.append("13 de Junio")
+                resultado.append(exAsig13J[cont])
+                resultado.append(exAsig13J[cont+1])
+                resultado.append(exAsig13J[cont+2])
+                encontrado = True
+            cont += 1
+    
+        cont = 0
+        while(cont < len(exAsig14J) and (encontrado == False)):
+            if(exAsig14J[cont] == asignaturaEX):
+                resultado.append("14 de Junio")
+                resultado.append(exAsig14J[cont])
+                resultado.append(exAsig14J[cont+1])
+                resultado.append(exAsig14J[cont+2])
+                encontrado = True
+            cont += 1
+
+        cont = 0
+        while(cont < len(exAsig17J) and (encontrado == False)):
+            if(exAsig17J[cont] == asignaturaEX):
+                resultado.append("17 de Junio")
+                resultado.append(exAsig17J[cont])
+                resultado.append(exAsig17J[cont+1])
+                resultado.append(exAsig17J[cont+2])
+                encontrado = True
+            cont += 1
+
+        cont = 0
+        while(cont < len(exAsig18J) and (encontrado == False)):
+            if(exAsig18J[cont] == asignaturaEX):
+                resultado.append("18 de Junio")
+                resultado.append(exAsig18J[cont])
+                resultado.append(exAsig18J[cont+1])
+                resultado.append(exAsig18J[cont+2])
+                encontrado = True
+            cont += 1
+
+        cont = 0
+        while(cont < len(exAsig19J) and (encontrado == False)):
+            if(exAsig19J[cont] == asignaturaEX):
+                resultado.append("19 de Junio")
+                resultado.append(exAsig19J[cont])
+                resultado.append(exAsig19J[cont+1])
+                resultado.append(exAsig19J[cont+2])
+                encontrado = True
+            cont += 1
+
+        return resultado
+
+
+def extractDataTable3_2SemOrdinaria(asignaturaEX):
     tablas = camelot.read_pdf(os.path.join(
         RESOURCE, 'CalendarioExamenes18-19-GII.pdf'), pages='7')
     tablas.export(os.path.join(
@@ -2201,15 +2401,122 @@ def extractDataTable3_2SemOrdinaria():
         ################################
         # Comprobación del contenido
         cont = 0
-        print("------------------------------------")
-        print("2do Semestre - Ordinaria cont 2")
-        print("------------------------------------")
-        while cont < len(exAsig19J):
-            print(str(exAsig19J[cont]))
+        resultado = []
+        encontrado  = False
+
+        while(cont < len(exAsig5J) and (encontrado == False)):
+            if(exAsig5J[cont] == asignaturaEX):
+                resultado.append("5 de Junio")
+                resultado.append(exAsig5J[cont])
+                resultado.append(exAsig5J[cont+1])
+                resultado.append(exAsig5J[cont+2])
+                encontrado = True
+            cont += 1
+        
+        cont = 0
+        while(cont < len(exAsig6J) and (encontrado == False)):
+            if(exAsig6J[cont] == asignaturaEX):
+                resultado.append("6 de Junio")
+                resultado.append(exAsig6J[cont])
+                resultado.append(exAsig6J[cont+1])
+                resultado.append(exAsig6J[cont+2])
+                encontrado = True
             cont += 1
 
+        cont = 0
+        while(cont < len(exAsig7J) and (encontrado == False)):
+            if(exAsig7J[cont] == asignaturaEX):
+                resultado.append("7 de Junio")
+                resultado.append(exAsig7J[cont])
+                resultado.append(exAsig7J[cont+1])
+                resultado.append(exAsig7J[cont+2])
+                encontrado = True
+            cont += 1
 
-def extractDataTable1_2SemExtraordinaria():
+        cont = 0
+        while(cont < len(exAsig10J) and (encontrado == False)):
+            if(exAsig10J[cont] == asignaturaEX):
+                resultado.append("10 de Junio")
+                resultado.append(exAsig10J[cont])
+                resultado.append(exAsig10J[cont+1])
+                resultado.append(exAsig10J[cont+2])
+                encontrado = True
+            cont += 1
+
+        cont = 0
+        while(cont < len(exAsig11J) and (encontrado == False)):
+            if(exAsig11J[cont] == asignaturaEX):
+                resultado.append("11 de Junio")
+                resultado.append(exAsig11J[cont])
+                resultado.append(exAsig11J[cont+1])
+                resultado.append(exAsig11J[cont+2])
+                encontrado = True
+            cont += 1
+
+        cont = 0
+        while(cont < len(exAsig12J) and (encontrado == False)):
+            if(exAsig12J[cont] == asignaturaEX):
+                resultado.append("12 de Junio")
+                resultado.append(exAsig12J[cont])
+                resultado.append(exAsig12J[cont+1])
+                resultado.append(exAsig12J[cont+2])
+                encontrado = True
+            cont += 1
+
+        cont = 0
+        while(cont < len(exAsig13J) and (encontrado == False)):
+            if(exAsig13J[cont] == asignaturaEX):
+                resultado.append("13 de Junio")
+                resultado.append(exAsig13J[cont])
+                resultado.append(exAsig13J[cont+1])
+                resultado.append(exAsig13J[cont+2])
+                encontrado = True
+            cont += 1
+    
+        cont = 0
+        while(cont < len(exAsig14J) and (encontrado == False)):
+            if(exAsig14J[cont] == asignaturaEX):
+                resultado.append("14 de Junio")
+                resultado.append(exAsig14J[cont])
+                resultado.append(exAsig14J[cont+1])
+                resultado.append(exAsig14J[cont+2])
+                encontrado = True
+            cont += 1
+
+        cont = 0
+        while(cont < len(exAsig17J) and (encontrado == False)):
+            if(exAsig17J[cont] == asignaturaEX):
+                resultado.append("17 de Junio")
+                resultado.append(exAsig17J[cont])
+                resultado.append(exAsig17J[cont+1])
+                resultado.append(exAsig17J[cont+2])
+                encontrado = True
+            cont += 1
+
+        cont = 0
+        while(cont < len(exAsig18J) and (encontrado == False)):
+            if(exAsig18J[cont] == asignaturaEX):
+                resultado.append("18 de Junio")
+                resultado.append(exAsig18J[cont])
+                resultado.append(exAsig18J[cont+1])
+                resultado.append(exAsig18J[cont+2])
+                encontrado = True
+            cont += 1
+
+        cont = 0
+        while(cont < len(exAsig19J) and (encontrado == False)):
+            if(exAsig19J[cont] == asignaturaEX):
+                resultado.append("19 de Junio")
+                resultado.append(exAsig19J[cont])
+                resultado.append(exAsig19J[cont+1])
+                resultado.append(exAsig19J[cont+2])
+                encontrado = True
+            cont += 1
+
+        return resultado
+
+
+def extractDataTable1_2SemExtraordinaria(asignaturaEX):
     tablas = camelot.read_pdf(os.path.join(RESOURCE, 'CalendarioExamenes18-19-GII.pdf'), pages='8')
     tablas.export(os.path.join(OUTPUT, 'CalendarioExamenes18-19-GII.csv'), f='csv', compress=False)
 
@@ -2217,267 +2524,373 @@ def extractDataTable1_2SemExtraordinaria():
         datos = pd.read_csv(archivo, header=-1)
         datosNoNaN = datos.fillna(value='0')
 
-    examenes27Jun = datosNoNaN.iloc[:,6]
-    examenes28Jun = datosNoNaN.iloc[:,7]
-    examenes1Jul = datosNoNaN.iloc[:,9]
-    examenes2Jul = datosNoNaN.iloc[:,10]
-    examenes3Jul = datosNoNaN.iloc[:,11]
-    examenes4Jul = datosNoNaN.iloc[:,12]
-    examenes5Jul = datosNoNaN.iloc[:,13]
-    examenes8Jul = datosNoNaN.iloc[:,15]
-    examenes9Jul = datosNoNaN.iloc[:,16]
-    examenes10Jul = datosNoNaN.iloc[:,17]
-    examenes11Jul = datosNoNaN.iloc[:,18]
+        examenes27Jun = datosNoNaN.iloc[:,6]
+        examenes28Jun = datosNoNaN.iloc[:,7]
+        examenes1Jul = datosNoNaN.iloc[:,9]
+        examenes2Jul = datosNoNaN.iloc[:,10]
+        examenes3Jul = datosNoNaN.iloc[:,11]
+        examenes4Jul = datosNoNaN.iloc[:,12]
+        examenes5Jul = datosNoNaN.iloc[:,13]
+        examenes8Jul = datosNoNaN.iloc[:,15]
+        examenes9Jul = datosNoNaN.iloc[:,16]
+        examenes10Jul = datosNoNaN.iloc[:,17]
+        examenes11Jul = datosNoNaN.iloc[:,18]
 
-    # print(examenes10Ene.value_counts())
-    # print(examenes10Ene.count())
-    # print(examenes10Ene)
-    # print(datosNoNaN.iloc[3,:])
+        # print(examenes10Ene.count())
+        # print(examenes10Ene)
+        # print(datosNoNaN.iloc[3,:])
 
-    contTope = examenes27Jun.count()
-    contAsig = datosNoNaN.iloc[3,:].count()
-    cont27J = 0
-    cont27Jasig = 0
-    exAsig27J = []
+        contTope = examenes27Jun.count()
+        contAsig = datosNoNaN.iloc[3,:].count()
+        cont27J = 0
+        cont27Jasig = 0
+        exAsig27J = []
 
-    while cont27J < contTope:
-        if(examenes27Jun[cont27J]=='M'):
-            asignatura = datosNoNaN.iloc[cont27J,:]
-            cont27Jasig = 0
-            while cont27Jasig < contAsig:
-                if(asignatura[cont27Jasig] >= 'A' and asignatura[cont27Jasig] <= 'z'):
-                    exAsig27J.append(str(asignatura[cont27Jasig]))
-                cont27Jasig+=1
-        elif(examenes27Jun[cont27J]=='T'):
-            asignatura = datosNoNaN.iloc[cont27J,:]
-            cont27Jasig = 0
-            while cont27Jasig < contAsig:
-                if(asignatura[cont27Jasig] >= 'A' and asignatura[cont27Jasig] <= 'z'):
-                    exAsig27J.append(str(asignatura[cont27Jasig]))
-                cont27Jasig+=1
-        cont27J+=1
-    ################################
-    cont28J = 0
-    cont28Jasig = 0
-    exAsig28J = []
+        while cont27J < contTope:
+            if(examenes27Jun[cont27J]=='M'):
+                asignatura = datosNoNaN.iloc[cont27J,:]
+                cont27Jasig = 0
+                while cont27Jasig < contAsig:
+                    if(asignatura[cont27Jasig] >= 'A' and asignatura[cont27Jasig] <= 'z'):
+                        exAsig27J.append(str(asignatura[cont27Jasig]))
+                    cont27Jasig+=1
+            elif(examenes27Jun[cont27J]=='T'):
+                asignatura = datosNoNaN.iloc[cont27J,:]
+                cont27Jasig = 0
+                while cont27Jasig < contAsig:
+                    if(asignatura[cont27Jasig] >= 'A' and asignatura[cont27Jasig] <= 'z'):
+                        exAsig27J.append(str(asignatura[cont27Jasig]))
+                    cont27Jasig+=1
+            cont27J+=1
+        ################################
+        cont28J = 0
+        cont28Jasig = 0
+        exAsig28J = []
 
-    while cont28J < contTope:
-        if(examenes28Jun[cont28J]=='M'):
-            asignatura = datosNoNaN.iloc[cont28J,:]
-            cont28Jasig = 0
-            while cont28Jasig < contAsig:
-                if(asignatura[cont28Jasig] >= 'A' and asignatura[cont28Jasig] <= 'z'):
-                    exAsig28J.append(str(asignatura[cont28Jasig]))
-                cont28Jasig+=1
-        elif(examenes28Jun[cont28J]=='T'):
-            asignatura = datosNoNaN.iloc[cont28J,:]
-            cont28Jasig = 0
-            while cont28Jasig < contAsig:
-                if(asignatura[cont28Jasig] >= 'A' and asignatura[cont28Jasig] <= 'z'):
-                    exAsig28J.append(str(asignatura[cont28Jasig]))
-                cont28Jasig+=1
-        cont28J+=1
-    ################################
-    cont1J = 0
-    cont1Jasig = 0
-    exAsig1J = []
+        while cont28J < contTope:
+            if(examenes28Jun[cont28J]=='M'):
+                asignatura = datosNoNaN.iloc[cont28J,:]
+                cont28Jasig = 0
+                while cont28Jasig < contAsig:
+                    if(asignatura[cont28Jasig] >= 'A' and asignatura[cont28Jasig] <= 'z'):
+                        exAsig28J.append(str(asignatura[cont28Jasig]))
+                    cont28Jasig+=1
+            elif(examenes28Jun[cont28J]=='T'):
+                asignatura = datosNoNaN.iloc[cont28J,:]
+                cont28Jasig = 0
+                while cont28Jasig < contAsig:
+                    if(asignatura[cont28Jasig] >= 'A' and asignatura[cont28Jasig] <= 'z'):
+                        exAsig28J.append(str(asignatura[cont28Jasig]))
+                    cont28Jasig+=1
+            cont28J+=1
+        ################################
+        cont1J = 0
+        cont1Jasig = 0
+        exAsig1J = []
 
-    while cont1J < contTope:
-        if(examenes1Jul[cont1J]=='M'):
-            asignatura = datosNoNaN.iloc[cont1J,:]
-            cont1Jasig = 0
-            while cont1Jasig < contAsig:
-                if(asignatura[cont1Jasig] >= 'A' and asignatura[cont1Jasig] <= 'z'):
-                    exAsig1J.append(str(asignatura[cont1Jasig]))
-                cont1Jasig+=1
-        elif(examenes1Jul[cont1J]=='T'):
-            asignatura = datosNoNaN.iloc[cont1J,:]
-            cont1Jasig = 0
-            while cont1Jasig < contAsig:
-                if(asignatura[cont1Jasig] >= 'A' and asignatura[cont1Jasig] <= 'z'):
-                    exAsig1J.append(str(asignatura[cont1Jasig]))
-                cont1Jasig+=1
-        cont1J+=1
-    ################################
-    cont2J = 0
-    cont2Jasig = 0
-    exAsig2J = []
+        while cont1J < contTope:
+            if(examenes1Jul[cont1J]=='M'):
+                asignatura = datosNoNaN.iloc[cont1J,:]
+                cont1Jasig = 0
+                while cont1Jasig < contAsig:
+                    if(asignatura[cont1Jasig] >= 'A' and asignatura[cont1Jasig] <= 'z'):
+                        exAsig1J.append(str(asignatura[cont1Jasig]))
+                    cont1Jasig+=1
+            elif(examenes1Jul[cont1J]=='T'):
+                asignatura = datosNoNaN.iloc[cont1J,:]
+                cont1Jasig = 0
+                while cont1Jasig < contAsig:
+                    if(asignatura[cont1Jasig] >= 'A' and asignatura[cont1Jasig] <= 'z'):
+                        exAsig1J.append(str(asignatura[cont1Jasig]))
+                    cont1Jasig+=1
+            cont1J+=1
+        ################################
+        cont2J = 0
+        cont2Jasig = 0
+        exAsig2J = []
 
-    while cont2J < contTope:
-        if(examenes2Jul[cont2J]=='M'):
-            asignatura = datosNoNaN.iloc[cont2J,:]
-            cont2Jasig = 0
-            while cont2Jasig < contAsig:
-                if(asignatura[cont2Jasig] >= 'A' and asignatura[cont2Jasig] <= 'z'):
-                    exAsig2J.append(str(asignatura[cont2Jasig]))
-                cont2Jasig+=1
-        elif(examenes2Jul[cont2J]=='T'):
-            asignatura = datosNoNaN.iloc[cont2J,:]
-            cont2Jasig = 0
-            while cont2Jasig < contAsig:
-                if(asignatura[cont2Jasig] >= 'A' and asignatura[cont2Jasig] <= 'z'):
-                    exAsig2J.append(str(asignatura[cont2Jasig]))
-                cont2Jasig+=1
-        cont2J+=1
-    ################################
-    cont3J = 0
-    cont3Jasig = 0
-    exAsig3J = []
+        while cont2J < contTope:
+            if(examenes2Jul[cont2J]=='M'):
+                asignatura = datosNoNaN.iloc[cont2J,:]
+                cont2Jasig = 0
+                while cont2Jasig < contAsig:
+                    if(asignatura[cont2Jasig] >= 'A' and asignatura[cont2Jasig] <= 'z'):
+                        exAsig2J.append(str(asignatura[cont2Jasig]))
+                    cont2Jasig+=1
+            elif(examenes2Jul[cont2J]=='T'):
+                asignatura = datosNoNaN.iloc[cont2J,:]
+                cont2Jasig = 0
+                while cont2Jasig < contAsig:
+                    if(asignatura[cont2Jasig] >= 'A' and asignatura[cont2Jasig] <= 'z'):
+                        exAsig2J.append(str(asignatura[cont2Jasig]))
+                    cont2Jasig+=1
+            cont2J+=1
+        ################################
+        cont3J = 0
+        cont3Jasig = 0
+        exAsig3J = []
 
-    while cont3J < contTope:
-        if(examenes3Jul[cont3J]=='M'):
-            asignatura = datosNoNaN.iloc[cont3J,:]
-            cont3Jasig = 0
-            while cont3Jasig < contAsig:
-                if(asignatura[cont3Jasig] >= 'A' and asignatura[cont3Jasig] <= 'z'):
-                    exAsig3J.append(str(asignatura[cont3Jasig]))
-                cont3Jasig+=1
-        elif(examenes3Jul[cont3J]=='T'):
-            asignatura = datosNoNaN.iloc[cont3J,:]
-            cont3Jasig = 0
-            while cont3Jasig < contAsig:
-                if(asignatura[cont3Jasig] >= 'A' and asignatura[cont3Jasig] <= 'z'):
-                    exAsig3J.append(str(asignatura[cont3Jasig]))
-                cont3Jasig+=1
-        cont3J+=1
-    ################################
-    cont4J = 0
-    cont4Jasig = 0
-    exAsig4J = []
+        while cont3J < contTope:
+            if(examenes3Jul[cont3J]=='M'):
+                asignatura = datosNoNaN.iloc[cont3J,:]
+                cont3Jasig = 0
+                while cont3Jasig < contAsig:
+                    if(asignatura[cont3Jasig] >= 'A' and asignatura[cont3Jasig] <= 'z'):
+                        exAsig3J.append(str(asignatura[cont3Jasig]))
+                    cont3Jasig+=1
+            elif(examenes3Jul[cont3J]=='T'):
+                asignatura = datosNoNaN.iloc[cont3J,:]
+                cont3Jasig = 0
+                while cont3Jasig < contAsig:
+                    if(asignatura[cont3Jasig] >= 'A' and asignatura[cont3Jasig] <= 'z'):
+                        exAsig3J.append(str(asignatura[cont3Jasig]))
+                    cont3Jasig+=1
+            cont3J+=1
+        ################################
+        cont4J = 0
+        cont4Jasig = 0
+        exAsig4J = []
 
-    while cont4J < contTope:
-        if(examenes4Jul[cont4J]=='M'):
-            asignatura = datosNoNaN.iloc[cont4J,:]
-            cont4Jasig = 0
-            while cont4Jasig < contAsig:
-                if(asignatura[cont4Jasig] >= 'A' and asignatura[cont4Jasig] <= 'z'):
-                    exAsig4J.append(str(asignatura[cont4Jasig]))
-                cont4Jasig+=1
-        elif(examenes4Jul[cont4J]=='T'):
-            asignatura = datosNoNaN.iloc[cont4J,:]
-            cont4Jasig = 0
-            while cont4Jasig < contAsig:
-                if(asignatura[cont4Jasig] >= 'A' and asignatura[cont4Jasig] <= 'z'):
-                    exAsig4J.append(str(asignatura[cont4Jasig]))
-                cont4Jasig+=1
-        cont4J+=1
-    ################################
-    cont5J = 0
-    cont5Jasig = 0
-    exAsig5J = []
+        while cont4J < contTope:
+            if(examenes4Jul[cont4J]=='M'):
+                asignatura = datosNoNaN.iloc[cont4J,:]
+                cont4Jasig = 0
+                while cont4Jasig < contAsig:
+                    if(asignatura[cont4Jasig] >= 'A' and asignatura[cont4Jasig] <= 'z'):
+                        exAsig4J.append(str(asignatura[cont4Jasig]))
+                    cont4Jasig+=1
+            elif(examenes4Jul[cont4J]=='T'):
+                asignatura = datosNoNaN.iloc[cont4J,:]
+                cont4Jasig = 0
+                while cont4Jasig < contAsig:
+                    if(asignatura[cont4Jasig] >= 'A' and asignatura[cont4Jasig] <= 'z'):
+                        exAsig4J.append(str(asignatura[cont4Jasig]))
+                    cont4Jasig+=1
+            cont4J+=1
+        ################################
+        cont5J = 0
+        cont5Jasig = 0
+        exAsig5J = []
 
-    while cont5J < contTope:
-        if(examenes5Jul[cont5J]=='M'):
-            asignatura = datosNoNaN.iloc[cont5J,:]
-            cont5Jasig = 0
-            while cont5Jasig < contAsig:
-                if(asignatura[cont5Jasig] >= 'A' and asignatura[cont5Jasig] <= 'z'):
-                    exAsig5J.append(str(asignatura[cont5Jasig]))
-                cont5Jasig+=1
-        elif(examenes5Jul[cont5J]=='T'):
-            asignatura = datosNoNaN.iloc[cont5J,:]
-            cont5Jasig = 0
-            while cont5Jasig < contAsig:
-                if(asignatura[cont5Jasig] >= 'A' and asignatura[cont5Jasig] <= 'z'):
-                    exAsig5J.append(str(asignatura[cont5Jasig]))
-                cont5Jasig+=1
-        cont5J+=1
-    ################################
-    cont8J = 0
-    cont8Jasig = 0
-    exAsig8J = []
+        while cont5J < contTope:
+            if(examenes5Jul[cont5J]=='M'):
+                asignatura = datosNoNaN.iloc[cont5J,:]
+                cont5Jasig = 0
+                while cont5Jasig < contAsig:
+                    if(asignatura[cont5Jasig] >= 'A' and asignatura[cont5Jasig] <= 'z'):
+                        exAsig5J.append(str(asignatura[cont5Jasig]))
+                    cont5Jasig+=1
+            elif(examenes5Jul[cont5J]=='T'):
+                asignatura = datosNoNaN.iloc[cont5J,:]
+                cont5Jasig = 0
+                while cont5Jasig < contAsig:
+                    if(asignatura[cont5Jasig] >= 'A' and asignatura[cont5Jasig] <= 'z'):
+                        exAsig5J.append(str(asignatura[cont5Jasig]))
+                    cont5Jasig+=1
+            cont5J+=1
+        ################################
+        cont8J = 0
+        cont8Jasig = 0
+        exAsig8J = []
 
-    while cont8J < contTope:
-        if(examenes8Jul[cont8J]=='M'):
-            asignatura = datosNoNaN.iloc[cont8J,:]
-            cont8Jasig = 0
-            while cont8Jasig < contAsig:
-                if(asignatura[cont8Jasig] >= 'A' and asignatura[cont8Jasig] <= 'z'):
-                    exAsig8J.append(str(asignatura[cont8Jasig]))
-                cont8Jasig+=1
-        elif(examenes8Jul[cont8J]=='T'):
-            asignatura = datosNoNaN.iloc[cont8J,:]
-            cont8Jasig = 0
-            while cont8Jasig < contAsig:
-                if(asignatura[cont8Jasig] >= 'A' and asignatura[cont8Jasig] <= 'z'):
-                    exAsig8J.append(str(asignatura[cont8Jasig]))
-                cont8Jasig+=1
-        cont8J+=1
-    ################################
-    cont9J = 0
-    cont9Jasig = 0
-    exAsig9J = []
+        while cont8J < contTope:
+            if(examenes8Jul[cont8J]=='M'):
+                asignatura = datosNoNaN.iloc[cont8J,:]
+                cont8Jasig = 0
+                while cont8Jasig < contAsig:
+                    if(asignatura[cont8Jasig] >= 'A' and asignatura[cont8Jasig] <= 'z'):
+                        exAsig8J.append(str(asignatura[cont8Jasig]))
+                    cont8Jasig+=1
+            elif(examenes8Jul[cont8J]=='T'):
+                asignatura = datosNoNaN.iloc[cont8J,:]
+                cont8Jasig = 0
+                while cont8Jasig < contAsig:
+                    if(asignatura[cont8Jasig] >= 'A' and asignatura[cont8Jasig] <= 'z'):
+                        exAsig8J.append(str(asignatura[cont8Jasig]))
+                    cont8Jasig+=1
+            cont8J+=1
+        ################################
+        cont9J = 0
+        cont9Jasig = 0
+        exAsig9J = []
 
-    while cont9J < contTope:
-        if(examenes9Jul[cont9J]=='M'):
-            asignatura = datosNoNaN.iloc[cont9J,:]
-            cont9Jasig = 0
-            while cont9Jasig < contAsig:
-                if(asignatura[cont9Jasig] >= 'A' and asignatura[cont9Jasig] <= 'z'):
-                    exAsig9J.append(str(asignatura[cont9Jasig]))
-                cont9Jasig+=1
-        elif(examenes9Jul[cont9J]=='T'):
-            asignatura = datosNoNaN.iloc[cont9J,:]
-            cont9Jasig = 0
-            while cont9Jasig < contAsig:
-                if(asignatura[cont9Jasig] >= 'A' and asignatura[cont9Jasig] <= 'z'):
-                    exAsig9J.append(str(asignatura[cont9Jasig]))
-                cont9Jasig+=1
-        cont9J+=1
-    ################################
-    cont10J = 0
-    cont10Jasig = 0
-    exAsig10J = []
+        while cont9J < contTope:
+            if(examenes9Jul[cont9J]=='M'):
+                asignatura = datosNoNaN.iloc[cont9J,:]
+                cont9Jasig = 0
+                while cont9Jasig < contAsig:
+                    if(asignatura[cont9Jasig] >= 'A' and asignatura[cont9Jasig] <= 'z'):
+                        exAsig9J.append(str(asignatura[cont9Jasig]))
+                    cont9Jasig+=1
+            elif(examenes9Jul[cont9J]=='T'):
+                asignatura = datosNoNaN.iloc[cont9J,:]
+                cont9Jasig = 0
+                while cont9Jasig < contAsig:
+                    if(asignatura[cont9Jasig] >= 'A' and asignatura[cont9Jasig] <= 'z'):
+                        exAsig9J.append(str(asignatura[cont9Jasig]))
+                    cont9Jasig+=1
+            cont9J+=1
+        ################################
+        cont10J = 0
+        cont10Jasig = 0
+        exAsig10J = []
 
-    while cont10J < contTope:
-        if(examenes10Jul[cont10J]=='M'):
-            asignatura = datosNoNaN.iloc[cont10J,:]
-            cont10Jasig = 0
-            while cont10Jasig < contAsig:
-                if(asignatura[cont10Jasig] >= 'A' and asignatura[cont10Jasig] <= 'z'):
-                    exAsig10J.append(str(asignatura[cont10Jasig]))
-                cont10Jasig+=1
-        elif(examenes10Jul[cont10J]=='T'):
-            asignatura = datosNoNaN.iloc[cont10J,:]
-            cont10Jasig = 0
-            while cont10Jasig < contAsig:
-                if(asignatura[cont10Jasig] >= 'A' and asignatura[cont10Jasig] <= 'z'):
-                    exAsig10J.append(str(asignatura[cont10Jasig]))
-                cont10Jasig+=1
-        cont10J+=1
-    ################################
-    cont11J = 0
-    cont11Jasig = 0
-    exAsig11J = []
+        while cont10J < contTope:
+            if(examenes10Jul[cont10J]=='M'):
+                asignatura = datosNoNaN.iloc[cont10J,:]
+                cont10Jasig = 0
+                while cont10Jasig < contAsig:
+                    if(asignatura[cont10Jasig] >= 'A' and asignatura[cont10Jasig] <= 'z'):
+                        exAsig10J.append(str(asignatura[cont10Jasig]))
+                    cont10Jasig+=1
+            elif(examenes10Jul[cont10J]=='T'):
+                asignatura = datosNoNaN.iloc[cont10J,:]
+                cont10Jasig = 0
+                while cont10Jasig < contAsig:
+                    if(asignatura[cont10Jasig] >= 'A' and asignatura[cont10Jasig] <= 'z'):
+                        exAsig10J.append(str(asignatura[cont10Jasig]))
+                    cont10Jasig+=1
+            cont10J+=1
+        ################################
+        cont11J = 0
+        cont11Jasig = 0
+        exAsig11J = []
 
-    while cont11J < contTope:
-        if(examenes11Jul[cont11J]=='M'):
-            asignatura = datosNoNaN.iloc[cont11J,:]
-            cont11Jasig = 0
-            while cont11Jasig < contAsig:
-                if(asignatura[cont11Jasig] >= 'A' and asignatura[cont11Jasig] <= 'z'):
-                    exAsig11J.append(str(asignatura[cont11Jasig]))
-                cont11Jasig+=1
-        elif(examenes11Jul[cont11J]=='T'):
-            asignatura = datosNoNaN.iloc[cont11J,:]
-            cont11Jasig = 0
-            while cont11Jasig < contAsig:
-                if(asignatura[cont11Jasig] >= 'A' and asignatura[cont11Jasig] <= 'z'):
-                    exAsig11J.append(str(asignatura[cont11Jasig]))
-                cont11Jasig+=1
-        cont11J+=1
-    ################################
-    #Comprobación del contenido
-    cont=0
-    print("------------------------------------")
-    print("2do Semestre - Extraordinaria")
-    print("------------------------------------")
-    while cont < len(exAsig11J):
-        print(str(exAsig11J[cont]))
-        cont+=1
+        while cont11J < contTope:
+            if(examenes11Jul[cont11J]=='M'):
+                asignatura = datosNoNaN.iloc[cont11J,:]
+                cont11Jasig = 0
+                while cont11Jasig < contAsig:
+                    if(asignatura[cont11Jasig] >= 'A' and asignatura[cont11Jasig] <= 'z'):
+                        exAsig11J.append(str(asignatura[cont11Jasig]))
+                    cont11Jasig+=1
+            elif(examenes11Jul[cont11J]=='T'):
+                asignatura = datosNoNaN.iloc[cont11J,:]
+                cont11Jasig = 0
+                while cont11Jasig < contAsig:
+                    if(asignatura[cont11Jasig] >= 'A' and asignatura[cont11Jasig] <= 'z'):
+                        exAsig11J.append(str(asignatura[cont11Jasig]))
+                    cont11Jasig+=1
+            cont11J+=1
+        ################################
+        #Comprobación del contenido
+            cont = 0
+            resultado = []
+            encontrado  = False
+
+            while(cont < len(exAsig27J) and (encontrado == False)):
+                if(exAsig27J[cont] == asignaturaEX):
+                    resultado.append("27 de Junio")
+                    resultado.append(exAsig27J[cont])
+                    resultado.append(exAsig27J[cont+1])
+                    resultado.append(exAsig27J[cont+2])
+                    encontrado = True
+                cont += 1
+            
+            cont = 0
+            while(cont < len(exAsig28J) and (encontrado == False)):
+                if(exAsig28J[cont] == asignaturaEX):
+                    resultado.append("28 de Junio")
+                    resultado.append(exAsig28J[cont])
+                    resultado.append(exAsig28J[cont+1])
+                    resultado.append(exAsig28J[cont+2])
+                    encontrado = True
+                cont += 1
+
+            cont = 0
+            while(cont < len(exAsig1J) and (encontrado == False)):
+                if(exAsig1J[cont] == asignaturaEX):
+                    resultado.append("1 de Julio")
+                    resultado.append(exAsig1J[cont])
+                    resultado.append(exAsig1J[cont+1])
+                    resultado.append(exAsig1J[cont+2])
+                    encontrado = True
+                cont += 1
+
+            cont = 0
+            while(cont < len(exAsig2J) and (encontrado == False)):
+                if(exAsig2J[cont] == asignaturaEX):
+                    resultado.append("2 de Julio")
+                    resultado.append(exAsig2J[cont])
+                    resultado.append(exAsig2J[cont+1])
+                    resultado.append(exAsig2J[cont+2])
+                    encontrado = True
+                cont += 1
+
+            cont = 0
+            while(cont < len(exAsig3J) and (encontrado == False)):
+                if(exAsig3J[cont] == asignaturaEX):
+                    resultado.append("3 de Julio")
+                    resultado.append(exAsig3J[cont])
+                    resultado.append(exAsig3J[cont+1])
+                    resultado.append(exAsig3J[cont+2])
+                    encontrado = True
+                cont += 1
+
+            cont = 0
+            while(cont < len(exAsig4J) and (encontrado == False)):
+                if(exAsig4J[cont] == asignaturaEX):
+                    resultado.append("4 de Julio")
+                    resultado.append(exAsig4J[cont])
+                    resultado.append(exAsig4J[cont+1])
+                    resultado.append(exAsig4J[cont+2])
+                    encontrado = True
+                cont += 1
+
+            cont = 0
+            while(cont < len(exAsig5J) and (encontrado == False)):
+                if(exAsig5J[cont] == asignaturaEX):
+                    resultado.append("5 de Julio")
+                    resultado.append(exAsig5J[cont])
+                    resultado.append(exAsig5J[cont+1])
+                    resultado.append(exAsig5J[cont+2])
+                    encontrado = True
+                cont += 1
+        
+            cont = 0
+            while(cont < len(exAsig8J) and (encontrado == False)):
+                if(exAsig8J[cont] == asignaturaEX):
+                    resultado.append("8 de Julio")
+                    resultado.append(exAsig8J[cont])
+                    resultado.append(exAsig8J[cont+1])
+                    resultado.append(exAsig8J[cont+2])
+                    encontrado = True
+                cont += 1
+
+            cont = 0
+            while(cont < len(exAsig9J) and (encontrado == False)):
+                if(exAsig9J[cont] == asignaturaEX):
+                    resultado.append("9 de Julio")
+                    resultado.append(exAsig9J[cont])
+                    resultado.append(exAsig9J[cont+1])
+                    resultado.append(exAsig9J[cont+2])
+                    encontrado = True
+                cont += 1
+
+            cont = 0
+            while(cont < len(exAsig10J) and (encontrado == False)):
+                if(exAsig10J[cont] == asignaturaEX):
+                    resultado.append("10 de Julio")
+                    resultado.append(exAsig10J[cont])
+                    resultado.append(exAsig10J[cont+1])
+                    resultado.append(exAsig10J[cont+2])
+                    encontrado = True
+                cont += 1
+
+            cont = 0
+            while(cont < len(exAsig11J) and (encontrado == False)):
+                if(exAsig11J[cont] == asignaturaEX):
+                    resultado.append("11 de Julio")
+                    resultado.append(exAsig11J[cont])
+                    resultado.append(exAsig11J[cont+1])
+                    resultado.append(exAsig11J[cont+2])
+                    encontrado = True
+                cont += 1
+
+            return resultado
 
 
-def extractDataTable2_2SemExtraordinaria():
+def extractDataTable2_2SemExtraordinaria(asignaturaEX):
     tablas = camelot.read_pdf(os.path.join(RESOURCE, 'CalendarioExamenes18-19-GII.pdf'), pages='9')
     tablas.export(os.path.join(OUTPUT, 'CalendarioExamenes18-19-GII.csv'), f='csv', compress=False)
 
@@ -2736,16 +3149,122 @@ def extractDataTable2_2SemExtraordinaria():
             cont11J+=1
         ################################
         #Comprobación del contenido
-        cont=0
-        print("------------------------------------")
-        print("2do Semestre - Extraordinaria cont")
-        print("------------------------------------")
-        while cont < len(exAsig11J):
-            print(str(exAsig11J[cont]))
-            cont+=1
+            cont = 0
+            resultado = []
+            encontrado  = False
 
+            while(cont < len(exAsig27J) and (encontrado == False)):
+                if(exAsig27J[cont] == asignaturaEX):
+                    resultado.append("27 de Junio")
+                    resultado.append(exAsig27J[cont])
+                    resultado.append(exAsig27J[cont+1])
+                    resultado.append(exAsig27J[cont+2])
+                    encontrado = True
+                cont += 1
+            
+            cont = 0
+            while(cont < len(exAsig28J) and (encontrado == False)):
+                if(exAsig28J[cont] == asignaturaEX):
+                    resultado.append("28 de Junio")
+                    resultado.append(exAsig28J[cont])
+                    resultado.append(exAsig28J[cont+1])
+                    resultado.append(exAsig28J[cont+2])
+                    encontrado = True
+                cont += 1
 
-def extractDataTable3_2SemExtraordinaria():
+            cont = 0
+            while(cont < len(exAsig1J) and (encontrado == False)):
+                if(exAsig1J[cont] == asignaturaEX):
+                    resultado.append("1 de Julio")
+                    resultado.append(exAsig1J[cont])
+                    resultado.append(exAsig1J[cont+1])
+                    resultado.append(exAsig1J[cont+2])
+                    encontrado = True
+                cont += 1
+
+            cont = 0
+            while(cont < len(exAsig2J) and (encontrado == False)):
+                if(exAsig2J[cont] == asignaturaEX):
+                    resultado.append("2 de Julio")
+                    resultado.append(exAsig2J[cont])
+                    resultado.append(exAsig2J[cont+1])
+                    resultado.append(exAsig2J[cont+2])
+                    encontrado = True
+                cont += 1
+
+            cont = 0
+            while(cont < len(exAsig3J) and (encontrado == False)):
+                if(exAsig3J[cont] == asignaturaEX):
+                    resultado.append("3 de Julio")
+                    resultado.append(exAsig3J[cont])
+                    resultado.append(exAsig3J[cont+1])
+                    resultado.append(exAsig3J[cont+2])
+                    encontrado = True
+                cont += 1
+
+            cont = 0
+            while(cont < len(exAsig4J) and (encontrado == False)):
+                if(exAsig4J[cont] == asignaturaEX):
+                    resultado.append("4 de Julio")
+                    resultado.append(exAsig4J[cont])
+                    resultado.append(exAsig4J[cont+1])
+                    resultado.append(exAsig4J[cont+2])
+                    encontrado = True
+                cont += 1
+
+            cont = 0
+            while(cont < len(exAsig5J) and (encontrado == False)):
+                if(exAsig5J[cont] == asignaturaEX):
+                    resultado.append("5 de Julio")
+                    resultado.append(exAsig5J[cont])
+                    resultado.append(exAsig5J[cont+1])
+                    resultado.append(exAsig5J[cont+2])
+                    encontrado = True
+                cont += 1
+        
+            cont = 0
+            while(cont < len(exAsig8J) and (encontrado == False)):
+                if(exAsig8J[cont] == asignaturaEX):
+                    resultado.append("8 de Julio")
+                    resultado.append(exAsig8J[cont])
+                    resultado.append(exAsig8J[cont+1])
+                    resultado.append(exAsig8J[cont+2])
+                    encontrado = True
+                cont += 1
+
+            cont = 0
+            while(cont < len(exAsig9J) and (encontrado == False)):
+                if(exAsig9J[cont] == asignaturaEX):
+                    resultado.append("9 de Julio")
+                    resultado.append(exAsig9J[cont])
+                    resultado.append(exAsig9J[cont+1])
+                    resultado.append(exAsig9J[cont+2])
+                    encontrado = True
+                cont += 1
+
+            cont = 0
+            while(cont < len(exAsig10J) and (encontrado == False)):
+                if(exAsig10J[cont] == asignaturaEX):
+                    resultado.append("10 de Julio")
+                    resultado.append(exAsig10J[cont])
+                    resultado.append(exAsig10J[cont+1])
+                    resultado.append(exAsig10J[cont+2])
+                    encontrado = True
+                cont += 1
+
+            cont = 0
+            while(cont < len(exAsig11J) and (encontrado == False)):
+                if(exAsig11J[cont] == asignaturaEX):
+                    resultado.append("11 de Julio")
+                    resultado.append(exAsig11J[cont])
+                    resultado.append(exAsig11J[cont+1])
+                    resultado.append(exAsig11J[cont+2])
+                    encontrado = True
+                cont += 1
+
+            return resultado
+
+def extractDataTable3_2SemExtraordinaria(asignaturaEX):
     tablas = camelot.read_pdf(os.path.join(RESOURCE, 'CalendarioExamenes18-19-GII.pdf'), pages='10')
     tablas.export(os.path.join(OUTPUT, 'CalendarioExamenes18-19-GII.csv'), f='csv', compress=False)
 
@@ -3004,13 +3523,120 @@ def extractDataTable3_2SemExtraordinaria():
             cont11J+=1
         ################################
         #Comprobación del contenido
-        cont=0
-        print("------------------------------------")
-        print("2do Semestre - Extraordinaria cont")
-        print("------------------------------------")
-        while cont < len(exAsig10J):
-            print(str(exAsig10J[cont]))
-            cont+=1
+            cont = 0
+            resultado = []
+            encontrado  = False
+
+            while(cont < len(exAsig27J) and (encontrado == False)):
+                if(exAsig27J[cont] == asignaturaEX):
+                    resultado.append("27 de Junio")
+                    resultado.append(exAsig27J[cont])
+                    resultado.append(exAsig27J[cont+1])
+                    resultado.append(exAsig27J[cont+2])
+                    encontrado = True
+                cont += 1
+            
+            cont = 0
+            while(cont < len(exAsig28J) and (encontrado == False)):
+                if(exAsig28J[cont] == asignaturaEX):
+                    resultado.append("28 de Junio")
+                    resultado.append(exAsig28J[cont])
+                    resultado.append(exAsig28J[cont+1])
+                    resultado.append(exAsig28J[cont+2])
+                    encontrado = True
+                cont += 1
+
+            cont = 0
+            while(cont < len(exAsig1J) and (encontrado == False)):
+                if(exAsig1J[cont] == asignaturaEX):
+                    resultado.append("1 de Julio")
+                    resultado.append(exAsig1J[cont])
+                    resultado.append(exAsig1J[cont+1])
+                    resultado.append(exAsig1J[cont+2])
+                    encontrado = True
+                cont += 1
+
+            cont = 0
+            while(cont < len(exAsig2J) and (encontrado == False)):
+                if(exAsig2J[cont] == asignaturaEX):
+                    resultado.append("2 de Julio")
+                    resultado.append(exAsig2J[cont])
+                    resultado.append(exAsig2J[cont+1])
+                    resultado.append(exAsig2J[cont+2])
+                    encontrado = True
+                cont += 1
+
+            cont = 0
+            while(cont < len(exAsig3J) and (encontrado == False)):
+                if(exAsig3J[cont] == asignaturaEX):
+                    resultado.append("3 de Julio")
+                    resultado.append(exAsig3J[cont])
+                    resultado.append(exAsig3J[cont+1])
+                    resultado.append(exAsig3J[cont+2])
+                    encontrado = True
+                cont += 1
+
+            cont = 0
+            while(cont < len(exAsig4J) and (encontrado == False)):
+                if(exAsig4J[cont] == asignaturaEX):
+                    resultado.append("4 de Julio")
+                    resultado.append(exAsig4J[cont])
+                    resultado.append(exAsig4J[cont+1])
+                    resultado.append(exAsig4J[cont+2])
+                    encontrado = True
+                cont += 1
+
+            cont = 0
+            while(cont < len(exAsig5J) and (encontrado == False)):
+                if(exAsig5J[cont] == asignaturaEX):
+                    resultado.append("5 de Julio")
+                    resultado.append(exAsig5J[cont])
+                    resultado.append(exAsig5J[cont+1])
+                    resultado.append(exAsig5J[cont+2])
+                    encontrado = True
+                cont += 1
+        
+            cont = 0
+            while(cont < len(exAsig8J) and (encontrado == False)):
+                if(exAsig8J[cont] == asignaturaEX):
+                    resultado.append("8 de Julio")
+                    resultado.append(exAsig8J[cont])
+                    resultado.append(exAsig8J[cont+1])
+                    resultado.append(exAsig8J[cont+2])
+                    encontrado = True
+                cont += 1
+
+            cont = 0
+            while(cont < len(exAsig9J) and (encontrado == False)):
+                if(exAsig9J[cont] == asignaturaEX):
+                    resultado.append("9 de Julio")
+                    resultado.append(exAsig9J[cont])
+                    resultado.append(exAsig9J[cont+1])
+                    resultado.append(exAsig9J[cont+2])
+                    encontrado = True
+                cont += 1
+
+            cont = 0
+            while(cont < len(exAsig10J) and (encontrado == False)):
+                if(exAsig10J[cont] == asignaturaEX):
+                    resultado.append("10 de Julio")
+                    resultado.append(exAsig10J[cont])
+                    resultado.append(exAsig10J[cont+1])
+                    resultado.append(exAsig10J[cont+2])
+                    encontrado = True
+                cont += 1
+
+            cont = 0
+            while(cont < len(exAsig11J) and (encontrado == False)):
+                if(exAsig11J[cont] == asignaturaEX):
+                    resultado.append("11 de Julio")
+                    resultado.append(exAsig11J[cont])
+                    resultado.append(exAsig11J[cont+1])
+                    resultado.append(exAsig11J[cont+2])
+                    encontrado = True
+                cont += 1
+
+            return resultado
 
 if __name__ == '__main__':
     if(sys.argv[3:]):
@@ -3042,11 +3668,33 @@ if __name__ == '__main__':
                 result = cursor.execute(sql_insert_query, insert_tuple)
 
                 connect_db.commit()
-                print("Fila insertada correctamente")                
+                print("Fila insertada correctamente")   
 
-        # extractDataTable1_2SemOrdinaria()
-        # extractDataTable2_2SemOrdinaria()
-        # extractDataTable3_2SemOrdinaria()
-        # extractDataTable1_2SemExtraordinaria()
-        # extractDataTable2_2SemExtraordinaria()
-        # extractDataTable3_2SemExtraordinaria()
+        if(sys.argv[2] == '2' or sys.argv[2] == 'segundo'):
+            if(sys.argv[3] == 'ordinaria'):
+                res = extractDataTable1_2SemOrdinaria(asignaturaEX)
+                if len(res) == 0:
+                    res = extractDataTable2_2SemOrdinaria(asignaturaEX)
+                if len(res) == 0:
+                    res = extractDataTable3_2SemOrdinaria(asignaturaEX)
+
+                sql_insert_query = """INSERT INTO "FechasExamenes" VALUES(%s, %s, %s, %s)"""
+                insert_tuple = (asignaturaEX, 2, 'ordinaria', res)
+                result = cursor.execute(sql_insert_query, insert_tuple)
+
+                connect_db.commit()
+                print("Fila insertada correctamente")
+
+            if(sys.argv[3] == 'extraordinaria'):
+                res = extractDataTable1_2SemExtraordinaria(asignaturaEX)
+                if len(res) == 0:
+                    res = extractDataTable2_2SemExtraordinaria(asignaturaEX)
+                if len(res) == 0:
+                    res = extractDataTable3_2SemExtraordinaria(asignaturaEX)
+
+                sql_insert_query = """INSERT INTO "FechasExamenes" VALUES(%s, %s, %s, %s)"""
+                insert_tuple = (asignaturaEX, 2, 'extraordinaria', res)
+                result = cursor.execute(sql_insert_query, insert_tuple)
+
+                connect_db.commit()
+                print("Fila insertada correctamente")                
