@@ -25,8 +25,7 @@ def obtenerGuiaDocente(nombAsig):
 
     for c in f:
         res = '-Asignatura: ' + str(c[0]) \
-            + '\n\n-Profesores: ' + str(c[1].replace('","', ', ').replace('{', '').replace('}', '').replace('"', '')) \
-            + '\n\n-Contactos: ' + str(c[2].replace('","', ', ').replace('{', '').replace('}', '').replace('"', ''))
+            + '\n\n-Guía docente: ' + str(c[1])
         guiaDocente.append(res)
 
     return guiaDocente

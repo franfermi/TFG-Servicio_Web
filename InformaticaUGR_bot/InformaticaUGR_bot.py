@@ -11,7 +11,7 @@ commands = { # command description used in the "ayuda" command
     'hola': 'Comando de inicio',
     'adios': 'Comando de despedida',
     'ayuda': 'Da informacion sobre los comandos disponibles',
-    'profesores': 'Información sobre profesores y contactos de una asignatura',
+    'guia': 'Guía docente de una asignatura',
     'horarios': 'Información sobre el horario',
     'examenes': 'Infromación sobre el examen final de la asignatura',
 }
@@ -35,12 +35,12 @@ def comando_hola(message):
     chat_id = message.chat.id
     bot.send_message(chat_id, "Hasta pronto!")
 
-@bot.message_handler(commands=['profesores'])
+@bot.message_handler(commands=['guia'])
 def comando_obtenerGD(message):
-    """Función que muestra los profesores y sus contactos. """
+    """Función que muestra la guía docente de una asignatura. """
     chat_id = message.chat.id
-    asignatura = message.text[12:16]
-
+    asignatura = message.text[6:]
+    print(asignatura)
     if(asignatura == ""):
         bot.send_message(chat_id, "Debes indicar la asignatura que deseas buscar. Ej: ALEM")
     else:
