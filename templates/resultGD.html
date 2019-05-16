@@ -16,10 +16,10 @@
 			        <tbody class="resultados">
 						{% if resultado %}
 							{% for rest in resultado %}
-				            <tr onMouseOver=this.style.backgroundColor='grey'; onMouseOut=this.style.backgroundColor=''>
-				              <td> {{ rest }} </td>
-				            </tr>
-				            {% endfor %}
+				        <tr onMouseOver=this.style.backgroundColor='grey'; onMouseOut=this.style.backgroundColor=''>
+									<td><embed src="{{ rest }}" type="application/pdf" width="100%" height="600px" /></td>	
+								</tr>
+				      {% endfor %}
 						{% endif %}
 						{% if not resultado %}
 			            <tr>
