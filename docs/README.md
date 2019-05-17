@@ -1,4 +1,4 @@
-![](/home/francisco/Escritorio/TFG/Proyecto/docs/img/logoUGR.png)
+![](https://github.com/franfermi/TFG-Servicio_Web/blob/master/docs/img/logoUGR.png)
 
 
 
@@ -36,7 +36,7 @@
 
 ​																			
 
-​																			![](/home/francisco/Escritorio/TFG/Proyecto/docs/img/logoETSIIT.png)
+​																			![](https://github.com/franfermi/TFG-Servicio_Web/blob/master/docs/img/logoETSIIT.png)
 
 ​													Escuela Técnica Superior de Ingenierı́as Informática y de
 ​																					Telecomunicación
@@ -387,14 +387,15 @@ def text_extractor(path):
 
 ​		Un ejemplo de como esta librería convierte el contenido a .*csv* es el siguiente:
 
-![](/home/francisco/Escritorio/TFG/Proyecto/docs/img/csvPYPDF.png)
+![](https://github.com/franfermi/TFG-Servicio_Web/blob/master/docs/img/csvPYPDF.png)
 
 
 
 - **PDFMiner**: Extrae correctamente un documento de texto en PDF, he conseguido que pase los test comparando la lectura del PDF en cuestión con el texto obtenido tras la extracción si el PDF que uso es de texto, el problema viene cuando contiene tablas.
   
+
 El código utilizado para la extracción y conversión es el siguiente:
-  
+
   ```python
   import csv
   import os
@@ -413,13 +414,13 @@ El código utilizado para la extracción y conversión es el siguiente:
   if __name__ == '__main__':
       export_as_csv(pdf_path, csv_path)
   ```
-  
+
   Un ejemplo de salida tras la conversión es el siguiente:
-  
-  ![](/home/francisco/Escritorio/TFG/Proyecto/docs/img/csvPDFminer.png)
-  
+
+  ![](https://github.com/franfermi/TFG-Servicio_Web/blob/master/docs/img/csvPDFminer.png)
+
   Como se puede observar, todo se muestra en una sola fila ya que no trabaja bien con la estructura del PDF y por consiguiente, no puedo acceder a la columna que le corresponde a cada fila. Aún así, tampoco consigo que pase el test de comparación de contenido
-  
+
 - **tabula-py**: Esta librería trabaja correctamente con tablas pero deben de tener una cierta estructura para realizar correctamente la lectura. Cuando nos encontramos con celdas combinadas se producen errores en la extracción. El siguiente código se encarga de leer y convertir el contenido:
 
   ```python
@@ -442,7 +443,7 @@ El código utilizado para la extracción y conversión es el siguiente:
 
   El resultado es similar al de la librería PyPDF, con la diferencia que en este caso las celdas combinadas en vertical, se añaden en la siguiente columna en lugar de en la siguiente fila. Aún así tenemos el mismo problema de mala estructuración y por ello no consigue pasar el test de comparación de datos. 
 
-  ![](/home/francisco/Escritorio/TFG/Proyecto/docs/img/csvTabula.png) 
+  ![](https://github.com/franfermi/TFG-Servicio_Web/blob/master/docs/img/csvTabula.png) 
 
 
 
@@ -545,11 +546,11 @@ El código utilizado para la extracción y conversión es el siguiente:
 
    En este test, he individualizado cada función y he realizado pruebas de lectura en ambos formatos, conversión y comparación de contenidos. La siguiente imagen corresponde a la salida por terminal de la última función que muestra el contenido de un PDF extraído mediate *Camelot* en la primera tabla y en la segunda es propio contenido convertido a *csv*, como se puede observar es exactamente igual. Por tanto, es la mejor elección ya que a la hora de realizar la extracción, el resultado será igual que el de la tabla de entrada.
 
-![](/home/francisco/Escritorio/TFG/Proyecto/docs/img/comparacionContenido.jpg)
+![](https://github.com/franfermi/TFG-Servicio_Web/blob/master/docs/img/comparacionContenido.jpg)
 
 Y por último, voy a mostrar como se almacena el contenido extraído en formato *csv*:
 
-![](/home/francisco/Escritorio/TFG/Proyecto/docs/img/csvCamelot.png)
+![](https://github.com/franfermi/TFG-Servicio_Web/blob/master/docs/img/csvCamelot.png)
 
 Como se puede observar, ahora si tenemos una estructura a partir de la cual poder trabajar correctamente.
 
@@ -560,17 +561,36 @@ Como se puede observar, ahora si tenemos una estructura a partir de la cual pode
 La información citada a continuación es obtenida del propio [manual](https://buildmedia.readthedocs.org/media/pdf/camelot-py/master/camelot-py.pdf) de la biblioteca:
 
 > ```
-> El formato PDF (Formato de Documento Portátil) nació de The Camelot Project para crear "una forma universal de comunicación documentos a través de una amplia variedad de configuraciones de máquinas, sistemas operativos y redes de comunicación ”. El objetivo era hacer que estos documentos puedan verse en cualquier pantalla e imprimirse en cualquier impresora moderna. La invención de el lenguaje de descripción de página PostScript, que permitió la creación de documentos planos de diseño fijo (con texto, fuentes, Gráficos, imágenes encapsuladas), resolvió este problema.
-> En un nivel alto, PostScript define instrucciones, como "coloque este carácter en esta coordenada x, y en un plano".
-> Se puede simular colocando caracteres relativamente separados. A partir de eso, las tablas se pueden simular colocando caracteres (que constituyen palabras) en celdas bidimensionales. Un visor de PDF simplemente toma estas instrucciones y dibuja todo para que el usuario lo vea. Como un PDF es solo caracteres en un plano, no hay una estructura de datos de tabla que pueda ser extraído y utilizado para el análisis!
-> Lamentablemente, muchos de los datos libres de hoy día están atrapados en tablas PDF.
+> El formato PDF (Formato de Documento Portátil) nació de The Camelot Project para 
+> crear "una forma universal de comunicación documentos a través de una amplia 
+> variedad de configuraciones de máquinas, sistemas operativos y redes de 
+> comunicación ”. El objetivo era hacer que estos documentos puedan verse en 
+> cualquier pantalla e imprimirse en cualquier impresora moderna. La invención de el 
+> lenguaje de descripción de página PostScript, que permitió la creación de 
+> documentos planos de diseño fijo (con texto, fuentes, Gráficos, imágenes 
+> encapsuladas), resolvió este problema.
+> En un nivel alto, PostScript define instrucciones, como "coloque este carácter en 
+> esta coordenada x, y en un plano".
+> Se puede simular colocando caracteres relativamente separados. A partir de eso, 
+> las tablas se pueden simular colocando caracteres (que constituyen palabras) en 
+> celdas bidimensionales. Un visor de PDF simplemente toma estas instrucciones y 
+> dibuja todo para que el usuario lo vea. Como un PDF es solo caracteres en un 
+> plano, no hay una estructura de datos de tabla que pueda ser extraído y utilizado 
+> para el análisis!
+> Lamentablemente, muchos de los datos libres de hoy día están atrapados en tablas 
+> PDF.
 > ```
 
 > ```
 > -¿Por qué esta biblioteca y no otra?
-> Existen herramientas de código abierto (Tabula, pdf-table-extract) y de código cerrado (smallpdf, PDFTables) que son ampliamente utilizadas para extraer tablas de archivos PDF. O bien dan un buen resultado o fallan miserablemente. No hay término medio. Esto no es útil ya que todo en el mundo real, incluida la extracción de tablas PDF, es borroso. Esto lleva a la creación de ad-hoc.
+> Existen herramientas de código abierto (Tabula, pdf-table-extract) y de código 
+> cerrado (smallpdf, PDFTables) que son ampliamente utilizadas para extraer tablas de  archivos PDF. O bien dan un buen resultado o fallan miserablemente. No hay término 
+> medio. Esto no es útil ya que todo en el mundo real, incluida la extracción de 
+> tablas PDF, es borroso. Esto lleva a la creación de ad-hoc.
 > Scripts de extracción de tablas para cada tipo de tabla PDF.
-> Camelot fue creado para ofrecer a los usuarios un control completo sobre la extracción de tablas. Si no puede obtener la salida deseada con la configuración predeterminada, puede modificarlos y hacer el trabajo!
+> Camelot fue creado para ofrecer a los usuarios un control completo sobre la 
+> extracción de tablas. Si no puede obtener la salida deseada con la configuración 
+> predeterminada, puede modificarlos y hacer el trabajo!
 > ```
 
 De forma adicional se puede consultar la [comparativa](https://github.com/socialcopsdev/camelot/wiki/Comparison-with-other-PDF-Table-Extraction-libraries-and-tools) entre esta biblioteca y otras, de forma que se deja claro que es la mejor elección que podemos encontrar.
@@ -782,7 +802,7 @@ A continuación mostraré ejemplos sobre funciones que he realizado en cada uno 
 
 Para el almacenamiento de datos me he decantado por el uso de Postgres a través de la plataforma Heroku, la cual proporciona la integración automática de la base de datos en el propio despliegue de la aplicación.  Para hacer uso de la BD tenemos que configurarla en Heroku como *Add-ons*.
 
-![curl](/home/francisco/Escritorio/TFG/Proyecto/docs/img/configPostgres.png)
+![](https://github.com/franfermi/TFG-Servicio_Web/blob/master/docs/img/configPostgres.png)
 
 Como se puede observar ya se encuentra configurada y contiene 3 tablas que más adelante comentaré de que se tratan. Para poder acceder a nuestra BD creada, tenemos una pestaña de ajustes en la cual podemos acceder a los credenciales de esta. Con dichos datos podemos conectarnos a ella desde cualquier programa en Python que hablaremos más adelante y desde un cliente a través del cual gestionaremos el contenido. 
 
@@ -792,13 +812,13 @@ El cliente que he usado para la gestión de la BD es pgAdmin, desde el nos encar
 
 La estructura en la cual se van a almacenar los datos es la siguiente:
 
-![curl](/home/francisco/Escritorio/TFG/Proyecto/docs/img/estructuraTablasBD.png)
+![curl](https://github.com/franfermi/TFG-Servicio_Web/blob/master/docs/img/estructuraTablasBD.png)
 
 La estructura se corresponde con 3 tablas, cada una de ella se encarga de almacenar una solicitud de búsqueda desde la API.
 
 - **FechasExamenes**: Se trata de una tabla que contiene 4 columnas, las siglas de la asignatura la cual queremos obtener la fecha del examen final, el semestre al que corresponde la asignatura (se podría descartar pero es más cómodo tener esta columna para ordenaciones en la BD), convocatoria, ya sea ordinaria o extraordinaria, y por último, la columna fecha que almacena el valor obtenido de la búsqueda. Un ejemplo de fila almacenada en la BD es el siguiente:
 
-  ![curl](/home/francisco/Escritorio/TFG/Proyecto/docs/img/ejemploContenidoDBex.png)
+  ![curl](https://github.com/franfermi/TFG-Servicio_Web/blob/master/docs/img/ejemploContenidoDBex.png)
 
 
 
@@ -808,11 +828,11 @@ La estructura se corresponde con 3 tablas, cada una de ella se encarga de almace
 
 - **GuiasDocentes**: Se trata de una tabla que contiene 3 columnas, las siglas de la asignatura la cual queremos obtener información de la guía docente correspondiente, como resultado obtenemos la lista de profesores y el listado de como contactar con ellos. Un ejemplo de fila almacenada en la BD es el siguiente:
 
-  ![curl](/home/francisco/Escritorio/TFG/Proyecto/docs/img/ejemploContenidoBDgd.png)
+  ![curl](https://github.com/franfermi/TFG-Servicio_Web/blob/master/docs/img/ejemploContenidoBDgd.png)
 
 - **Horarios**: Se trata de una tabla que contiene 5 columnas, el curso del que queremos obtener el horario, el cuatrimestre y grupo correspondiente y el día de la semana que nos interesa saber su horario, por último, el contenido de la consulta se almacena en la columna restante en la cual se mostrará las asignaturas con sus respectivas aulas en cada intervalo de horas. Un ejemplo de fila almacenada en la BD es el siguiente:
 
-  ![curl](/home/francisco/Escritorio/TFG/Proyecto/docs/img/ejemploContenidoBDho.png)
+  ![curl](https://github.com/franfermi/TFG-Servicio_Web/blob/master/docs/img/ejemploContenidoBDho.png)
 
 
 
@@ -830,13 +850,13 @@ Los pasos a seguir para su despliegue son los siguientes:
 
 <code>heroku login</code>
 
-![curl](./img/login_heroku.png)
+![curl](https://github.com/franfermi/TFG-Servicio_Web/blob/master/docs/img/login_heroku.png)
 
 -Creamos la aplicación la cual vamos a desplegar.
 
 <code>heroku apps:create --region eu subjectsgii</code>
 
-![curl](./img/config_app.png)
+![curl](https://github.com/franfermi/TFG-Servicio_Web/blob/master/docs/img/config_app.png)
 
 -Añadimos los siguientes ficheros:
 
@@ -850,24 +870,25 @@ En la opción de despliegue de Heroku, en métodos de despliegue seleccionamos l
 
 Por último, activamos el despliegue automático para cada vez que realicemos un push de nuestro proyecto se actualice también en Heroku.
 
-![curl](./img/despliegueAutHeroku.png)
+![curl](https://github.com/franfermi/TFG-Servicio_Web/blob/master/docs/img/despliegueAutHeroku.png)
 
 -Para configurar el token de Telegram para su uso desde Heroku:
 
 <code>heroku config:set TOKEN=$ --app informaticaugrbot</code>
 
-![curl](./img/configBotHeroku.png)
+![curl](https://github.com/franfermi/TFG-Servicio_Web/blob/master/docs/img/configBotHeroku.png)
 
 -Por último, lanzamos tanto el bot como el servicio web.
 
 <code>heroku ps:scale worker=1 --app informaticaugrbot</code>
 
-![curl](./img/botConfigurado.png)
+![curl](https://github.com/franfermi/TFG-Servicio_Web/blob/master/docs/img/botConfigurado.png)
 
 <code>heroku ps:scale web=1 --app informaticaugrbot</code>
 
-![curl](./img/despliegueWebCorrecto.png)
+![curl](https://github.com/franfermi/TFG-Servicio_Web/blob/master/docs/img/despliegueWebCorrecto.png)
 
 -Comprobamos que están activos y funcionando en heroku.
 
-![curl](./img/dynosHeroku.png)
+![curl](https://github.com/franfermi/TFG-Servicio_Web/blob/master/docs/img/dynosHeroku.png)
+
