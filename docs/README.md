@@ -1,4 +1,4 @@
-![curl](https://github.com/franfermi/TFG-Servicio_Web/blob/master/docs/img/logoUGR.png)
+![](/home/francisco/Escritorio/TFG/Proyecto/docs/img/logoUGR.png)
 
 
 
@@ -36,7 +36,7 @@
 
 ​																			
 
-​																			![curl](https://github.com/franfermi/TFG-Servicio_Web/blob/master/docs/img/logoETSIIT.png)
+​																			![](/home/francisco/Escritorio/TFG/Proyecto/docs/img/logoETSIIT.png)
 
 ​													Escuela Técnica Superior de Ingenierı́as Informática y de
 ​																					Telecomunicación
@@ -57,13 +57,13 @@
 
 ​	A lo largo de los años que llevo como estudiante en el grado de informática he visto grandes avances en lo que respecta a la ayuda de obtención de información para el alumno. 
 
-​	Una de la ayudas que he podido contemplar son los Bots de Telegram que muestra cierta información como próximas actividades, próximos exámenes...prácticamente la mayoría de estas ayudas eran programadas directamente al bot o contenidos redireccionados a este. También hemos tenido a nuestra disposición, un servicio web con una base de datos en la que poder almacenar contenido de las distintas asignaturas de la carrera para así, facilitar la compartición de documentos.
+​	Una de la ayudas que he podido contemplar son los Bots de Telegram que muestra cierta información como próximas actividades, próximos exámenes, etc. Prácticamente la mayoría de estas ayudas eran programadas directamente al bot o contenidos redireccionados a este. También hemos tenido a nuestra disposición, un servicio web con una base de datos en la que poder almacenar contenido de las distintas asignaturas de la carrera para así, facilitar la compartición de documentos.
 
 ​	Por otra parte, siempre he echado en falta poder consultar cierta información correspondiente al grado de forma directa y rápida, sin la necesidad de por ejemplo tener que descargar los calendarios de exámenes y buscar según la fila y la columna que día tendríamos el examen final, otro claro ejemplo puede ser, si queremos saber el horario concreto de un curso, semestre y grupo, la única forma sería descargar el PDF de los horarios el cual contiene unas 24 páginas y buscar lo que necesitamos. 
 
 ​	De forma adicional, he decidido automatizar todo el proceso de almacenamiento de datos en la base de datos, de tal forma que mediante programas, se realice la extracción de dichos datos de los propios PDFs y se incluyan en la base de datos correspondiente de forma automática sin tener que hacer este proceso a mano con cada fila.
 
-​	Con esta idea, he decidido basar mi TFG¹ en un Servicio Web que mostrará información relevante sobre el grado de Ingeniería Informática de la ETSIIT² como fechas de exámenes junto con la hora, guías docentes con información sobre los profesores de cada una de las asignaturas, horarios de cada día particular de cada grupo y curso...Toda la información será extraída mediante *scripting*³ sobre los PDFs de la facultad. Además todo esto irá también acompañado de un Bot⁴ de Telegram para aumentar su accesibilidad.
+​	Con esta idea, he decidido basar mi TFG¹ en un Servicio Web que mostrará información relevante sobre el grado de Ingeniería Informática de la ETSIIT² como fechas de exámenes junto con la hora, guías docentes de cada una de las asignaturas y horarios de cada día particular de cada grupo y curso. Toda la información será extraída mediante *scripting*³ sobre los PDFs de la facultad. Además todo esto irá también acompañado de un Bot⁴ de Telegram para aumentar su accesibilidad.
 
 
 
@@ -87,13 +87,13 @@
 
 ​	Throughout the years that I have been a student in the computer science degree, I have seen great progress in terms of helping to obtain information for the student.
 
-​	One of the aids that I have been able to contemplate are the Telegram Bots that show certain information such as upcoming activities, upcoming exams ... practically most of these aids were programmed directly to the bot or contents redirected to it. We have also had at our disposal, a web service with a database in which to store content of the different subjects of the race to facilitate the sharing of documents.
+​	One of the aids that I have been able to contemplate are the Telegram Bots that show certain information such as upcoming activities, upcoming exams, etc. Practically most of these aids were programmed directly to the bot or contents redirected to it. We have also had at our disposal, a web service with a database in which to store content of the different subjects of the race to facilitate the sharing of documents.
 
 ​	On the other hand, I have always missed being able to consult certain information corresponding to the degree directly and quickly, without the need to, for example, have to download the exam calendars and search according to the row and the column that we would have the final exam, Another clear example can be, if we want to know the specific schedule of a course, semester and group, the only way would be to download the PDF of the schedules which contains about 24 pages and look for what we need.
 
 ​	Additionally, I have decided to automate the entire process of storing data in the database, so that by means of programs, the extraction of said data from the PDFs themselves is carried out and included in the corresponding database automatically. without having to do this process by hand with each row.
 
-​	With this idea, I decided to base my TFG¹ on a Web Service that will show relevant information about the degree of Computer Engineering of the ETSIIT² as exam dates along with the time, teaching guides with information about the teachers of each of the subjects, schedules of each particular day of each group and course ... All information will be extracted by *scripting*³ on the faculty's PDFs. In addition all this will also be accompanied by a Telegram Bot⁴ to increase its accessibility.
+​	With this idea, I have decided to base my TFG¹ on a Web Service that will show relevant information about the degree of Computer Engineering of the ETSIIT² as exam dates along with the time, teaching guides of each one of the subjects and schedules of each particular day of each group and course. All the information will be extracted by * scripting * ³ on the faculty's PDFs. In addition all this will also be accompanied by a Telegram Bot⁴ to increase its accessibility.
 
 
 
@@ -288,26 +288,276 @@ Debido a que los datos se encuentran en PDFs estructurados en tablas, he tenido 
 
 ### 2.1. Selección de la biblioteca necesaria
 
+Antes de nombrar las bibliotecas que he probado hasta quedarme con la adecuada, voy a mostrar el test realizado a cada una de ellas:
+
+```python
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+import os
+import sys
+import unittest
+import binascii
+
+from PyPDF2 import PdfFileReader, PdfFileWriter
+
+RESOURCE = './resources'
+
+class PdfReaderTestCases(unittest.TestCase):
+    def test_PdfReaderFileLoad(self):
+        with open(os.path.join(RESOURCE, 'ejemploPDF.pdf'), mode='rb') as inputfile:
+            # Load PDF file from file
+            ipdf = PdfFileReader(inputfile)
+            ipdf_p1 = ipdf.getPage(0)
+
+            # Retrieve the text of the PDF
+            pdftext_file = open('./resources/out_page.txt', 'r')
+            pdftext = pdftext_file.read().strip()
+            pdftext_file.close()
+
+            ipdf_p1_text = ipdf_p1.extractText().replace('\n', '').strip()
+
+            # Compare the text of the PDF to a known source
+            self.assertEqual(ipdf_p1_text, pdftext,
+                msg='PDF extracted text differs from expected value.\n\nExpected:\n\n%r\n\nExtracted:\n\n%r\n\n'
+                    % (pdftext, ipdf_p1_text))
+                    
+if __name__ == '__main__':
+    unittest.main()
+```
+
+El test se encarga de comprobar que se realiza correctamente la lectura del archivo, la conversión al formato deseado y por último, realiza una comparación entre el contenido leído y el contenido extraído, de esta forma verifica que son iguales y por tanto pasaría el test.
+
+
+
 Bibliotecas que he probado y he tenido que descartar:
 
 - **PyPDF2**: Después de haber probado un poco esta biblioteca, conseguí abrir y leer el PDF, al mostrar el contenido de la lectura me aparece el texto codificado, por tanto, lo he convertido en ASCII para posteriormente guardarlo en un fichero .txt y a partir de el obtener información. El problema que le encuentro es a la hora de obtener la columna correspondiente a la fila de la tabla ya que tengo como salida un fichero de texto. 
 
-  Después de encontrarme con este problema, decidí pasar el contenido a csv, y así poder recorrer cada fila y columna, pero no me representaba bien la estructura del PDF en cuestión por lo que tuve que descartar esta librería además que no pasaba el test de comparación de contenido.
+  Un ejemplo de una de las funciones utilizadas para la extracción de datos es el siguiente:
 
-- **PDFMiner**: Extrae correctamente un documento de texto en PDF, he conseguido que pase los test comparando la lectura del PDF en cuestión con el texto obtenido tras la extracción.
-  Pero para PDFs con tablas no me sirve esta biblioteca debido a que cada celda de la tabla me la representa como una línea, por tanto pierdo el formato y por consiguiente no consigue pasar los tests.
+```python
+def text_extractor(path):
 
-- **tabula-py**: Esta librería trabaja correctamente con tablas pero deben de tener una cierta estructura para realizar correctamente la lectura. Cuando nos encontramos con celdas combinadas se producen errores en la extracción, por tanto, al igual que las anteriores no pasa los test. 
+    print ("Abriendo " + sys.argv[1])
 
-Al final, tras muchas pruebas y agobios debido al formato/estructura de los PDFs, encontré la biblioteca **camelot** la cual consiguió pasar los test, además incluye ventaja de ser capaz de detectar en un PDF donde se encuentra una tabla si por ejemplo está rodeada de texto, así como otras más.
+    pdf_file = sys.argv[1]
+    read_pdf = PyPDF2.PdfFileReader(pdf_file)
 
-![curl](https://github.com/franfermi/TFG-Servicio_Web/blob/master/docs/img/comparacionContenido.jpg)
+    number_of_pages = read_pdf.getNumPages()
+    print (str(number_of_pages) + " páginas leídas")
 
-En la imagen anterior se muestra el contenido de un PDF extraído mediate *Camelot* en la primera tabla y en la segunda es propio contenido convertido a *csv*, como se puede observar es exactamente igual. Por tanto, es la mejor elección ya que a la hora de realizar la extracción, el resultado será igual que el de la tabla de entrada.
+    out_page_content = 'out_page.txt'
+    os.system(("ps2ascii %s %s") %( pdf_file , out_page_content))
+
+    convocatoria = "Ordinaria"
+    asignatura = input("Asignatura a buscar: ")
+    repetidas = 0
+    f = open("out_page1.txt", "r")
+    lines = f.readlines()
+
+    # Extraemos línea de los días de exámenes
+    dias = []
+    for line in lines:
+        diasEx = line.split()
+        for p in diasEx:
+            if p==convocatoria:
+                dias = diasEx
+    cont = 0
+    while cont < 4:
+        dias.pop(0)
+        cont+=1
+
+    print(dias)
+
+    # Extraemos línea de la asignatura en concreto
+    for line in lines:
+        palabras = line.split()
+        for p in palabras:
+            if p == asignatura:
+                repetidas = repetidas+1
+                print(palabras)
+                if palabras[len(palabras)-1] == 'M':
+                    print ("Exámen a las 9:00")
+                elif palabras[len(palabras)-1] == 'T':
+                    print ("Exámen a las 16:00") 
+```
+
+​		Después de encontrarme con este problema, decidí pasar el contenido a .*csv*, y así poder recorrer cada 		fila y columna, pero no me representaba bien la estructura del PDF en cuestión ya que me 					             		interpretaba cada palabra como una celda, por tanto, a la hora de querer saber la fecha (columna) de 		una determinada asignatura (fila), era imposible. Tenía que  por lo que tuve que recorrer cada nombre 		de cada asignatura para contar el número de espacios que tenía y luego restarlo para obtener la 		         		columna exacta. También se añadía el problema de que la fila perteneciente a los días de convocatoria, 		no se ajustaban a sus celdas originales ya que en la conversión descartaba las tabulaciones y 		                                                        		combinaciones de celda. Debido a estos problemas con esta librería, no conseguí que pasara el test de 		comparación de contenido.	
+
+​		Un ejemplo de como esta librería convierte el contenido a .*csv* es el siguiente:
+
+![](/home/francisco/Escritorio/TFG/Proyecto/docs/img/csvPYPDF.png)
+
+
+
+- **PDFMiner**: Extrae correctamente un documento de texto en PDF, he conseguido que pase los test comparando la lectura del PDF en cuestión con el texto obtenido tras la extracción si el PDF que uso es de texto, el problema viene cuando contiene tablas.
+  
+El código utilizado para la extracción y conversión es el siguiente:
+  
+  ```python
+  import csv
+  import os
+  from miner_text_generator import extract_text_by_page
+  
+  def export_as_csv(pdf_path, csv_path):
+      filename = os.path.splitext(os.path.basename(pdf_path))[0]
+      counter = 1
+      with open(csv_path, 'w') as csv_file:
+          writer = csv.writer(csv_file)
+          for page in extract_text_by_page(pdf_path):
+              text = page[0:100]
+              words = text.split()
+              writer.writerow(words)
+  
+  if __name__ == '__main__':
+      export_as_csv(pdf_path, csv_path)
+  ```
+  
+  Un ejemplo de salida tras la conversión es el siguiente:
+  
+  ![](/home/francisco/Escritorio/TFG/Proyecto/docs/img/csvPDFminer.png)
+  
+  Como se puede observar, todo se muestra en una sola fila ya que no trabaja bien con la estructura del PDF y por consiguiente, no puedo acceder a la columna que le corresponde a cada fila. Aún así, tampoco consigo que pase el test de comparación de contenido
+  
+- **tabula-py**: Esta librería trabaja correctamente con tablas pero deben de tener una cierta estructura para realizar correctamente la lectura. Cuando nos encontramos con celdas combinadas se producen errores en la extracción. El siguiente código se encarga de leer y convertir el contenido:
+
+  ```python
+  import tabula
+  
+  # Read pdf into DataFrame
+  df = tabula.read_pdf("test.pdf", options)
+  
+  # Read remote pdf into DataFrame
+  df2 = tabula.read_pdf("https://github.com/tabulapdf/tabula-java/raw/master/src/test/resources/technology/tabula/arabic.pdf")
+  
+  # convert PDF into CSV
+  tabula.convert_into("CalendarioExamenes18-19-GII.pdf", "output.csv", output_format="csv")
+  
+  # convert all PDFs in a directory
+  tabula.convert_into_by_batch("input_directory", output_format='csv')
+  ```
+
+  
+
+  El resultado es similar al de la librería PyPDF, con la diferencia que en este caso las celdas combinadas en vertical, se añaden en la siguiente columna en lugar de en la siguiente fila. Aún así tenemos el mismo problema de mala estructuración y por ello no consigue pasar el test de comparación de datos. 
+
+  ![](/home/francisco/Escritorio/TFG/Proyecto/docs/img/csvTabula.png) 
+
+
+
+- **camelot**: Al final, tras muchas pruebas y agobios debido al formato/estructura de los PDFs, encontré la biblioteca *camelot* la cual consiguió pasar los test, además incluye ventaja de ser capaz de detectar en un PDF donde se encuentra una tabla si por ejemplo está rodeada de texto, así como otras más. Para realizar la lectura y conversión con esta librería, he usado el siguiente código:
+
+  ```python
+  #!/usr/bin/env python
+  # -*- coding: utf-8 -*-
+  
+  import camelot
+  import csv
+  import os
+  import pandas as pd
+  import sys
+  import psycopg2
+  
+  RESOURCE = './resources'
+  OUTPUT = './outputs'
+  
+  def extractDataTable1_1SemOrdinaria(asignaturaEX):
+      tablas = camelot.read_pdf(os.path.join(
+          RESOURCE, 'CalendarioExamenes18-19-GII.pdf'))
+      tablas.export(os.path.join(
+          OUTPUT, 'CalendarioExamenes18-19-GII.csv'), f='csv', compress=False)
+  
+      with open(os.path.join(OUTPUT, 'CalendarioExamenes18-19-GII-page-1-table-1.csv'), 'r') as archivo:
+          datos = pd.read_csv(archivo, header=-1)
+          ....
+  ```
+
+  A partir de un documento PDF, realizo la lectura para posteriormente exportar su contenido a un formato de tablas como *csv*. Una vez que tengamos el contenido en tablas, procedemos a abrirlo y trabajar sobre el.
+
+  Los tests que les he realizado a esta librería, aparte de los primero tests que ha sido comunes para todas ellas, es el siguiente:
+
+  ```python
+  #!/usr/bin/env python
+  # -*- coding: utf-8 -*-
+  
+  import os
+  import sys
+  import unittest
+  import camelot
+  import csv
+  
+  import pandas as pd
+  from pandas.util.testing import assert_frame_equal
+  
+  RESOURCE = './resources'
+  OUTPUT = './outputs'
+  
+  
+  class TestsCAMELOT(unittest.TestCase):
+      def test_parsing_report(self):
+          parsing_report = {
+              'accuracy': 99.02,
+              'whitespace': 12.24,
+              'order': 1,
+              'page': 1
+          }
+  
+          filename = os.path.join(RESOURCE, 'foo.pdf')
+          tables = camelot.read_pdf(filename)
+          assert tables[0].parsing_report == parsing_report
+  
+      def test_PdfReaderFileLoad(self):
+          tables = camelot.read_pdf(os.path.join(RESOURCE, 'foo.pdf'))
+  
+      def test_CsvReaderFileLoad(self):
+          with open(os.path.join(OUTPUT, 'foo.csv')) as File:
+              reader = csv.reader(File)
+  
+      def test_ConvertToCsv(self):
+          tables = camelot.read_pdf(os.path.join(RESOURCE, 'foo.pdf'))
+          tables.export(os.path.join(OUTPUT, 'foo.csv'), f='csv',
+                        compress=False)  # json, excel, html
+  
+      def test_ComparePdfCsv(self):
+          tables = camelot.read_pdf(os.path.join(RESOURCE, 'foo.pdf'))
+          resultsPDF = []
+  
+          for row in tables:
+              resultsPDF.append(tables[0].df)
+  
+          resultsCSV = pd.read_csv(os.path.join(OUTPUT,'foo.csv'), header=-1)
+          resultsCSV_sin_nan = resultsCSV.fillna(value='')
+  
+          print('EXTRACT TO PDF')
+          print(tables[0].df)
+          print('----------------------')
+          print('EXTRACT TO CSV')
+          print(resultsCSV_sin_nan)
+  
+          assert_frame_equal(tables[0].df, resultsCSV_sin_nan)
+  
+  
+  if __name__ == '__main__':
+      unittest.main()
+  
+  ```
+
+   En este test, he individualizado cada función y he realizado pruebas de lectura en ambos formatos, conversión y comparación de contenidos. La siguiente imagen corresponde a la salida por terminal de la última función que muestra el contenido de un PDF extraído mediate *Camelot* en la primera tabla y en la segunda es propio contenido convertido a *csv*, como se puede observar es exactamente igual. Por tanto, es la mejor elección ya que a la hora de realizar la extracción, el resultado será igual que el de la tabla de entrada.
+
+![](/home/francisco/Escritorio/TFG/Proyecto/docs/img/comparacionContenido.jpg)
+
+Y por último, voy a mostrar como se almacena el contenido extraído en formato *csv*:
+
+![](/home/francisco/Escritorio/TFG/Proyecto/docs/img/csvCamelot.png)
+
+Como se puede observar, ahora si tenemos una estructura a partir de la cual poder trabajar correctamente.
+
+
 
 ### 2.2. Información sobre la biblioteca seleccionada
 
-La información citada a continuación es obtenida del propio manual de la biblioteca:
+La información citada a continuación es obtenida del propio [manual](https://buildmedia.readthedocs.org/media/pdf/camelot-py/master/camelot-py.pdf) de la biblioteca:
 
 > ```
 > El formato PDF (Formato de Documento Portátil) nació de The Camelot Project para crear "una forma universal de comunicación documentos a través de una amplia variedad de configuraciones de máquinas, sistemas operativos y redes de comunicación ”. El objetivo era hacer que estos documentos puedan verse en cualquier pantalla e imprimirse en cualquier impresora moderna. La invención de el lenguaje de descripción de página PostScript, que permitió la creación de documentos planos de diseño fijo (con texto, fuentes, Gráficos, imágenes encapsuladas), resolvió este problema.
@@ -532,7 +782,7 @@ A continuación mostraré ejemplos sobre funciones que he realizado en cada uno 
 
 Para el almacenamiento de datos me he decantado por el uso de Postgres a través de la plataforma Heroku, la cual proporciona la integración automática de la base de datos en el propio despliegue de la aplicación.  Para hacer uso de la BD tenemos que configurarla en Heroku como *Add-ons*.
 
-![curl](https://github.com/franfermi/TFG-Servicio_Web/blob/master/docs/img/configPostgres.png)
+![curl](/home/francisco/Escritorio/TFG/Proyecto/docs/img/configPostgres.png)
 
 Como se puede observar ya se encuentra configurada y contiene 3 tablas que más adelante comentaré de que se tratan. Para poder acceder a nuestra BD creada, tenemos una pestaña de ajustes en la cual podemos acceder a los credenciales de esta. Con dichos datos podemos conectarnos a ella desde cualquier programa en Python que hablaremos más adelante y desde un cliente a través del cual gestionaremos el contenido. 
 
@@ -542,13 +792,13 @@ El cliente que he usado para la gestión de la BD es pgAdmin, desde el nos encar
 
 La estructura en la cual se van a almacenar los datos es la siguiente:
 
-![curl](https://github.com/franfermi/TFG-Servicio_Web/blob/master/docs/img/estructuraTablasBD.png)
+![curl](/home/francisco/Escritorio/TFG/Proyecto/docs/img/estructuraTablasBD.png)
 
 La estructura se corresponde con 3 tablas, cada una de ella se encarga de almacenar una solicitud de búsqueda desde la API.
 
 - **FechasExamenes**: Se trata de una tabla que contiene 4 columnas, las siglas de la asignatura la cual queremos obtener la fecha del examen final, el semestre al que corresponde la asignatura (se podría descartar pero es más cómodo tener esta columna para ordenaciones en la BD), convocatoria, ya sea ordinaria o extraordinaria, y por último, la columna fecha que almacena el valor obtenido de la búsqueda. Un ejemplo de fila almacenada en la BD es el siguiente:
 
-  ![curl](https://github.com/franfermi/TFG-Servicio_Web/blob/master/docs/img/ejemploContenidoDBex.png)
+  ![curl](/home/francisco/Escritorio/TFG/Proyecto/docs/img/ejemploContenidoDBex.png)
 
 
 
@@ -558,11 +808,11 @@ La estructura se corresponde con 3 tablas, cada una de ella se encarga de almace
 
 - **GuiasDocentes**: Se trata de una tabla que contiene 3 columnas, las siglas de la asignatura la cual queremos obtener información de la guía docente correspondiente, como resultado obtenemos la lista de profesores y el listado de como contactar con ellos. Un ejemplo de fila almacenada en la BD es el siguiente:
 
-  ![curl](https://github.com/franfermi/TFG-Servicio_Web/blob/master/docs/img/ejemploContenidoBDgd.png)
+  ![curl](/home/francisco/Escritorio/TFG/Proyecto/docs/img/ejemploContenidoBDgd.png)
 
 - **Horarios**: Se trata de una tabla que contiene 5 columnas, el curso del que queremos obtener el horario, el cuatrimestre y grupo correspondiente y el día de la semana que nos interesa saber su horario, por último, el contenido de la consulta se almacena en la columna restante en la cual se mostrará las asignaturas con sus respectivas aulas en cada intervalo de horas. Un ejemplo de fila almacenada en la BD es el siguiente:
 
-  ![curl](https://github.com/franfermi/TFG-Servicio_Web/blob/master/docs/img/ejemploContenidoBDho.png)
+  ![curl](/home/francisco/Escritorio/TFG/Proyecto/docs/img/ejemploContenidoBDho.png)
 
 
 
@@ -580,13 +830,13 @@ Los pasos a seguir para su despliegue son los siguientes:
 
 <code>heroku login</code>
 
-![curl](https://github.com/franfermi/TFG-Servicio_Web/blob/master/docs/img/login_heroku.png)
+![curl](./img/login_heroku.png)
 
 -Creamos la aplicación la cual vamos a desplegar.
 
 <code>heroku apps:create --region eu subjectsgii</code>
 
-![curl](https://github.com/franfermi/TFG-Servicio_Web/blob/master/docs/img/config_app.png)
+![curl](./img/config_app.png)
 
 -Añadimos los siguientes ficheros:
 
@@ -600,13 +850,13 @@ En la opción de despliegue de Heroku, en métodos de despliegue seleccionamos l
 
 Por último, activamos el despliegue automático para cada vez que realicemos un push de nuestro proyecto se actualice también en Heroku.
 
-![curl](https://github.com/franfermi/TFG-Servicio_Web/blob/master/docs/img/despliegueAutHeroku.png)
+![curl](./img/despliegueAutHeroku.png)
 
 -Para configurar el token de Telegram para su uso desde Heroku:
 
 <code>heroku config:set TOKEN=$ --app informaticaugrbot</code>
 
-![curl](https://github.com/franfermi/TFG-Servicio_Web/blob/master/docs/img/configBotHeroku.png)
+![curl](./img/configBotHeroku.png)
 
 -Por último, lanzamos tanto el bot como el servicio web.
 
@@ -616,8 +866,8 @@ Por último, activamos el despliegue automático para cada vez que realicemos un
 
 <code>heroku ps:scale web=1 --app informaticaugrbot</code>
 
-![curl](https://github.com/franfermi/TFG-Servicio_Web/blob/master/docs/img/despliegueWebCorrecto.png)
+![curl](./img/despliegueWebCorrecto.png)
 
 -Comprobamos que están activos y funcionando en heroku.
 
-![curl](https://github.com/franfermi/TFG-Servicio_Web/blob/master/docs/img/dynosHeroku.png)
+![curl](./img/dynosHeroku.png)
