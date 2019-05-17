@@ -229,6 +229,7 @@ Francisco Fernández.
 2. En el *capítulo 2 (**Extracción de datos**)* se explicará la forma que he llevado a cabo para la correcta extracción del contenido necesario para cada una de las funciones de la página, que serán las mencionadas en el apartado 1.4.
 3. En el *capítulo 3 (**Almacenamiento de los datos**)* se mostrará la forma en la cual se almacenarán los datos obtenidos del capítulo anterior, así como la estructura de tablas y sus respectivas columnas que poseerá la base de datos.
 4. En el *capítulo 4 (**Despliegue en un PaaS**)* se analizará de forma detallada el proceso para el despliegue del servicio web en la plataforma *Heroku*.
+5. En el *capítulo 4* (***Configuración y funcionamiento del bot***) se explicará como se ha realizado la configuración del bot y su funcionalidad así como el código utilizado para ello.
 
 
 
@@ -841,7 +842,206 @@ La estructura se corresponde con 3 tablas, cada una de ella se encarga de almace
 
 
 
-## 4. Despliegue en un PaaS
+## 4. Configuración y funcionamiento del bot
+
+### 4.1. Configuración
+
+La configuración comienza con la creación del *bot* mediante *BotFather* en Telegram. Una vez asignado el nombre que contendrá, se generará un token el cual es utilizado para identificarlo. Este token es el utilizado posteriormente para su configuración en el despliegue en Heroku.
+
+El siguiente paso será configurar los comandos a los que responderá nuestro *bot*. Según la funcionalidad que posee mi API, he declarado las siguiente opciones:
+
+```
+hola - Comando de inicio
+adios - Comando de despedida
+ayuda - Información sobre los comandos disponibles
+guia - Guía docente de una asignatura
+horarios - Información sobre el horario
+examenes - Información del examen final de una asignatura
+```
+
+Una vez que tenemos clara la funcionalidad que tendrá, procedemos a definir las funciones que realizarán cada comando declarado.
+
+1. **hola**
+
+   ```python
+   @bot.message_handler(commands=['hola'])
+   def comando_hola(message):
+       """Función de bienvenida al bot de Telegram. """
+       chat_id = message.chat.id
+       bot.send_message(chat_id, "Bienvenid@ al canal de Informática_UGR-Bot, use el comando /ayuda para más información")
+   ```
+
+   Este comando unicamente se encargará de mostrar el mensaje de bienvenida y sugerirá el comando *ayuda* que mostraré a continuación.
+
+2. **ayuda**
+
+   ```python
+   commands = { # command description used in the "ayuda" command
+       'hola': 'Comando de inicio',
+       'adios': 'Comando de despedida',
+       'ayuda': 'Da informacion sobre los comandos disponibles',
+       'guia': 'Guía docente de una asignatura',
+       'horarios': 'Información sobre el horario',
+       'examenes': 'Infromación sobre el examen final de la asignatura',
+   }
+   
+   @bot.message_handler(commands=['ayuda'])
+   def command_help(message):
+       chat_id = message.chat.id
+       help_text = "Estos son los comandos disponibles: \n"
+       for key in commands:
+           help_text += "/" + key + ": "
+           help_text += commands[key] + "\n"
+       bot.send_message(chat_id, help_text)
+   ```
+
+   El comando ayuda mostrará el listado de los comandos que han sido implementados para de esta forma saber la funcionalidad que posee el *bot*.
+
+3. **adios**
+
+   ```python
+   @bot.message_handler(commands=['adios'])
+   def comando_hola(message):
+       """Función de despedida del bot de Telegram. """
+       chat_id = message.chat.id
+       bot.send_message(chat_id, "Hasta pronto!")
+   ```
+
+   Al igual que el comando *hola*, este solo mostrará un mensaje de despedida.
+
+4. **guia**
+
+   ```python
+   def obtenerGuiaDocente(nombAsig):
+   
+       asignatura = nombAsig.upper()
+   
+       cursor.execute('SELECT * FROM "GuiasDocentes" WHERE asignatura = %s', [asignatura.upper()])
+   
+       connect_db.commit()
+   
+       guiaDocente = []
+       f = cursor.fetchall()
+   
+       for c in f:
+           res = '-Asignatura: ' + str(c[0]) \
+               + '\n\n-Guía docente: ' + str(c[1])
+           guiaDocente.append(res)
+   
+       return guiaDocente
+   
+   @bot.message_handler(commands=['guia'])
+   def comando_obtenerGD(message):
+       """Función que muestra la guía docente de una asignatura. """
+       chat_id = message.chat.id
+       asignatura = message.text[6:]
+       print(asignatura)
+       if(asignatura == ""):
+           bot.send_message(chat_id, "Debes indicar la asignatura que deseas buscar. Ej: ALEM")
+       else:
+           res = funcionesDB.obtenerGuiaDocente(asignatura)
+           bot.send_message(chat_id, res)
+   ```
+
+   Para el comando que se encarga de mostrarnos la dirección en la que se encuentra la guía docente que estamos buscando, le pasamos la asignatura y en el caso de no estar vacía, llamamos a la función que se encarga de obtener la dirección de la guía docente de la base de datos, esta función se encuentra en otro archivo pero la he puesto en el mismo bloque de código para facilitar la explicación. Esta función realiza una consulta en la tabla *GuiasDocentes* y me selecciona aquella fila en la cual la asignatura es la especificada. Para finalizar se devuelve a la función inicial que la invocado y se muestra el contenido del resultado.
+
+5. **horarios**
+
+   ```python
+   def obtenerHorarios(curso, cuatrimestre, grupo, dia):
+   
+       cursor.execute('SELECT * FROM "Horarios" WHERE curso = %s and cuatrimestre = %s and grupo = %s and dia = %s', [(curso), (cuatrimestre), (grupo.upper()), (dia.upper())])
+   
+       connect_db.commit()
+   
+       horario = []
+       f = cursor.fetchall()
+   
+       for c in f:
+           res = "-Curso: " + str(c[0]) \
+               + "\n\n-Semestre: " + str(c[1]) \
+               + "\n\n-Grupo: " + str(c[2]) \
+               + "\n\n-Día: " + str(c[3]) \
+               + "\n\n-Horario: " + str(c[4].replace('"', '').replace(',', ', ').replace('{', '').replace('}', ''))
+           horario.append(res)
+   
+       return horario
+   
+   @bot.message_handler(commands=['horarios'])
+   def comando_obtenerHO(message):
+       """Función que muestra el horario. """
+       chat_id = message.chat.id
+       curso = message.text[10:11]
+       semestre = message.text[12:13]
+       grupo = message.text[14:15]
+       dia = message.text[16:]
+   
+       if(curso == "" or semestre == "" or grupo == "" or dia == ""):
+           bot.send_message(chat_id, "Debes indicar el curso, semestre, grupo y dia. Ej: 1 1 A lunes")
+       else:
+           res = funcionesDB.obtenerHorarios(curso, semestre, grupo, dia)
+           bot.send_message(chat_id, res)
+   
+   ```
+
+   Para el siguiente comando necesitamos más datos para obtener el horario que deseamos, por ello tenemos que pasarle el curso, semestre, grupo y el día que queremos obtener. Todo estos datos se pasan como parámetros a la función *obtenerHorarios*. Esta función realizará una consulta en la BD, se trata de una selección en la tabla *Horarios* donde cada columna coincida con los parámetros pasados al método. Por último, se devuelve la respuesta a la función del comando en cuestión y se muestra.
+
+6. **examenes**
+
+   ```python
+   def obtenerFechaEx(asignatura, semestre, convocatoria):
+   
+       cursor.execute('SELECT * FROM "FechasExamenes" WHERE asignatura = %s and semestre = %s and convocatoria = %s', [(asignatura), (semestre), (convocatoria.lower())])
+   
+       connect_db.commit()
+   
+       examen = []
+       f = cursor.fetchall()
+   
+       for c in f:
+           res = "-Asignatura: " + str(c[0]) \
+               + "\n\n-Semestre: " + str(c[1]) \
+               + "\n\n-Convocatoria: " + str(c[2]) \
+               + "\n\n-Fecha exámen (M=mañana y T=tarde): " + str(c[3].replace('"', '').replace(',', ', ').replace('{', '').replace('}', '')) \
+               + "\n\nLos exámenes por la mañana serán a las 9:00 y los exámenes por la tarde a las 16:00."
+           examen.append(res)
+   
+       return examen
+   
+   @bot.message_handler(commands=['examenes'])
+   def comando_obtenerEX(message):
+       """Función que muestra el examen final de la asignatura. """
+       chat_id = message.chat.id
+       asignatura = message.text[10:14]
+       semestre = message.text[15:16]
+       convocatoria = message.text[17:]
+   
+       if(asignatura == "" or semestre == "" or convocatoria == ""):
+           bot.send_message(chat_id, "Debes indicar la asignatura, semestre y convocatoria. Ej: ALEM 1 ordinaria")
+       else:
+           res = funcionesDB.obtenerFechaEx(asignatura, semestre, convocatoria)
+           bot.send_message(chat_id, res)
+   ```
+
+   Para finalizar, tenemos el comando encargado de mostrar la fecha de examen de la convocatoria oficial. Este comando necesita como dato, la asignatura, semestre y convocatoria para luego realizar la consulta en la base de datos y con el resultado obtenido mostrarlo en nuestra aplicación.
+
+### 4.2. Ejemplos de funcionamiento
+
+A continuación mostraré imágenes en las cuales se muestra el funcionamiento del *bot* usando los comandos que han sido nombrados en el apartado anterior.
+
+![curl](https://github.com/franfermi/TFG-Servicio_Web/blob/master/docs/img/comandoHola.png)
+
+![curl](https://github.com/franfermi/TFG-Servicio_Web/blob/master/docs/img/comandoAyuda.png)
+
+![curl](https://github.com/franfermi/TFG-Servicio_Web/blob/master/docs/img/comandoGuia.png)
+
+![curl](https://github.com/franfermi/TFG-Servicio_Web/blob/master/docs/img/comandoHorarios.png)
+
+![curl](https://github.com/franfermi/TFG-Servicio_Web/blob/master/docs/img/comandoExamenes.png)
+
+
+
+## 5. Despliegue en un PaaS
 
 Para mi proyecto he empleado el PaaS [Heroku](https://www.heroku.com/).
 
