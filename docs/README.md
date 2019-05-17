@@ -249,7 +249,7 @@ Francisco Fernández.
 
 ### 1.4. Qué infomación se mostrará
 
-1. **Información sobre profesores y contactos**: mediante las siglas de cada una de las asignaturas del grado, obtenemos información relevante de las guías docentes como puede ser, los profesores que imparten esa asignatura y como contactar con cada uno de ellos.
+1. **Guías docentes**: mediante las siglas de cada una de las asignaturas del grado, obtenemos las guías docentes en la propia página mediante una pre-visualización de ella, con la opción de descargarse, rotar e imprimir.
 2. **Información sobre horarios**: introduciendo el curso, el semestre, el grupo y por último, el día de la semana el cual queremos consultar. Se mostrará la información correspondiente a ese día en concreto del curso, semestre y grupo seleccionado. La información vendrá compuesta por la hora en la que se da cada asignatura, la asignatura en cuestión junto con su grupo reducido si corresponde a un subgrupo de prácticas y por último, en aula donde se impartirá.
 3. **Información sobre fecha exámenes**: seleccionamos las siglas de la asignatura de la cual queremos saber su fecha de examen final, además de su sigla debemos indicar a qué semestre corresponde y la convocatoria, que puede ser ordinaria o extraordinaria. El resultado será la fecha del examen de la asignatura introducida, además se mostrará con una M o una T si el turno es de mañana o de tarde.
 
@@ -667,28 +667,33 @@ A continuación mostraré ejemplos sobre funciones que he realizado en cada uno 
 - **extractDataGII_GD.py**: Script en Python que de forma muy breve se encarga obtener de la guía docente de la asignatura, la información sobre los profesores que la imparten y sus contactos. Un ejemplo de la función encargada de obtener la información a través de la tabla correspondiente a la asignatura CA (Cálculo) es la siguiente:
 
   ```python
-  def extractDataTeable_GuiaDocente(asignatura):    
+  def insertarGD(guiaDocente, asignatura):
+  
+      connect_db = psycopg2.connect(database=db, user=usuario, password=pw, host=host_db)
+      cursor = connect_db.cursor()
+  
+      asignatura = asignatura.upper()
+      url = guiaDocente
+  
+      sql_insert_query = """INSERT INTO "GuiasDocentes" VALUES(%s, %s)"""
+      insert_tuple = (asignatura, url)
+      result = cursor.execute(sql_insert_query, insert_tuple)
+  
+      connect_db.commit()
+      print("Fila insertada correctamente")
+  
+  def extractDataTeable_GuiaDocente(asignatura):
+  
+      asignatura = asignatura.upper()
+  
+      if asignatura == 'ALEM':
+        insertarGD('https://grados.ugr.es/informatica/pages/infoacademica/guias_docentes/curso_actual/primero/1semestre/alemgii/!', asignatura)
+  
       if asignatura == 'CA':
-          tablas = camelot.read_pdf(os.path.join(RESOURCE, 'Cаlculo-Grado-Informatica-17-18.pdf'), pages='2')
-          tablas.export(os.path.join(OUTPUT, 'Cаlculo-Grado-Informatica-17-18.csv'), f='csv', compress=False)
-  
-          with open(os.path.join(OUTPUT, 'Cаlculo-Grado-Informatica-17-18-page-1-table-2.csv'), 'r') as archivo:
-              datos = pd.read_csv(archivo, header=0)
-              datosNoNaN = datos.fillna(value='')
-  
-              profesores = (datosNoNaN.iloc[:, 0])
-              contactos = (datos.iloc[:, 1])
-  
-              listProfesores = []
-              for x in profesores:
-                  listProfesores.extend(x.strip().split('\n'))
-  
-              listContactos = []
-              for x in contactos:
-                  listContactos.extend(x.strip().split('\n'))
+          insertarGD('https://grados.ugr.es/informatica/pages/infoacademica/guias_docentes/curso_actual/primero/1semestre/clculogradoinformatica1718/!', asignatura)
   ```
-
-  De esta forma, a partir de la lectura de la propia guía docente y su conversión, seleccionamos la página que nos interesa donde se muestra la información de los profesores. Leemos nuestro archivo ya convertido en tabla *csv*, seleccionamos el contenido que nos interesa y lo guardamos en listas con el formato requerido, a partir de esto, para cada asignatura introducida como parámetro, se devolverá una lista con los profesores y los contactos de cada uno de ellos.
+  
+  De esta forma, a partir de la asignatura seleccionada, llamamos a la función *insertarGD* se encargará de insertar en la base de datos la asignatura necesaria junto con la dirección a la guía docente correspondiente para luego mostrarla en la web.
 
 
 
@@ -802,7 +807,7 @@ A continuación mostraré ejemplos sobre funciones que he realizado en cada uno 
 
 Para el almacenamiento de datos me he decantado por el uso de Postgres a través de la plataforma Heroku, la cual proporciona la integración automática de la base de datos en el propio despliegue de la aplicación.  Para hacer uso de la BD tenemos que configurarla en Heroku como *Add-ons*.
 
-![](https://github.com/franfermi/TFG-Servicio_Web/blob/master/docs/img/configPostgres.png)
+![](https://github.com/franfermi/TFG-Servicio_Web/blob/master/docs/img/herokuPostgres.png)
 
 Como se puede observar ya se encuentra configurada y contiene 3 tablas que más adelante comentaré de que se tratan. Para poder acceder a nuestra BD creada, tenemos una pestaña de ajustes en la cual podemos acceder a los credenciales de esta. Con dichos datos podemos conectarnos a ella desde cualquier programa en Python que hablaremos más adelante y desde un cliente a través del cual gestionaremos el contenido. 
 
@@ -812,7 +817,7 @@ El cliente que he usado para la gestión de la BD es pgAdmin, desde el nos encar
 
 La estructura en la cual se van a almacenar los datos es la siguiente:
 
-![curl](https://github.com/franfermi/TFG-Servicio_Web/blob/master/docs/img/estructuraTablasBD.png)
+![curl](https://github.com/franfermi/TFG-Servicio_Web/blob/master/docs/img/tablasBD.png)
 
 La estructura se corresponde con 3 tablas, cada una de ella se encarga de almacenar una solicitud de búsqueda desde la API.
 
@@ -826,9 +831,9 @@ La estructura se corresponde con 3 tablas, cada una de ella se encarga de almace
 
 
 
-- **GuiasDocentes**: Se trata de una tabla que contiene 3 columnas, las siglas de la asignatura la cual queremos obtener información de la guía docente correspondiente, como resultado obtenemos la lista de profesores y el listado de como contactar con ellos. Un ejemplo de fila almacenada en la BD es el siguiente:
+- **GuiasDocentes**: Se trata de una tabla que contiene 2 columnas, las siglas de la asignatura la cual queremos obtener la guía docente correspondiente y la url en la que se encuentra esta última. Un ejemplo de fila almacenada en la BD es el siguiente:
 
-  ![curl](https://github.com/franfermi/TFG-Servicio_Web/blob/master/docs/img/ejemploContenidoBDgd.png)
+  ![curl](https://github.com/franfermi/TFG-Servicio_Web/blob/master/docs/img/contenidoBDgd.png)
 
 - **Horarios**: Se trata de una tabla que contiene 5 columnas, el curso del que queremos obtener el horario, el cuatrimestre y grupo correspondiente y el día de la semana que nos interesa saber su horario, por último, el contenido de la consulta se almacena en la columna restante en la cual se mostrará las asignaturas con sus respectivas aulas en cada intervalo de horas. Un ejemplo de fila almacenada en la BD es el siguiente:
 
@@ -891,4 +896,3 @@ Por último, activamos el despliegue automático para cada vez que realicemos un
 -Comprobamos que están activos y funcionando en heroku.
 
 ![curl](https://github.com/franfermi/TFG-Servicio_Web/blob/master/docs/img/dynosHeroku.png)
-
