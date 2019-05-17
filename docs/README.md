@@ -664,7 +664,7 @@ A continuación mostraré ejemplos sobre funciones que he realizado en cada uno 
 
   De esta misma forma deberemos proceder con cada una de la tablas que contiene el PDF en cuestión.
   
-- **extractDataGII_GD.py**: Script en Python que de forma muy breve se encarga obtener de la guía docente de la asignatura, la información sobre los profesores que la imparten y sus contactos. Un ejemplo de la función encargada de obtener la información a través de la tabla correspondiente a la asignatura CA (Cálculo) es la siguiente:
+- **extractDataGII_GD.py**: Script en Python que de forma muy breve se encarga obtener de la guía docente de la asignatura a partir de la asignatura especificada. En un principio pensaba mostrar información sobre los profesores y contactos de cada una de ellas pero me encontré con el problema de que cada guía docente posee una estructura diferente. Al acceder a cada una de ellas me encontré con el problema de que tenía que analizarlas una por una debido a la estructura anteriormente mencionada, por ello decidí de mostrar directamente la propia guía, así podía automatizar el proceso de una forma más cómoda y mostrando más información de la que de primera hora pensaba mostrar. Un ejemplo de la función encargada de obtener la guía docente es la siguiente:
 
   ```python
   def insertarGD(guiaDocente, asignatura):
