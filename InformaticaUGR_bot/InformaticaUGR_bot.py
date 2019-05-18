@@ -40,7 +40,7 @@ def comando_obtenerGD(message):
     """Función que muestra la guía docente de una asignatura. """
     chat_id = message.chat.id
     asignatura = message.text[6:]
-    print(asignatura)
+
     if(asignatura == ""):
         bot.send_message(chat_id, "Debes indicar la asignatura que deseas buscar. Ej: ALEM")
     else:
@@ -66,13 +66,13 @@ def comando_obtenerHO(message):
 def comando_obtenerEX(message):
     """Función que muestra el examen final de la asignatura. """
     chat_id = message.chat.id
-    asignatura = message.text[10:14]
-    semestre = message.text[15:16]
-    convocatoria = message.text[17:]
-
-    print(asignatura)
-    print(semestre)
-    print(convocatoria)
+    cont=10
+    asignatura = ""
+    while(message.text[cont] != " "):
+        asignatura += message.text[cont]
+        cont+=1
+    semestre = message.text[cont+1:cont+2]
+    convocatoria = message.text[cont+3:]
 
     if(asignatura == "" or semestre == "" or convocatoria == ""):
         bot.send_message(chat_id, "Debes indicar la asignatura, semestre y convocatoria. Ej: ALEM 1 ordinaria")
