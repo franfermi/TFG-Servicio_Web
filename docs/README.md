@@ -1041,7 +1041,204 @@ A continuación mostraré imágenes en las cuales se muestra el funcionamiento d
 
 
 
-## 5. Despliegue en un PaaS
+## 5. Desarrollo y funcionamiento de la API
+
+### 5.1. Diseño de la API
+
+Este apartado quiero explicar todo el proceso de desarrollo de la API, así como los frameworks¹ y microframeworks utlizados en su funcionamiento. 
+
+En primer lugar hablar sobre [**Bootstrap**](https://getbootstrap.com/), que es el framework seleccionado para crear las plantillas que mostrarán el contenido de la web. Esta elección la he llevado a cabo porque a parte de tener tener mucha documentación es su propia página web, la cual me ha ayudado mucho en el diseño, aporta un desarrollo web responsive, es decir, se adapta correctamente a cualquier tipo de dispositivo. Como la idea de este proyecto es facilitar la obtención de información del grado, también es indispensable que la forma de la cual se obtenga también, por ello contar con este framework me aporta estas ventajas ya que se podrá visualizar el contenido de forma clara y completa desde el ordenador, tablet o móvil.
+
+A parte de esta importante mejora, también hay otras que no podemos pasar por alto y son:
+
+- Buen soporte con HTML5 y CSS3
+- Sistema GRID que permite diseñar la página con una división del contenido en 12 columnas.
+- Permite intertar imágenes responsive.
+- Además de ser compatible con cualquier tipo de navegador, Google Chrome, Safari, Mozilla Firefox, Internet Explorer y Opera.
+
+
+
+
+
+
+
+¹ frameworks: Es una plataforma de software universal y reutilizable para desarrollar aplicaciones de software, productos y soluciones. Es una especie de biblioteca que proporciona a los desarrolladores web una base de código y formas consistentes y estandarizadas para crear aplicaciones web.
+
+
+
+A continuación voy a hablar sobre las plantillas (templates) que he utilizado para mostrar el contenido de la API. 
+
+	1. *http_404.html*: Plantilla encargada de mostrar una pantalla de error cuando la página solicitada no se encuentra disponible.
+ 	2. *index.html*: Plantilla que muestra la página principal en la cual se muestran todas las funciones que posee la página, así como una breve descripción del proyecto.
+ 	3. *resultEX.html*: Plantilla que mostrará el resultado de la consulta sobre la fecha de examen oficial de una asignatura en concreto.
+ 	4. *resultGD.html*: Plantilla que mostrará el resultado de la consulta sobre la guía docente de una asignatura.
+ 	5. *resultHO.html*: Plantilla que mostrará el horario de la consulta realizada.
+
+
+
+Y en segundo lugar, hablar sobre el microframework [**Flask**](http://flask.pocoo.org/) que he utilizado para desarrollar la API. Se trata de un microframework escrito en Python y concebido para facilitar el desarrollo de aplicaciones web bajo el patrón MVC. 
+
+El patrón MVC es una forma de trabajar que permite diferenciar y separar lo que es el modelo de datos, la vista y el controlador.
+
+Las ventajas por las cuales lo he seleccionado para mi desarrollo de la web son las siguientes:
+
+- Incluye un servidor web de desarrollo.
+- Posee un depurador y soporte integrado para pruebas unitarias.
+- Compatible con Python3
+- Compatible con wsgi.
+- Buen manejo de rutas.
+- Open Source.
+
+Por último, mostraré el código utilizado para mostrar las distintas plantillas a partir de cada una de las rutas de acceso.
+
+```python
+@app.route("/status")
+def docker():
+    return jsonify(status='OK')
+```
+
+Se encarga de devolver un *json* con el estado a OK si la página se ha servido correctamente.
+
+```python
+def conexionBD():
+    try:
+        connect_db = psycopg2.connect(database=db, user=usuario, password=pw, host=host_db)
+        cursor = connect_db.cursor()
+        print("Conexión establecida")
+    except:
+        print("Error en la conexión a la BD")
+
+@app.route("/")
+def index():
+    funciones_API.conexionBD()
+    return render_template("index.html")
+```
+
+Muestra la página principal de la web y realiza la conexión a la base de datos. Tengo que destacar que las funciones están ubicadas en un fichero independiente, ha sido incluida en este bloque de código para facilitar su explicación.
+
+```python
+def obtenerGuiaDocente(nombAsig):
+
+    asignatura = nombAsig.upper()
+
+    cursor.execute('SELECT * FROM "GuiasDocentes" WHERE asignatura = %s', [asignatura])
+
+    connect_db.commit()
+
+    asig = guiaDoc = ""
+    vAsig = []
+    f = cursor.fetchall()
+
+    for c in f:
+        guiaDoc = str(c[1])
+        vAsig.append(guiaDoc)
+
+    return vAsig
+
+@app.route("/busquedaProfesoresContactos", methods=['POST'])
+def busquedaPC():
+	asig = request.form['asignatura']
+	res = funciones_API.obtenerGuiaDocente(asig)
+
+	return render_template("resultGD.html", resultado=res)
+```
+
+Muestra el resultado de la consulta a la guía docente de la asignatura que ha sido obtenida por la llamada a la función que se encarga de seleccionar en la BD, aquella que coincida con la asignatura seleccionada.
+
+```python
+def obtenerHorarios(curso, cuatrimestre, grupo, dia, especialidad):
+
+    if(especialidad == ""):
+        cursor.execute('SELECT * FROM "Horarios" WHERE curso = %s and cuatrimestre = %s and grupo = %s and dia = %s', [(curso), (cuatrimestre), (grupo), (dia.upper())])
+    else:
+        cursor.execute('SELECT * FROM "Horarios" WHERE curso = %s and cuatrimestre = %s and dia = %s and especialidad = %s', [(curso), (cuatrimestre), (dia.upper()), (especialidad.upper())])
+    
+    connect_db.commit()
+
+    cursoH = cuatrimestreH = grupoH = diaH = diaHorario = ''
+    vHorario = []
+    f = cursor.fetchall()
+
+    for c in f:
+        cursoH = "-Curso: " + str(c[0])
+        vHorario.append(cursoH)
+        cuatrimestreH = "-Cuatrimestre: " + str(c[1])
+        vHorario.append(cuatrimestreH)
+        grupoH = "-Grupo: " + str(c[2])
+        vHorario.append(grupoH)
+        diaH = "-Día: " + str(c[3])
+        vHorario.append(diaH)
+        diaHorario = "-Horario: " + str(c[4].replace('*', '').replace('"', '').replace(',', ', ').replace('{', '').replace('}', ''))
+        vHorario.append(diaHorario)
+
+    return vHorario
+
+@app.route("/busquedaHorarios", methods=['POST'])
+def busquedaHO():
+    cursoHO = request.form['curso']
+    cuatrimestreHO = request.form['cuatrimestre']
+    grupoHO = request.form['grupo']
+    diaHO = request.form['dia']
+    especialidadHO = request.form['especialidad']
+
+    res = funciones_API.obtenerHorarios(cursoHO, cuatrimestreHO, grupoHO, diaHO, especialidadHO)
+```
+
+ Muestra el resultado del horario que se quiere obtener a partir del curso, semestre, grupo y día en cuestión. Estos campos introducidos se obtienen y se llama a la función correspondiente con ellos. Realiza la consulta a la base de datos y se devuelve el resultado para mostrarlo en la plantilla.
+
+```python
+def obtenerFechaEx(asignatura, semestre, convocatoria):
+
+    cursor.execute('SELECT * FROM "FechasExamenes" WHERE asignatura = %s and semestre = %s and convocatoria = %s', [(asignatura), (semestre), (convocatoria.lower())])
+
+    connect_db.commit()
+
+    asignaturaEX = semestreEX = convocatoriaEX = fechaEX = ''
+    vFechaExamen = []
+    f = cursor.fetchall()
+
+    for c in f:
+        asignaturaEX = "-Asignatura: " + str(c[0])
+        vFechaExamen.append(asignaturaEX)
+        semestreEX = "-Semestre: " + str(c[1])
+        vFechaExamen.append(semestreEX)
+        convocatoriaEX = "-Convocatoria: " + str(c[2])
+        vFechaExamen.append(convocatoriaEX)
+        fechaEX = "-Fecha exámen (M=mañana y T=tarde): " + str(c[3].replace('"', '').replace(',', ', ').replace('{', '').replace('}', ''))
+        vFechaExamen.append(fechaEX)
+        vFechaExamen.append("Los exámenes por la mañana serán a las 9:00 y los exámenes por la tarde a las 16:00.")
+
+    return vFechaExamen
+
+@app.route("/busquedaExamenes", methods=['POST'])
+def busquedaEX():
+    asignaturaEX = request.form['asignatura']
+    semestreEX = request.form['semestre']
+    convocatoriaEX = request.form['convocatoria']
+    res = funciones_API.obtenerFechaEx(asignaturaEX, semestreEX, convocatoriaEX)
+
+    return render_template("resultEX.html", resultado=res)
+```
+
+Al final que los dos casos anteriores, a partir de los datos obtenidos en los campos de la consulta, se llama a la función encargada de devolvernos la fecha de examen final y se devuelve el resultado para que podamos visualizarlo.
+
+```python
+@app.errorhandler(404)
+def page_not_found(error):
+    return render_template('http_404.html')
+```
+
+Para finalizar, cuando se produce un error 404 se devuelve la plantilla diseñada para ello. Este error se produce cuando el host ha sido capaz de comunicarse con el servidor, pero no existe el recurso que ha sido pedido.
+
+
+
+### 5.2. Muestras de funcionamiento de la API
+
+
+
+
+
+## 6. Despliegue en un PaaS
 
 Para mi proyecto he empleado el PaaS [Heroku](https://www.heroku.com/).
 
