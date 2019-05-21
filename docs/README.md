@@ -1234,7 +1234,27 @@ Para finalizar, cuando se produce un error 404 se devuelve la plantilla diseñad
 
 ### 5.2. Muestras de funcionamiento de la API
 
+- Página principal
 
+  ![](https://github.com/franfermi/TFG-Servicio_Web/blob/master/docs/img/index.png)
+
+  
+
+- Resultados guía docente
+
+  ![](https://github.com/franfermi/TFG-Servicio_Web/blob/master/docs/img/resultadoGuiDocente.png)
+
+  
+
+- Resultados horarios
+
+  ![](https://github.com/franfermi/TFG-Servicio_Web/blob/master/docs/img/resultadoHorarios.png)
+
+  
+
+- Resultados fechas exámenes
+
+  ![](https://github.com/franfermi/TFG-Servicio_Web/blob/master/docs/img/resultadoFechaEx.png)
 
 
 
