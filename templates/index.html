@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="SHIELD - Free Bootstrap 3 Theme">
     <meta name="author" content="Francisco Fernández Millán">
-    <link rel="shortcut icon" href="static/ico/favicon.png">
 
     <title>TFG-Servicio_Web</title>
 
@@ -39,9 +38,9 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a href="#home" class="smoothScroll">Home</a></li>
-      			<li> <a href="#about" class="smoothScroll">About</a></li>
-      			<li> <a href="#contact" class="smoothScroll">Contact</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="#about" class="smoothScroll">Search</a></li>
+      			<li><a href="#contact" class="smoothScroll">Contact</a></li>
         </div><!--/.nav-collapse -->
       </div>
     </div>
@@ -60,18 +59,18 @@
 			<div class="row white">
 			<br>
           <center>
-            <b><p>Guías docentes</p></b>
+          <b><p><u>Guías docentes</u></p></b>
           <form action="/busquedaProfesoresContactos" method="POST">
                     <input type="text" name="asignatura" placeholder="Ejemplo: ALEM">
                     <input type="submit" value="Enviar">
           </form>
-          <center>
-            <b><p>Información sobre horarios</p></b>
+          <b><p><u>Información sobre horarios</u></p></b>
           <form action="/busquedaHorarios" method="POST">
-                    <input type="text" size="12" name="curso" placeholder="Ejemplo: tercero ó 3">
-                    <input type="text" size="12" name="cuatrimestre" placeholder="Ejemplo: primero ó 1">
-                    <input type="text" size="12" name="grupo" placeholder="Ejemplo: A ó a">
-                    <input type="text" size="12" name="dia" placeholder="Ejemplo: lunes">
+                    <input type="text" size="18" name="curso" placeholder="Ejemplo: tercero ó 3">
+                    <input type="text" size="18" name="cuatrimestre" placeholder="Ejemplo: primero ó 1">
+                    <input type="text" size="18" name="grupo" placeholder="Ejemplo: A ó a">
+                    <input type="text" size="18" name="dia" placeholder="Ejemplo: lunes">
+                    <br>
                     <br>
                     <input type="radio" name="especialidad" value="" checked>Común<br>
                     <input type="radio" name="especialidad" value="computadores">Ing. Computadores<br>
@@ -82,8 +81,7 @@
 
                     <input type="submit" value="Enviar">
           </form>
-          <center>
-              <b><p>Información sobre fecha exámenes</p></b>
+            <b><p><u>Información sobre fecha exámenes</u></p></b>
             <form action="/busquedaExamenes" method="POST">
                       <input type="text" name="asignatura" placeholder="Ejemplo: ALEM">
                       <input type="text" name="semestre" placeholder="Ejemplo: primero ó 1">

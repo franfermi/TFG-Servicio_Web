@@ -30,9 +30,21 @@ def obtenerGuiaDocente(nombAsig):
 
     return guiaDocente
 
-def obtenerHorarios(curso, cuatrimestre, grupo, dia):
+def obtenerHorarios(especialidad, curso, cuatrimestre, grupo, dia):
 
-    cursor.execute('SELECT * FROM "Horarios" WHERE curso = %s and cuatrimestre = %s and grupo = %s and dia = %s', [(curso), (cuatrimestre), (grupo.upper()), (dia.upper())])
+    if(especialidad == "0"):
+        cursor.execute('SELECT * FROM "Horarios" WHERE curso = %s and cuatrimestre = %s and grupo = %s and dia = %s', [(curso), (cuatrimestre), (grupo.upper()), (dia.upper())])
+    elif(especialidad == "1"):
+        cursor.execute('SELECT * FROM "Horarios" WHERE curso = %s and cuatrimestre = %s and grupo = %s and dia = %s and especialidad = %s', [(curso), (cuatrimestre), (grupo.upper()), (dia.upper()), ('SISTEMAS INTELIGENTES')])
+    elif(especialidad == "2"):
+        cursor.execute('SELECT * FROM "Horarios" WHERE curso = %s and cuatrimestre = %s and grupo = %s and dia = %s and especialidad = %s', [(curso), (cuatrimestre), (grupo.upper()), (dia.upper()), ('COMPUTADORES')])
+    elif(especialidad == "3"):
+        cursor.execute('SELECT * FROM "Horarios" WHERE curso = %s and cuatrimestre = %s and grupo = %s and dia = %s and especialidad = %s', [(curso), (cuatrimestre), (grupo.upper()), (dia.upper()), ('SOFTWARE')])
+    elif(especialidad == "4"):
+        cursor.execute('SELECT * FROM "Horarios" WHERE curso = %s and cuatrimestre = %s and grupo = %s and dia = %s and especialidad = %s', [(curso), (cuatrimestre), (grupo.upper()), (dia.upper()), ('SISTEMAS INFORMACION')])
+    elif(especialidad == "5"):
+        cursor.execute('SELECT * FROM "Horarios" WHERE curso = %s and cuatrimestre = %s and grupo = %s and dia = %s and especialidad = %s', [(curso), (cuatrimestre), (grupo.upper()), (dia.upper()), ('TECNOLOGIAS INFORMACION')])
+
 
     connect_db.commit()
 

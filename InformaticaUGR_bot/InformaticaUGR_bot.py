@@ -51,15 +51,18 @@ def comando_obtenerGD(message):
 def comando_obtenerHO(message):
     """Función que muestra el horario. """
     chat_id = message.chat.id
-    curso = message.text[10:11]
-    semestre = message.text[12:13]
-    grupo = message.text[14:15]
-    dia = message.text[16:]
+    especialidad = message.text[10:11]
+    curso = message.text[12:13]
+    semestre = message.text[14:15]
+    grupo = message.text[16:17]
+    dia = message.text[18:]
 
     if(curso == "" or semestre == "" or grupo == "" or dia == ""):
-        bot.send_message(chat_id, "Debes indicar el curso, semestre, grupo y dia. Ej: 1 1 A lunes")
+        bot.send_message(chat_id, "Debes indicar la especialidad: 0=Común 1=CSI 2=IC 3=IS 4=SI 5=TI," + 
+            " el curso, semestre, grupo y dia. Ej: 0 1 1 A lunes. Para el grupo, cuando la especialidad" +
+            " no es común, se pondrá -.")
     else:
-        res = funcionesDB.obtenerHorarios(curso, semestre, grupo, dia)
+        res = funcionesDB.obtenerHorarios(especialidad, curso, semestre, grupo, dia)
         bot.send_message(chat_id, res)
 
 @bot.message_handler(commands=['examenes'])
