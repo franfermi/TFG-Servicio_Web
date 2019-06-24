@@ -70,12 +70,16 @@ def comando_obtenerEX(message):
     """Función que muestra el examen final de la asignatura. """
     chat_id = message.chat.id
     cont=10
+    error = message.text[10:]
     asignatura = ""
-    while(message.text[cont] != " "):
+    semestre = ""
+    convocatoria = ""
+    while(error != "" and message.text[cont] != " "):
         asignatura += message.text[cont]
         cont+=1
-    semestre = message.text[cont+1:cont+2]
-    convocatoria = message.text[cont+3:]
+    if(asignatura != ""):
+        semestre = message.text[cont+1:cont+2]
+        convocatoria = message.text[cont+3:]
 
     if(asignatura == "" or semestre == "" or convocatoria == ""):
         bot.send_message(chat_id, "Debes indicar la asignatura, semestre y convocatoria. Ej: ALEM 1 ordinaria")
